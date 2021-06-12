@@ -16,6 +16,8 @@ public class FPSMovement : MonoBehaviour
     Vector3 velocity;
     bool isGrounded;
 
+    private float _airTime = 2f;
+
     // Update is called once per frame
     void Update()
     {
@@ -24,6 +26,7 @@ public class FPSMovement : MonoBehaviour
         if(isGrounded && velocity.y < 0)
         {
             velocity.y = -2f;
+            _airTime = 2f;
         }
 
         float x = Input.GetAxis("Horizontal");
@@ -36,5 +39,35 @@ public class FPSMovement : MonoBehaviour
         velocity.y += gravity * Time.deltaTime;
 
         controller.Move(velocity * Time.deltaTime);
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (isGrounded)
+            {
+                _airTime -= 1 * Time.deltaTime;
+                while (_airTime > 0)
+                {
+                    velocity.y -= gravity * Time.deltaTime;
+                    if (_airTime <= 0)
+                    {
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    void jump()
+    {
+        _airTime -= 1 * Time.deltaTime;
+        while (_airTime > 0)
+        {
+            velocity.y -= gravity * Time.deltaTime;
+            if (_airTime <= 0)
+            {
+                break;
+            }
+        }
+
     }
 }
