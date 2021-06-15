@@ -379,10 +379,5 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
-    - target: {fileID: 4109839920275412339, guid: 3fbb2f6161ba3834998bc5776ec6c35a,
-        type: 3}
-      propertyPath: mouseSens
-      value: 3
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3fbb2f6161ba3834998bc5776ec6c35a, type: 3}
