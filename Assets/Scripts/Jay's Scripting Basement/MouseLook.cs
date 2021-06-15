@@ -20,8 +20,8 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float mouseX = Input.GetAxis("Mouse X") * (mouseSens * 1000) * Time.deltaTime;
-        float mouseY = Input.GetAxis("Mouse Y") * (mouseSens * 1000) * Time.deltaTime;
+        float mouseX = Input.GetAxis("Mouse X") * (mouseSens * 100) * Time.deltaTime;
+        float mouseY = Input.GetAxis("Mouse Y") * (mouseSens * 100) * Time.deltaTime;
 
         xRot -= mouseY;
         xRot = Mathf.Clamp(xRot, -90f, 90f);

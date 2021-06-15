@@ -194,6 +194,7 @@ MonoBehaviour:
   controller: {fileID: 4109839920120236486}
   moveSpeed: 6
   gravity: -9.81
+  jumpSpeed: 6
   groundCheck: {fileID: 4109839919001006812}
   groundDistance: 0.4
   groundMask:
@@ -295,5 +296,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0c9ea7b98e9184b8a8e12e1ea5f4b7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSens: 0.75
+  mouseSens: 3
   playerBody: {fileID: 4109839920120236485}
