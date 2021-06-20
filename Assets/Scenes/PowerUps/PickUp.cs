@@ -10,23 +10,22 @@ using UnityEngine.UI;
 // variables may be added/removed/changed due to needs
 public class PickUp : MonoBehaviour
 {
-    public PowerUpDatabase powerUpDatabase; // reference the gameobject with the powerup array
+    private PowerUpDatabase powerUpDatabase; // reference the gameobject with the powerup array
     public PowerUp powerUp; // references the randomly chosen powerup
 
+    public Image image;
     private Sprite sprite; // reference to the pickup material
 
     private void Start()
     {
-        // finds the powerup database
-        // this is because this is instantiated
-        powerUpDatabase = GameObject.Find("PowerUpDatabase").GetComponent<PowerUpDatabase>();
+        powerUpDatabase = transform.parent.GetComponentInParent<PickUpSpawner>().powerUpDatabase;
         powerUp = powerUpDatabase.powerUps[Random.Range(0, powerUpDatabase.powerUps.Length)]; // chooses a random powerup
         sprite = powerUp.sprite; // retrieves the sprite information
-        gameObject.GetComponent<Image>().sprite = sprite; // sets the pickup material to the pickup
+        image.sprite = sprite; // sets the pickup material to the pickup
     }
 
     private void Update()
     {
-        gameObject.transform.LookAt(GameObject.Find("Player").transform);
+        image.transform.LookAt(GameObject.Find("PlayerCam").transform);
     }
 }
