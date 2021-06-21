@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7379567472908985395}
   - component: {fileID: 7379567472908985392}
   m_Layer: 0
-  m_Name: DropObstacle
+  m_Name: DropCage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sprite: {fileID: 21300000, guid: ac3019f4ccc9e534a9c701fa5cb411fb, type: 3}
-  obstacle: {fileID: 8677687299997474058, guid: cc812516f06e8834b808ba5f4a5f2a00,
-    type: 3}
+  cage: {fileID: 2623993787998352476, guid: 72f94f9df3fd7044b83ab7d9e6b73702, type: 3}
+  dropRadius: 5

@@ -20,11 +20,5 @@ public class PlayerPowerUp : MonoBehaviour
                 powerUp = null; // removes the powerup from availability
             }
         }
-
-        // for testing to reload the scene
-        //if (Input.GetMouseButtonDown(1))
-        //{
-        //    SceneManager.LoadScene("PowerUp");
-        //}
     }
 }
