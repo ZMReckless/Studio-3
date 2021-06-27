@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
-using System.IO;
 using Photon.Realtime;
 
 public class RoomManager : MonoBehaviourPunCallbacks
@@ -20,13 +19,6 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
         DontDestroyOnLoad(gameObject);
         Instance = this;
-    }
-
-    private void Update()
-    {
-        List<TypedLobbyInfo> lobbyStatistics = new List<TypedLobbyInfo>();
-
-        OnLobbyStatisticsUpdate(lobbyStatistics);
     }
 
     public override void OnEnable()

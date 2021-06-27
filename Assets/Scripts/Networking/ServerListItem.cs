@@ -9,22 +9,34 @@ public class ServerListItem : MonoBehaviour
 {
     [SerializeField] TMP_Text serverNameText;
     [SerializeField] TMP_Text mapNameText;
-    public TMP_Text playerCountText;
+    [SerializeField] TMP_Text playerCountText;
 
     public int playerCount;
 
     public RoomInfo info;
 
+    private void Update()
+    {
+        playerCount = info.PlayerCount;
+        playerCountText.text = playerCount.ToString() + "/4";
+    }
+
     public void SetUp(RoomInfo _info)
     {
         info = _info;
         serverNameText.text = info.Name;
-        mapNameText.text = "Town Square";
-        playerCountText.text = playerCount + " /4";
+        mapNameText.text = "Town Centre";
     }
 
     public void OnClick()
     {
-        Launcher.Instance.JoinRoom(info);
+        if (info.PlayerCount < info.MaxPlayers)
+        {
+            Launcher.Instance.JoinRoom(info);
+        }
+        else
+        {
+            Debug.Log("Failed to join room");
+        }
     }
 }

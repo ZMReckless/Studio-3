@@ -1,10 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using UnityEngine.XR;
 
 public class Launcher : MonoBehaviourPunCallbacks
 {
@@ -47,6 +47,15 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         if (firstStart)
         {
+            if (!XRSettings.isDeviceActive)
+            {
+                Debug.Log("There is no VR headset detected");
+            }
+            else
+            {
+                Debug.Log(XRSettings.loadedDeviceName.ToString());
+            }
+
             MenuManager.Instance.OpenMenu("main menu"); // activates the main menu canvas when connected to server
             PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000"); // sets the player name to a random name for now till player profiles are made
             Debug.Log(PhotonNetwork.NickName + " has joined the server");
@@ -67,7 +76,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             return;
         }
 
-        PhotonNetwork.CreateRoom(roomNameInputField.text);
+        PhotonNetwork.CreateRoom(roomNameInputField.text, new RoomOptions { MaxPlayers = 1 });
         MenuManager.Instance.OpenMenu("loading");
     }
 
@@ -86,6 +95,7 @@ public class Launcher : MonoBehaviourPunCallbacks
 
     public override void OnCreateRoomFailed(short returnCode, string message)
     {
+        Debug.Log("Failed to create room");
         //errorText.text = "Room creation failed: " + message;
         //MenuManager.Instance.OpenMenu("error");
     }
@@ -93,6 +103,7 @@ public class Launcher : MonoBehaviourPunCallbacks
     public void StartGame()
     {
         PhotonNetwork.LoadLevel(1);
+        Debug.Log("Started game");
     }
 
     public void LeaveRoom()
@@ -105,11 +116,13 @@ public class Launcher : MonoBehaviourPunCallbacks
     {
         PhotonNetwork.JoinRoom(info.Name);
         MenuManager.Instance.OpenMenu("loading");
+        Debug.Log("Joined room");
     }
 
     public override void OnLeftRoom()
     {
         MenuManager.Instance.OpenMenu("main lobby");
+        Debug.Log("Left room");
     }
 
     public override void OnRoomListUpdate(List<RoomInfo> serverList)
