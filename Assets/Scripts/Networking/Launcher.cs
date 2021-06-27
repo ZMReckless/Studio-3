@@ -84,16 +84,16 @@ public class Launcher : MonoBehaviourPunCallbacks
         startGameButton.SetActive(PhotonNetwork.IsMasterClient);
     }
 
-    //public override void OnCreateRoomFailed(short returnCode, string message)
-    //{
-    //    errorText.text = "Room creation failed: " + message;
-    //    MenuManager.Instance.OpenMenu("error");
-    //}
+    public override void OnCreateRoomFailed(short returnCode, string message)
+    {
+        //errorText.text = "Room creation failed: " + message;
+        //MenuManager.Instance.OpenMenu("error");
+    }
 
-    //public void StartGame()
-    //{
-    //    PhotonNetwork.LoadLevel(1);
-    //}
+    public void StartGame()
+    {
+        PhotonNetwork.LoadLevel(1);
+    }
 
     public void LeaveRoom()
     {
