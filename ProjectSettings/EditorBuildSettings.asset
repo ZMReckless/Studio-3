@@ -8,6 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: cc71389c44a8f58449cc102b4f20bb2a
+  - enabled: 1
+    path: Assets/Scenes/Levelgreybox.unity
+    guid: 5cd899946e907d8419b4de556ebb7174
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 399ba71bc2ff52f4191fb0ed7e7d4d0e,
       type: 2}
