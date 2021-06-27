@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class FPSMovement : MonoBehaviour
 {
@@ -20,9 +21,24 @@ public class FPSMovement : MonoBehaviour
     bool isGrounded;
     bool isIdle;
 
+    [SerializeField] PhotonView photonView;
+
+    private void Awake()
+    {
+        if (photonView == null)
+        {
+            photonView = GetComponent<PhotonView>();
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if (!photonView.IsMine)
+        {
+            return;
+        }
+
         isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
 
         if (isGrounded && velocity.y < 0)
@@ -32,6 +48,10 @@ public class FPSMovement : MonoBehaviour
 
         float x = Input.GetAxis("Horizontal");
         float z = Input.GetAxis("Vertical");
+
+        velocity.y += gravity * Time.deltaTime;
+
+        controller.Move(velocity * Time.deltaTime);
 
         if (x != 0 ||
             z != 0)
@@ -59,12 +79,6 @@ public class FPSMovement : MonoBehaviour
                 velocity.y = jumpSpeed;
             }
         }
-
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
-
-
 
         //if (Input.GetKeyDown(KeyCode.Space))
         //{

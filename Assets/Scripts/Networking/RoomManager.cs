@@ -24,7 +24,9 @@ public class RoomManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        
+        List<TypedLobbyInfo> lobbyStatistics = new List<TypedLobbyInfo>();
+
+        OnLobbyStatisticsUpdate(lobbyStatistics);
     }
 
     public override void OnEnable()
@@ -43,7 +45,7 @@ public class RoomManager : MonoBehaviourPunCallbacks
     {
         if (scene.buildIndex == 1)
         {
-            
+            PhotonNetwork.Instantiate("PlayerManager", Vector3.zero, Quaternion.identity);
         }
     }
 }

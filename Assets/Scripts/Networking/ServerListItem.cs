@@ -9,7 +9,7 @@ public class ServerListItem : MonoBehaviour
 {
     [SerializeField] TMP_Text serverNameText;
     [SerializeField] TMP_Text mapNameText;
-    [SerializeField] TMP_Text playerCountText;
+    public TMP_Text playerCountText;
 
     public int playerCount;
 

@@ -543,9 +543,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87daff2c3c169d74d8bcc266c69586c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverName: {fileID: 148903415298216963}
-  mapName: {fileID: 148903416044154572}
-  playerCount: {fileID: 148903415213348906}
+  serverNameText: {fileID: 148903415298216963}
+  mapNameText: {fileID: 148903416044154572}
+  playerCountText: {fileID: 148903415213348906}
+  playerCount: 0
 --- !u!1 &148903416044154562
 GameObject:
   m_ObjectHideFlags: 0

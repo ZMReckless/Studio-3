@@ -125,6 +125,7 @@ public class Launcher : MonoBehaviourPunCallbacks
             {
                 continue;
             }
+
             Instantiate(serverListPrefab, serverListContent).GetComponent<ServerListItem>().SetUp(serverList[i]);
         }
     }
