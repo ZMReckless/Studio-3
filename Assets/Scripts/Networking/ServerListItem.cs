@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Realtime;
 using Photon.Pun;
+using UnityEngine.XR;
 
 public class ServerListItem : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class ServerListItem : MonoBehaviour
     public int playerCount;
 
     public RoomInfo info;
+
+    public int playersVR;
+    public int playersMK;
 
     private void Update()
     {
@@ -30,9 +34,25 @@ public class ServerListItem : MonoBehaviour
 
     public void OnClick()
     {
-        if (info.PlayerCount < info.MaxPlayers)
+        if (XRSettings.isDeviceActive)
         {
-            Launcher.Instance.JoinRoom(info);
+            if (playersVR < 2)
+            {
+                Launcher.Instance.JoinRoom(info);
+                playersVR++;
+
+                Debug.Log("Joined as VR player");
+            }
+        }
+        else if (!XRSettings.isDeviceActive)
+        {
+            if (playersMK < 2)
+            {
+                Launcher.Instance.JoinRoom(info);
+                playersMK++;
+
+                Debug.Log("Joined as MK player");
+            }
         }
         else
         {
