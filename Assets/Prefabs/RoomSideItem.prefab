@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6705666212446961607}
   m_Layer: 5
-  m_Name: ServerSideItem
+  m_Name: RoomSideItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
