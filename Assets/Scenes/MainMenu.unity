@@ -7274,8 +7274,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1719354388}
-        m_TargetAssemblyTypeName: CreateRoom, Assembly-CSharp
+      - m_Target: {fileID: 1719354387}
+        m_TargetAssemblyTypeName: NetworkManager, Assembly-CSharp
         m_MethodName: CreateNewRoom
         m_Mode: 1
         m_Arguments:
@@ -8484,7 +8484,7 @@ PrefabInstance:
     - target: {fileID: 3363988162259954347, guid: 3902d54fb790d3c4e85c06c504a5dd6e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3363988162259954347, guid: 3902d54fb790d3c4e85c06c504a5dd6e,
         type: 3}
@@ -8505,7 +8505,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 1719354387}
+      objectReference: {fileID: 0}
     - target: {fileID: 3363988162259954347, guid: 3902d54fb790d3c4e85c06c504a5dd6e,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -16104,8 +16104,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: Launcher, Assembly-CSharp
+      - m_Target: {fileID: 1719354387}
+        m_TargetAssemblyTypeName: NetworkManager, Assembly-CSharp
         m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
@@ -18615,8 +18615,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1719354389}
-        m_TargetAssemblyTypeName: LeaveRoom, Assembly-CSharp
+      - m_Target: {fileID: 1719354387}
+        m_TargetAssemblyTypeName: NetworkManager, Assembly-CSharp
         m_MethodName: LeaveRoomLobby
         m_Mode: 1
         m_Arguments:
@@ -61723,8 +61723,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1719354386}
   - component: {fileID: 1719354387}
-  - component: {fileID: 1719354388}
-  - component: {fileID: 1719354389}
   m_Layer: 0
   m_Name: Networking
   m_TagString: Untagged
@@ -61755,36 +61753,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 1719354385}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 27de9caf5499a5d4ea599bfdd0487876, type: 3}
+  m_Script: {fileID: 11500000, guid: 9f6ddd9009042fa41ac63d9126ff943e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildVersion: 0.1
-  fromRoomLobby: 0
---- !u!114 &1719354388
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719354385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3c88914109fa5d941bd57ecfcbfc7b3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  gameVersion: 0.1
   roomNameInputField: {fileID: 1867226675}
---- !u!114 &1719354389
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1719354385}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: caf88f507a7b3cc4f8d41df69e59b29d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  roomNameText: {fileID: 1979214163}
+  startGameButton: {fileID: 480208948}
+  fromRoomLobby: 0
 --- !u!1001 &1720249549
 PrefabInstance:
   m_ObjectHideFlags: 0

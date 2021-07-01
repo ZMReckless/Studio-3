@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Photon.Realtime;
 using Photon.Pun;
+using UnityEngine.XR;
 
 public class RoomListItem : MonoBehaviourPunCallbacks
 {
@@ -21,20 +22,8 @@ public class RoomListItem : MonoBehaviourPunCallbacks
         playerCount.text = roomInfo.PlayerCount.ToString() + "/" + roomInfo.MaxPlayers;
     }
 
-    public void JoinRoom()
+    public void OnClick()
     {
-        PhotonNetwork.JoinRoom(RoomInfo.Name);
-    }
-
-    public override void OnJoinedRoom()
-    {
-        MenuManager.Instance.OpenMenu("room menu");
-
-        Debug.Log("Joined room");
-    }
-
-    public override void OnJoinRoomFailed(short returnCode, string message)
-    {
-        Debug.LogFormat("Failed to connect to room {0}", message);
+        NetworkManager.Instance.JoinRoom(RoomInfo);
     }
 }
