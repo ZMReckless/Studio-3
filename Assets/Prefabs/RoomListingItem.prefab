@@ -529,7 +529,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -17.76, y: 56}
-  m_SizeDelta: {x: 1714.5, y: 72.3906}
+  m_SizeDelta: {x: 1675.74, y: 72.3906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3384813784796031746
 MonoBehaviour:
@@ -967,8 +967,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3384813784796031746}
-        m_TargetAssemblyTypeName: ServerListItem, Assembly-CSharp
-        m_MethodName: OnClick
+        m_TargetAssemblyTypeName: RoomListItem, Assembly-CSharp
+        m_MethodName: JoinRoom
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

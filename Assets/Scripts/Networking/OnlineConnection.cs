@@ -52,4 +52,9 @@ public class OnlineConnection : MonoBehaviourPunCallbacks
             Debug.Log("Joined main lobby");
         }
     }
+
+    public void JoinLobby()
+    {
+        PhotonNetwork.JoinLobby();
+    }
 }

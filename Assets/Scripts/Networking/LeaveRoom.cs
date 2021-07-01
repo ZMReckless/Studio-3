@@ -16,6 +16,7 @@ public class LeaveRoom : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         MenuManager.Instance.OpenMenu("main lobby");
+        PhotonNetwork.JoinLobby();
 
         Debug.Log("Left room");
     }

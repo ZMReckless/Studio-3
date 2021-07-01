@@ -24,14 +24,13 @@ public class RoomListItem : MonoBehaviourPunCallbacks
     public void JoinRoom()
     {
         PhotonNetwork.JoinRoom(RoomInfo.Name);
-        MenuManager.Instance.OpenMenu("loading");
-
-        Debug.Log("Joining room");
     }
 
     public override void OnJoinedRoom()
     {
         MenuManager.Instance.OpenMenu("room menu");
+
+        Debug.Log("Joined room");
     }
 
     public override void OnJoinRoomFailed(short returnCode, string message)

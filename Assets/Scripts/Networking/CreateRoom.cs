@@ -4,6 +4,7 @@ using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
+using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class CreateRoom : MonoBehaviourPunCallbacks
 {
@@ -19,7 +20,6 @@ public class CreateRoom : MonoBehaviourPunCallbacks
 
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
-        roomOptions.EmptyRoomTtl = 0;
 
         PhotonNetwork.CreateRoom(roomNameInputField.text, roomOptions);
         MenuManager.Instance.OpenMenu("loading");
