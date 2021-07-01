@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DropObstacle : PowerUp
+public class Mine : PowerUp
 {
-    public GameObject obstacle;
+    public GameObject mine;
     private GameObject player;
 
     private Vector3 droppedObstacleLocation;
 
-    private float dropRadius = 5f;
+    public float dropRadius = 3f;
 
     public override void PowerUpEffects()
     {
@@ -23,6 +23,6 @@ public class DropObstacle : PowerUp
 
         droppedObstacleLocation = new Vector3(x, y, z);
 
-        Instantiate(obstacle, droppedObstacleLocation, Quaternion.identity);
+        Instantiate(mine, droppedObstacleLocation, Quaternion.identity);
     }
 }

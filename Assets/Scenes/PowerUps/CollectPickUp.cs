@@ -6,16 +6,26 @@ using UnityEngine;
 public class CollectPickUp : MonoBehaviour
 {
     public PlayerPowerUp playerPowerUp;
+    public GameObject pickUpItem;
 
     // when player collides with the pick up
-    void OnControllerColliderHit(ControllerColliderHit hit)
+    private void OnTriggerEnter(Collider other)
     {
-        if (hit.gameObject.tag == ("Player"))
+        if (other.gameObject.tag == ("Player"))
         {
-            Debug.Log("Collected PickUp");
-            playerPowerUp = hit.gameObject.GetComponent<PlayerPowerUp>();
-            playerPowerUp.GetComponent<PlayerPowerUp>().powerUp = gameObject.GetComponent<PickUp>().powerUp; // sets the available powerup
-            Destroy(gameObject); // later this should teleport the object to the VR player
+            playerPowerUp = other.gameObject.GetComponent<PlayerPowerUp>();
+
+            if (playerPowerUp.powerUp == null)
+            {
+                playerPowerUp.powerUp = transform.GetComponentInParent<PickUp>().powerUp; // sets the available powerup
+                Debug.Log("Collected PickUp");
+                Destroy(pickUpItem);
+            }
+            else
+            {
+                Debug.Log("Player already has a powerup");
+            }
+            
         }
     }
 }
