@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 148903415409651187}
   - component: {fileID: 148903415409651184}
   m_Layer: 5
-  m_Name: Image
+  m_Name: MK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 148903415720986425}
   - component: {fileID: 148903415720986430}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: MK (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8716272ce3a44ae45aec40f2169cb751, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e3095a95f3f79d40b744a9336b5fd73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 148903415823220200}
   - component: {fileID: 148903415823220201}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: VR (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -545,6 +545,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   roomName: {fileID: 148903415298216963}
   playerCount: {fileID: 148903415213348906}
+  maxVRPlayers: 0
+  maxMKPlayers: 2
+  VRImages:
+  - {fileID: 148903415823220201}
+  - {fileID: 148903417235901760}
+  MKImages:
+  - {fileID: 148903415409651184}
+  - {fileID: 148903415720986430}
 --- !u!1 &148903416044154562
 GameObject:
   m_ObjectHideFlags: 0
@@ -990,7 +998,7 @@ GameObject:
   - component: {fileID: 148903417235901763}
   - component: {fileID: 148903417235901760}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: VR (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1043,7 +1051,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ae42edd1237643246b9eedb84fd8a6a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c00fcc06c630ba04ca9c33656fbebe1f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

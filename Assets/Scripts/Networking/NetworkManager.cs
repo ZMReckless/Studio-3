@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
@@ -20,6 +21,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     [Header("Server")]
     [SerializeField] GameObject startGameButton;
+    public List<Sprite> VRSprites;
+    public List<Sprite> MKSprites;
 
     [HideInInspector] public bool fromRoomLobby = false;
 
@@ -50,7 +53,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-        PhotonNetwork.JoinLobby();
+        ConnectToLobby();
 
         Debug.Log("Connected to master");
     }
@@ -86,14 +89,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             roomOptions.CustomRoomProperties = new Hashtable()
             {
-                { "MKPlayer", 0 }, { "VRPlayer", 1 }
+                { "MKPlayer", 0 }, { "VRPlayer", 0 }
             };
         }
         else
         {
             roomOptions.CustomRoomProperties = new Hashtable()
             {
-                { "MKPlayer", 1 }, { "VRPlayer", 0 }
+                { "MKPlayer", 0 }, { "VRPlayer", 0 }
             };
         }
         roomOptions.CustomRoomPropertiesForLobby = new string[] { "MKPlayer", "VRPlayer" };
@@ -131,6 +134,32 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void LeaveRoomLobby()
     {
+        if (XRSettings.isDeviceActive)
+        {
+            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["VRPlayer"];
+            int newValue = value - 1;
+
+            Hashtable setValue = new Hashtable();
+            setValue.Add("VRPlayer", newValue);
+
+            Hashtable expectedValue = new Hashtable();
+            setValue.Add("VRPlayer", value);
+
+            PhotonNetwork.CurrentRoom.SetCustomProperties(setValue, expectedValue);
+        }
+        else
+        {
+            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["MKPlayer"];
+            int newValue = value - 1;
+
+            PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() {
+                { "MKPlayer", newValue }
+            });
+        }
+
+        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["VRPlayer"]);
+        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["MKPlayer"]);
+
         PhotonNetwork.LeaveRoom();
         fromRoomLobby = true;
 
@@ -140,9 +169,14 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public override void OnLeftRoom()
     {
         MenuManager.Instance.OpenMenu("main lobby");
-        PhotonNetwork.JoinLobby();
+        ConnectToLobby();
 
         Debug.Log("Left room");
+    }
+
+    public void ConnectToLobby()
+    {
+        PhotonNetwork.JoinLobby();
     }
 
     public void StartGame()
