@@ -8,7 +8,7 @@ using System.Linq;
 public class RoomListingMenu : MonoBehaviourPunCallbacks
 {
     [SerializeField]
-    private RoomListItem roomListingPrefab;
+    private GameObject roomListingPrefab;
     [SerializeField]
     private Transform roomListingContent;
 
@@ -24,9 +24,13 @@ public class RoomListingMenu : MonoBehaviourPunCallbacks
             if (roomList[i].RemovedFromList)
                 continue;
 
-            Instantiate(roomListingPrefab, roomListingContent).GetComponent<RoomListItem>().SetRoomInfo(roomList[i]);
+            GameObject roomListItem;
+
+            roomListItem =  Instantiate(roomListingPrefab, roomListingContent);
+            roomListItem.GetComponent<RoomListItem>().SetRoomInfo(roomList[i]);
+            roomListItem.GetComponent<RoomListItem>().ChangeRoomIcons();
         }
-        // join main lobby to fix room dissapearing bug
+
         Debug.Log("List updated");
     }
 }

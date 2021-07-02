@@ -18,11 +18,12 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [Header("Room")]
     [SerializeField] TMP_InputField roomNameInputField;
     [SerializeField] TMP_Text roomNameText;
+    public GameObject startGameButton;
 
-    [Header("Server")]
-    [SerializeField] GameObject startGameButton;
+    [Header("Sprites")]
     public List<Sprite> VRSprites;
     public List<Sprite> MKSprites;
+    public List<Sprite> pingSprites;
 
     [HideInInspector] public bool fromRoomLobby = false;
 
@@ -89,17 +90,17 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         {
             roomOptions.CustomRoomProperties = new Hashtable()
             {
-                { "MKPlayer", 0 }, { "VRPlayer", 0 }
+                { "MKPlayer", 0 }, { "VRPlayer", 0 }, { "RoomPing", 0 }
             };
         }
         else
         {
             roomOptions.CustomRoomProperties = new Hashtable()
             {
-                { "MKPlayer", 0 }, { "VRPlayer", 0 }
+                { "MKPlayer", 0 }, { "VRPlayer", 0 }, { "RoomPing", 0 }
             };
         }
-        roomOptions.CustomRoomPropertiesForLobby = new string[] { "MKPlayer", "VRPlayer" };
+        roomOptions.CustomRoomPropertiesForLobby = new string[] { "MKPlayer", "VRPlayer", "RoomPing" };
 
         PhotonNetwork.CreateRoom(roomNameInputField.text, roomOptions);
         MenuManager.Instance.OpenMenu("loading");
@@ -134,6 +135,11 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void LeaveRoomLobby()
     {
+        if (PhotonNetwork.IsMasterClient)
+        {
+            startGameButton.SetActive(false);
+        }
+
         if (XRSettings.isDeviceActive)
         {
             int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["VRPlayer"];

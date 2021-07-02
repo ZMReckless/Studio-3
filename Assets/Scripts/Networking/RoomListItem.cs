@@ -20,10 +20,51 @@ public class RoomListItem : MonoBehaviourPunCallbacks
     private List<Image> VRImages;
     [SerializeField]
     private List<Image> MKImages;
+    [SerializeField]
+    private Image pingImage;
 
     public RoomInfo RoomInfo { get; private set; }
 
-    private void Update()
+    public void SetRoomInfo(RoomInfo roomInfo)
+    {
+        RoomInfo = roomInfo;
+        
+        roomName.text = roomInfo.Name;
+        playerCount.text = roomInfo.PlayerCount.ToString() + "/" + roomInfo.MaxPlayers;
+    }
+
+    public void OnClick()
+    {
+        if (XRSettings.isDeviceActive)
+        {
+            if ((int)RoomInfo.CustomProperties["VRPlayer"] < maxVRPlayers)
+            {
+                NetworkManager.Instance.JoinRoom(RoomInfo);
+
+                Debug.Log("Joining room as VR player");
+            }
+            else
+            {
+                Debug.Log("VR player slots full");
+            }
+        }
+        else
+        {
+            if ((int)RoomInfo.CustomProperties["MKPlayer"] < maxMKPlayers)
+            {
+                NetworkManager.Instance.JoinRoom(RoomInfo);
+
+                Debug.Log("Joining room as MK player");
+            }
+            else
+            {
+                Debug.Log((int)RoomInfo.CustomProperties["MKPlayer"]);
+                Debug.Log("MK player slots full");
+            }
+        }
+    }
+
+    public void ChangeRoomIcons()
     {
         if ((int)RoomInfo.CustomProperties["VRPlayer"] == 0)
         {
@@ -64,44 +105,24 @@ public class RoomListItem : MonoBehaviourPunCallbacks
                 image.sprite = NetworkManager.Instance.MKSprites[0];
             }
         }
-    }
 
-    public void SetRoomInfo(RoomInfo roomInfo)
-    {
-        RoomInfo = roomInfo;
+        int roomPing = (int)RoomInfo.CustomProperties["RoomPing"];
 
-        roomName.text = roomInfo.Name;
-        playerCount.text = roomInfo.PlayerCount.ToString() + "/" + roomInfo.MaxPlayers;
-    }
-
-    public void OnClick()
-    {
-        if (XRSettings.isDeviceActive)
+        if (roomPing <= 25)
         {
-            if ((int)RoomInfo.CustomProperties["VRPlayer"] < maxVRPlayers)
-            {
-                NetworkManager.Instance.JoinRoom(RoomInfo);
-
-                Debug.Log("Joining room as VR player");
-            }
-            else
-            {
-                Debug.Log("VR player slots full");
-            }
+            pingImage.sprite = NetworkManager.Instance.pingSprites[0];
+        }
+        else if (roomPing > 25 && roomPing <= 50)
+        {
+            pingImage.sprite = NetworkManager.Instance.pingSprites[1];
+        }
+        else if (roomPing > 50 && roomPing <= 75)
+        {
+            pingImage.sprite = NetworkManager.Instance.pingSprites[2];
         }
         else
         {
-            if ((int)RoomInfo.CustomProperties["MKPlayer"] < maxMKPlayers)
-            {
-                NetworkManager.Instance.JoinRoom(RoomInfo);
-
-                Debug.Log("Joining room as MK player");
-            }
-            else
-            {
-                Debug.Log((int)RoomInfo.CustomProperties["MKPlayer"]);
-                Debug.Log("MK player slots full");
-            }
+            pingImage.sprite = NetworkManager.Instance.pingSprites[3];
         }
     }
 }

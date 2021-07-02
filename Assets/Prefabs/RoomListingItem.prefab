@@ -553,6 +553,7 @@ MonoBehaviour:
   MKImages:
   - {fileID: 148903415409651184}
   - {fileID: 148903415720986430}
+  pingImage: {fileID: 148903416142580475}
 --- !u!1 &148903416044154562
 GameObject:
   m_ObjectHideFlags: 0
