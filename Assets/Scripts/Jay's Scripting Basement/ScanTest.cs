@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,15 +6,27 @@ using UnityEngine;
 public class ScanTest : MonoBehaviour
 {
     public Camera mainCam;
+
     public GameObject scanSphere;
+
+    private bool hasScanned;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Mouse0))
+        if (Input.GetKeyDown(KeyCode.Mouse0) &&
+            hasScanned == false)
         {
+            hasScanned = true;
+            ScanTimer();
             Scan();
         }
+    }
+
+    void ScanTimer()
+    {
+        StartCoroutine("timer");
+
     }
 
     void Scan()
@@ -24,5 +37,13 @@ public class ScanTest : MonoBehaviour
             scan.AddComponent<SphereScan>();
         }
 
+    }
+
+    IEnumerator timer()
+    {
+        Debug.Log("coroutine entered");
+        yield return new WaitForSeconds(3f);
+        Debug.Log("timer finished");
+        hasScanned = false;
     }
 }
