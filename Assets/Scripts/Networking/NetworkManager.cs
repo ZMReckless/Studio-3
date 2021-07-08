@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
-using UnityEngine.XR;
+using UnityEngine.Android;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
@@ -21,8 +21,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     public GameObject startGameButton;
 
     [Header("Sprites")]
-    public List<Sprite> VRSprites;
-    public List<Sprite> MKSprites;
+    public List<Sprite> MBSprites;
+    public List<Sprite> FPSSprites;
     public List<Sprite> pingSprites;
 
     [HideInInspector] public bool fromRoomLobby = false;
@@ -86,27 +86,18 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         RoomOptions roomOptions = new RoomOptions();
         roomOptions.MaxPlayers = 4;
 
-        if (XRSettings.isDeviceActive)
+        roomOptions.CustomRoomProperties = new Hashtable()
         {
-            roomOptions.CustomRoomProperties = new Hashtable()
-            {
-                { "MKPlayer", 0 }, { "VRPlayer", 0 }, { "RoomPing", 0 }
-            };
-        }
-        else
-        {
-            roomOptions.CustomRoomProperties = new Hashtable()
-            {
-                { "MKPlayer", 0 }, { "VRPlayer", 0 }, { "RoomPing", 0 }
-            };
-        }
-        roomOptions.CustomRoomPropertiesForLobby = new string[] { "MKPlayer", "VRPlayer", "RoomPing" };
+            { "FPSPlayer", 0 }, { "MBPlayer", 0 }, { "RoomPing", 0 }
+        };
+
+        roomOptions.CustomRoomPropertiesForLobby = new string[] { "FPSPlayer", "MBPlayer", "RoomPing" };
 
         PhotonNetwork.CreateRoom(roomNameInputField.text, roomOptions);
         MenuManager.Instance.OpenMenu("loading");
 
-        Debug.Log(roomOptions.CustomRoomProperties["MKPlayer"].ToString());
-        Debug.Log(roomOptions.CustomRoomProperties["VRPlayer"].ToString());
+        Debug.Log(roomOptions.CustomRoomProperties["FPSPlayer"].ToString());
+        Debug.Log(roomOptions.CustomRoomProperties["MBPlayer"].ToString());
         Debug.Log("Created room");
     }
 
@@ -140,31 +131,28 @@ public class NetworkManager : MonoBehaviourPunCallbacks
             startGameButton.SetActive(false);
         }
 
-        if (XRSettings.isDeviceActive)
+        if (Application.isMobilePlatform)
         {
-            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["VRPlayer"];
+            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["MBPlayer"];
             int newValue = value - 1;
 
             Hashtable setValue = new Hashtable();
-            setValue.Add("VRPlayer", newValue);
+            setValue.Add("MBPlayer", newValue);
 
-            Hashtable expectedValue = new Hashtable();
-            setValue.Add("VRPlayer", value);
-
-            PhotonNetwork.CurrentRoom.SetCustomProperties(setValue, expectedValue);
+            PhotonNetwork.CurrentRoom.SetCustomProperties(setValue);
         }
         else
         {
-            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["MKPlayer"];
+            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["FPSPlayer"];
             int newValue = value - 1;
 
             PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() {
-                { "MKPlayer", newValue }
+                { "FPSPlayer", newValue }
             });
         }
 
-        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["VRPlayer"]);
-        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["MKPlayer"]);
+        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["MBPlayer"]);
+        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["FPSPlayer"]);
 
         PhotonNetwork.LeaveRoom();
         fromRoomLobby = true;

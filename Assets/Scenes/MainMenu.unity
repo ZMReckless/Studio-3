@@ -19049,7 +19049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &593066484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47155,7 +47155,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1356466379
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -61894,10 +61894,10 @@ MonoBehaviour:
   roomNameInputField: {fileID: 1867226675}
   roomNameText: {fileID: 1979214163}
   startGameButton: {fileID: 480208948}
-  VRSprites:
-  - {fileID: 21300000, guid: ae42edd1237643246b9eedb84fd8a6a5, type: 3}
-  - {fileID: 21300000, guid: c00fcc06c630ba04ca9c33656fbebe1f, type: 3}
-  MKSprites:
+  MBSprites:
+  - {fileID: 21300000, guid: 9fc076a9589884d4b8cb1fdfe48e9fe1, type: 3}
+  - {fileID: 21300000, guid: 1f075415c1c0e2b4884a773625f09e8e, type: 3}
+  FPSSprites:
   - {fileID: 21300000, guid: 8716272ce3a44ae45aec40f2169cb751, type: 3}
   - {fileID: 21300000, guid: 6e3095a95f3f79d40b744a9336b5fd73, type: 3}
   pingSprites:
@@ -79325,11 +79325,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6705666212824520702, guid: aa5f9cb6689601b4384f5a70ae662d89,
-        type: 3}
-      propertyPath: m_text
-      value: Team 1 Players
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aa5f9cb6689601b4384f5a70ae662d89, type: 3}

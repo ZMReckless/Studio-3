@@ -14,12 +14,12 @@ public class RoomListItem : MonoBehaviourPunCallbacks
     [SerializeField]
     private TMP_Text playerCount;
     [SerializeField]
-    public int maxVRPlayers, maxMKPlayers = 2;
+    public int maxMBPlayers, maxFPSPlayers = 2;
 
     [SerializeField]
-    private List<Image> VRImages;
+    private List<Image> MBImages;
     [SerializeField]
-    private List<Image> MKImages;
+    private List<Image> FPSImages;
     [SerializeField]
     private Image pingImage;
 
@@ -35,74 +35,73 @@ public class RoomListItem : MonoBehaviourPunCallbacks
 
     public void OnClick()
     {
-        if (XRSettings.isDeviceActive)
+        if (Application.isMobilePlatform)
         {
-            if ((int)RoomInfo.CustomProperties["VRPlayer"] < maxVRPlayers)
+            if ((int)RoomInfo.CustomProperties["MBPlayer"] < maxMBPlayers)
             {
                 NetworkManager.Instance.JoinRoom(RoomInfo);
 
-                Debug.Log("Joining room as VR player");
+                Debug.Log("Joining room as mobile player");
             }
             else
             {
-                Debug.Log("VR player slots full");
+                Debug.Log("Mobile player slots full");
             }
         }
         else
         {
-            if ((int)RoomInfo.CustomProperties["MKPlayer"] < maxMKPlayers)
+            if ((int)RoomInfo.CustomProperties["FPSPlayer"] < maxFPSPlayers)
             {
                 NetworkManager.Instance.JoinRoom(RoomInfo);
 
-                Debug.Log("Joining room as MK player");
+                Debug.Log("Joining room as FPS player");
             }
             else
             {
-                Debug.Log((int)RoomInfo.CustomProperties["MKPlayer"]);
-                Debug.Log("MK player slots full");
+                Debug.Log("FPS player slots full");
             }
         }
     }
 
     public void ChangeRoomIcons()
     {
-        if ((int)RoomInfo.CustomProperties["VRPlayer"] == 0)
+        if ((int)RoomInfo.CustomProperties["MBPlayer"] == 0)
         {
-            foreach (Image image in VRImages)
+            foreach (Image image in MBImages)
             {
-                image.sprite = NetworkManager.Instance.VRSprites[1];
+                image.sprite = NetworkManager.Instance.MBSprites[1];
             }
         }
-        else if ((int)RoomInfo.CustomProperties["VRPlayer"] == 1)
+        else if ((int)RoomInfo.CustomProperties["MBPlayer"] == 1)
         {
-            VRImages[0].sprite = NetworkManager.Instance.VRSprites[0];
-            VRImages[1].sprite = NetworkManager.Instance.VRSprites[1];
+            MBImages[0].sprite = NetworkManager.Instance.MBSprites[0];
+            MBImages[1].sprite = NetworkManager.Instance.MBSprites[1];
         }
         else
         {
-            foreach (Image image in VRImages)
+            foreach (Image image in MBImages)
             {
-                image.sprite = NetworkManager.Instance.VRSprites[0];
+                image.sprite = NetworkManager.Instance.MBSprites[0];
             }
         }
 
-        if ((int)RoomInfo.CustomProperties["MKPlayer"] == 0)
+        if ((int)RoomInfo.CustomProperties["FPSPlayer"] == 0)
         {
-            foreach (Image image in MKImages)
+            foreach (Image image in FPSImages)
             {
-                image.sprite = NetworkManager.Instance.MKSprites[1];
+                image.sprite = NetworkManager.Instance.FPSSprites[1];
             }
         }
-        else if ((int)RoomInfo.CustomProperties["MKPlayer"] == 1)
+        else if ((int)RoomInfo.CustomProperties["FPSPlayer"] == 1)
         {
-            MKImages[0].sprite = NetworkManager.Instance.MKSprites[0];
-            MKImages[1].sprite = NetworkManager.Instance.MKSprites[1];
+            FPSImages[0].sprite = NetworkManager.Instance.FPSSprites[0];
+            FPSImages[1].sprite = NetworkManager.Instance.FPSSprites[1];
         }
         else
         {
-            foreach (Image image in MKImages)
+            foreach (Image image in FPSImages)
             {
-                image.sprite = NetworkManager.Instance.MKSprites[0];
+                image.sprite = NetworkManager.Instance.FPSSprites[0];
             }
         }
 

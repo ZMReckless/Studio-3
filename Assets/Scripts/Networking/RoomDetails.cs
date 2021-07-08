@@ -42,31 +42,31 @@ public class RoomDetails : MonoBehaviourPunCallbacks
             roomPing = (int)PhotonNetwork.CurrentRoom.CustomProperties["RoomPing"];
         }
 
-        if (XRSettings.isDeviceActive)
+        if (Application.isMobilePlatform)
         {
-            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["VRPlayer"];
+            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["MBPlayer"];
             int newValue = value + 1;
 
             Hashtable setValue = new Hashtable();
-            setValue.Add("VRPlayer", newValue);
+            setValue.Add("MBPlayer", newValue);
 
             Hashtable expectedValue = new Hashtable();
-            setValue.Add("VRPlayer", value);
+            setValue.Add("MBPlayer", value);
 
             PhotonNetwork.CurrentRoom.SetCustomProperties(setValue, expectedValue);
         }
         else
         {
-            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["MKPlayer"];
+            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["FPSPlayer"];
             int newValue = value + 1;
 
             PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() {
-                { "MKPlayer", newValue } 
+                { "FPSPlayer", newValue } 
             });
         }
 
-        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["VRPlayer"]);
-        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["MKPlayer"]);
+        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["MBPlayer"]);
+        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["FPSPlayer"]);
         Debug.Log("Joined room");
     }
 

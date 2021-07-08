@@ -50,7 +50,7 @@ GameObject:
   - component: {fileID: 6705666212585954059}
   - component: {fileID: 6705666212585954058}
   m_Layer: 5
-  m_Name: VRPlayerName
+  m_Name: MobilePlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +103,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: vr player name
+  m_text: mobile player name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1999d35249e37948bea23e40173de07, type: 2}
   m_sharedMaterial: {fileID: -6773524968471312454, guid: c1999d35249e37948bea23e40173de07,
@@ -185,7 +185,7 @@ GameObject:
   - component: {fileID: 6705666212743585901}
   - component: {fileID: 6705666212743585900}
   m_Layer: 5
-  m_Name: M/KPlayerName
+  m_Name: FPSPlayerName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: m/k player name
+  m_text: fps player name
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1999d35249e37948bea23e40173de07, type: 2}
   m_sharedMaterial: {fileID: -6773524968471312454, guid: c1999d35249e37948bea23e40173de07,
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Players
+  m_text: Team 1 Players
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c1999d35249e37948bea23e40173de07, type: 2}
   m_sharedMaterial: {fileID: -6773524968471312454, guid: c1999d35249e37948bea23e40173de07,
