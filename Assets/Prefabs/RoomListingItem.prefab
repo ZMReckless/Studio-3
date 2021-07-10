@@ -544,6 +544,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   roomName: {fileID: 148903415298216963}
+  mapName: {fileID: 148903416044154572}
   playerCount: {fileID: 148903415213348906}
   maxMBPlayers: 0
   maxFPSPlayers: 2

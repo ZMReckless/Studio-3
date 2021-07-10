@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using Photon.Pun;
 using Photon.Realtime;
 using TMPro;
-using UnityEngine.Android;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
 public class NetworkManager : MonoBehaviourPunCallbacks
@@ -126,34 +124,6 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public void LeaveRoomLobby()
     {
-        if (PhotonNetwork.IsMasterClient)
-        {
-            startGameButton.SetActive(false);
-        }
-
-        if (Application.isMobilePlatform)
-        {
-            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["MBPlayer"];
-            int newValue = value - 1;
-
-            Hashtable setValue = new Hashtable();
-            setValue.Add("MBPlayer", newValue);
-
-            PhotonNetwork.CurrentRoom.SetCustomProperties(setValue);
-        }
-        else
-        {
-            int value = (int)PhotonNetwork.CurrentRoom.CustomProperties["FPSPlayer"];
-            int newValue = value - 1;
-
-            PhotonNetwork.CurrentRoom.SetCustomProperties(new Hashtable() {
-                { "FPSPlayer", newValue }
-            });
-        }
-
-        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["MBPlayer"]);
-        Debug.Log(PhotonNetwork.CurrentRoom.CustomProperties["FPSPlayer"]);
-
         PhotonNetwork.LeaveRoom();
         fromRoomLobby = true;
 

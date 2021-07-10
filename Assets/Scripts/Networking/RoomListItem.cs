@@ -12,6 +12,8 @@ public class RoomListItem : MonoBehaviourPunCallbacks
     [SerializeField]
     private TMP_Text roomName;
     [SerializeField]
+    private TMP_Text mapName;
+    [SerializeField]
     private TMP_Text playerCount;
     [SerializeField]
     public int maxMBPlayers, maxFPSPlayers = 2;
@@ -30,6 +32,7 @@ public class RoomListItem : MonoBehaviourPunCallbacks
         RoomInfo = roomInfo;
         
         roomName.text = roomInfo.Name;
+        mapName.text = "Town Square";
         playerCount.text = roomInfo.PlayerCount.ToString() + "/" + roomInfo.MaxPlayers;
     }
 
