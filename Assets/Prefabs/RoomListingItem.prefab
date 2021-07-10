@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 148903415298216962}
   - component: {fileID: 148903415298216963}
   m_Layer: 5
-  m_Name: ServerName
+  m_Name: RoomName
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -280,7 +280,7 @@ GameObject:
   - component: {fileID: 148903415409651187}
   - component: {fileID: 148903415409651184}
   m_Layer: 5
-  m_Name: Image
+  m_Name: FPS
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,7 +355,7 @@ GameObject:
   - component: {fileID: 148903415720986425}
   - component: {fileID: 148903415720986430}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: FPS (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 8716272ce3a44ae45aec40f2169cb751, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 6e3095a95f3f79d40b744a9336b5fd73, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -430,7 +430,7 @@ GameObject:
   - component: {fileID: 148903415823220200}
   - component: {fileID: 148903415823220201}
   m_Layer: 5
-  m_Name: Image (2)
+  m_Name: MB (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -483,7 +483,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: c00fcc06c630ba04ca9c33656fbebe1f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f075415c1c0e2b4884a773625f09e8e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -504,7 +504,7 @@ GameObject:
   - component: {fileID: 148903415823967874}
   - component: {fileID: 3384813784796031746}
   m_Layer: 5
-  m_Name: ServerDetailsItem
+  m_Name: RoomListingItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -529,7 +529,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -17.76, y: 56}
-  m_SizeDelta: {x: 1714.5, y: 72.3906}
+  m_SizeDelta: {x: 1675.74, y: 72.3906}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3384813784796031746
 MonoBehaviour:
@@ -543,10 +543,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87daff2c3c169d74d8bcc266c69586c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  serverNameText: {fileID: 148903415298216963}
-  mapNameText: {fileID: 148903416044154572}
-  playerCountText: {fileID: 148903415213348906}
-  playerCount: 0
+  roomName: {fileID: 148903415298216963}
+  mapName: {fileID: 148903416044154572}
+  playerCount: {fileID: 148903415213348906}
+  maxMBPlayers: 0
+  maxFPSPlayers: 2
+  MBImages:
+  - {fileID: 148903415823220201}
+  - {fileID: 148903417235901760}
+  FPSImages:
+  - {fileID: 148903415409651184}
+  - {fileID: 148903415720986430}
+  pingImage: {fileID: 148903416142580475}
 --- !u!1 &148903416044154562
 GameObject:
   m_ObjectHideFlags: 0
@@ -767,7 +775,7 @@ GameObject:
   - component: {fileID: 148903416224993489}
   - component: {fileID: 148903416224993488}
   m_Layer: 5
-  m_Name: ServerInformation
+  m_Name: RoomInformation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -861,7 +869,7 @@ GameObject:
   - component: {fileID: 148903416649926772}
   - component: {fileID: 148903416649926773}
   m_Layer: 5
-  m_Name: ServerButton
+  m_Name: RoomButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -969,7 +977,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3384813784796031746}
-        m_TargetAssemblyTypeName: ServerListItem, Assembly-CSharp
+        m_TargetAssemblyTypeName: RoomListItem, Assembly-CSharp
         m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
@@ -992,7 +1000,7 @@ GameObject:
   - component: {fileID: 148903417235901763}
   - component: {fileID: 148903417235901760}
   m_Layer: 5
-  m_Name: Image (3)
+  m_Name: MB (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1045,7 +1053,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: ae42edd1237643246b9eedb84fd8a6a5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1f075415c1c0e2b4884a773625f09e8e, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
