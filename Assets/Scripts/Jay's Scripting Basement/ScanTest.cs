@@ -11,6 +11,9 @@ public class ScanTest : MonoBehaviour
 
     private bool hasScanned;
 
+    [SerializeField]
+    private Vector3 _mousePos;
+
     // Update is called once per frame
     void Update()
     {
@@ -31,9 +34,12 @@ public class ScanTest : MonoBehaviour
 
     void Scan()
     {
+        _mousePos = Input.mousePosition;
+
+        Ray castPoint = Camera.main.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit)){
-            var scan = Instantiate(scanSphere, hit.transform.position, Quaternion.identity);
+        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity)){
+            var scan = Instantiate(scanSphere, (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
             scan.AddComponent<SphereScan>();
         }
 

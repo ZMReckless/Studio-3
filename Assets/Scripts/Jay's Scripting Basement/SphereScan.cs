@@ -6,6 +6,11 @@ public class SphereScan : MonoBehaviour
 {
     public Vector3 growthRate = new Vector3 (10f, 10f, 10f);
 
+    void Awake()
+    {
+        gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f, 0.1f);
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -21,6 +26,13 @@ public class SphereScan : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
 
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.tag == "player")
+        {
+
+        }
     }
 }
