@@ -20,14 +20,14 @@ public class mobileCameraControl : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (movingLeft == true)
-        //{
-        //    dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition -= speed;
-        //}
-        //if (movingRight == true)
-        //{
-        //    dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition += speed;
-        //}
+        if (movingLeft == true)
+        {
+            dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition -= speed;
+        }
+        if (movingRight == true)
+        {
+            dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition += speed;
+        }
     }
 
     public void moveLeft()
