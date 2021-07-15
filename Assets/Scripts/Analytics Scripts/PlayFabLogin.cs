@@ -1,27 +1,56 @@
 using PlayFab;
 using PlayFab.ClientModels;
 using UnityEngine;
+using UnityEngine.UI;
+using System.Collections;
 
 public class PlayFabLogin : MonoBehaviour {
+    public InputField username;
+    public InputField loginUsername;
+    public InputField password;
+    public InputField loginPassword;
+    public InputField email;
+    public InputField display;
+    public Text messageText;
     public void Start() {
-        if (string.IsNullOrEmpty(PlayFabSettings.staticSettings.TitleId)) {
-            /*
-            Please change the titleId below to your own titleId from PlayFab Game Manager.
-            If you have already set the value in the Editor Extensions, this can be skipped.
-            */
-            PlayFabSettings.staticSettings.TitleId = "42";
+        
+    }
+    public void RegisterButton() {
+        if (password.text.Length < 6) {
+            messageText.text = "Password has to be at least 6 characters long";
+            StartCoroutine(TurnOffError());
+            return;
         }
-        var request = new LoginWithCustomIDRequest { CustomId = "GettingStartedGuide", CreateAccount = true };
-        PlayFabClientAPI.LoginWithCustomID(request, OnLoginSuccess, OnLoginFailure);
+        //creates var with correct fields
+        var request = new RegisterPlayFabUserRequest {
+            Username = username.text,
+            Password = password.text,
+            Email = email.text,
+            DisplayName = display.text,
+            RequireBothUsernameAndEmail = true
+        };
+        PlayFabClientAPI.RegisterPlayFabUser(request, OnRegisterSuccess, OnError);
     }
-
-    private void OnLoginSuccess(LoginResult result) {
-        Debug.Log("Congratulations, you made your first successful API call!");
+    public void LoginButton() {
+        var request = new LoginWithPlayFabRequest {
+            Username = loginUsername.text,
+            Password = loginPassword.text
+        };
+        PlayFabClientAPI.LoginWithPlayFab(request, OnLoginSuccess, OnError);
     }
-
-    private void OnLoginFailure(PlayFabError error) {
-        Debug.LogWarning("Something went wrong with your first API call.  :(");
-        Debug.LogError("Here's some debug information:");
-        Debug.LogError(error.GenerateErrorReport());
+    void OnLoginSuccess(LoginResult result) {
+        messageText.text = "Logged In!";
+        Debug.Log("Successful login");
+    }
+    void OnError(PlayFabError error) {
+        messageText.text = error.ErrorMessage;
+        Debug.Log(error.GenerateErrorReport());
+    }
+    void OnRegisterSuccess(RegisterPlayFabUserResult result) {
+        messageText.text = "Registered and logged in!";
+    }
+    IEnumerator TurnOffError() {
+        yield return new WaitForSeconds(3f);
+        messageText.text = "";
     }
 }
