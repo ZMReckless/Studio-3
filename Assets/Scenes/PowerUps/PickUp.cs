@@ -26,6 +26,6 @@ public class PickUp : MonoBehaviour
 
     private void Update()
     {
-        image.transform.LookAt(GameObject.Find("PlayerCam").transform);
+        //image.transform.LookAt(GameObject.Find("PlayerCam").transform);
     }
 }
