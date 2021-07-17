@@ -2,17 +2,26 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScanTest : MonoBehaviour
 {
     public Camera mainCam;
 
     public GameObject scanSphere;
+    public Image cooldownBar;
+
+    private float waitTime = 3.0f;
 
     private bool hasScanned;
 
     [SerializeField]
     private Vector3 _mousePos;
+
+    private void Start()
+    {
+        cooldownBar.fillAmount = 0f;
+    }
 
     // Update is called once per frame
     void Update()
@@ -25,6 +34,15 @@ public class ScanTest : MonoBehaviour
         //    ScanTimer();
         //    Scan();
         //}
+        if (hasScanned == true)
+        {
+            cooldownBar.fillAmount += 1.0f / waitTime * Time.deltaTime;
+            //Debug.Log(test);
+        }
+        else if (hasScanned == false)
+        {
+            cooldownBar.fillAmount = 0f;
+        }
     }
 
     public void fire()
@@ -40,7 +58,6 @@ public class ScanTest : MonoBehaviour
     void ScanTimer()
     {
         StartCoroutine("timer");
-
     }
 
     public void Scan()
