@@ -18,6 +18,13 @@ public class Gun_Test : MonoBehaviour
     public bool isFiring;
     public TextMeshProUGUI ammoDisplay;
 
+    public Animator gunAnim; //attached to pivot
+
+    //public Transform bulletShellLocation; //moved to new script
+    //public GameObject bulletShell;
+    //public float bulletShellForce;
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -40,10 +47,12 @@ public class Gun_Test : MonoBehaviour
         {
             Reload();
         }
+       
     }
 
     public void Shoot()
     {
+        gunAnim.SetTrigger("Shoot");
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, shotRange))
@@ -67,4 +76,12 @@ public class Gun_Test : MonoBehaviour
     {
         currentAmmo = maxAmmo;
     }
+
+    //void BulletShellTrigger() //moved to new script
+    //{
+    //    var triggerBulletShell = Instantiate(bulletShell, bulletShellLocation.position, bulletShellLocation.rotation);
+    //    triggerBulletShell.GetComponent<Rigidbody>().AddForce(0, bulletShellForce, 0);
+    //    Destroy(triggerBulletShell, 3);
+
+    //}
 }
