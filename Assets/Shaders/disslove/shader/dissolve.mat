@@ -111,10 +111,10 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     - _disslove_edge_wdth: 0.0308
-    - _noise_scale: 150
-    - _threshold: 0.495
+    - _noise_scale: 157.66
+    - _threshold: 0.5
     m_Colors:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _disslove_color: {r: 172.90657, g: 0, b: 169.30391, a: 1}
+    - _disslove_color: {r: 47.937256, g: 0, b: 47.184315, a: 1}
   m_BuildTextureStacks: []
