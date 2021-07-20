@@ -830,6 +830,19 @@ MonoBehaviour:
   bulletShellLocation: {fileID: 900037939}
   bulletShell: {fileID: 3406795602898412431, guid: 9340885653b06554aa8497d7bcecedd7,
     type: 3}
+--- !u!114 &721994419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 721994413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aef99d7fe17cca442a6562a9ed4f3a58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hammerAnimator: {fileID: 549761730}
 --- !u!1 &762287556 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1062084027917228, guid: 7aad5b0274fd2894eafec31a58e26a32,
@@ -4268,6 +4281,7 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
+    - {fileID: 0}
     - {fileID: 7918025091019035373, guid: 922a22f6526ae7a49bf7bfeae7c3d224, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 922a22f6526ae7a49bf7bfeae7c3d224, type: 3}
 --- !u!1 &8670540289214735307
