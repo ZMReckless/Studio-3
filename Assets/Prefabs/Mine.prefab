@@ -317,3 +317,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb47b4e32644b2444b44c102fbf2df0b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosionObject: {fileID: 7116774382898011339, guid: 916bc79a71da9b24190b115bbea81b3b,
+    type: 3}
+  smokeObject: {fileID: 2541154823341822135, guid: 12ed7776cb16765439a9717fabf846e8,
+    type: 3}
+  explosionDistance: 5
