@@ -15,7 +15,7 @@ MonoBehaviour:
   TitleId: 2A783
   DeveloperSecretKey: O6FH9NB9J199IQNNGDYDDI8MMZ3X9PG74K5XAOX6H9QZGR3NMH
   ProductionEnvironmentUrl: 
-  RequestType: 2
+  RequestType: 0
   DisableDeviceInfo: 0
   DisableFocusTimeCollection: 0
   RequestTimeout: 2000

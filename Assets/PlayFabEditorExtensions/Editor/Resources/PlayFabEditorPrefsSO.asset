@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
   DevAccountEmail: 1019405@student.sae.edu.au
-  DevAccountToken: 37ogo1psq3ygrb9fm73yp4oxri8c6o39gn7bsco5fmwcgtz1fwsmkwundg6fnn3pohh7oxmwecmxsdn5gmj8sees3w3bx8et17f3g56ghosacsp369cy7qnb9yp53tcnbnemreixr71k1xt566beh49r1d3k61x7zgr6xjtp5s4h6b6jigrfi4pauuhrt8okunetw1hr
+  DevAccountToken: h4inu9fupu3pw1etgfqmjod65a85geig983jx96bxcqsu1umtdtz46y53giy9mphmnwtbfyyj9hmx8au5f4o6bw747wuat8ciggqczf7wiimz9f1pzgc9co35t4tq8ngksu48eeo6e5xihh5fq7k994xqsstwtrgi9ieuj7oa6igwbjwzq8xkkws8kegz1mhgg81dr91
   SelectedStudio: Mum and the Huns
   SdkPath: Assets/PlayFabSDK
   EdExPath: 
   LocalCloudScriptPath: 
-  PanelIsShown: 0
-  curMainMenuIdx: 3
+  PanelIsShown: 1
+  curMainMenuIdx: 1
   curSubMenuIdx: 0
