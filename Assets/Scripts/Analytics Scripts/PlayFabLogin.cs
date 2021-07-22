@@ -12,6 +12,9 @@ public class PlayFabLogin : MonoBehaviour {
     public InputField email;
     public InputField display;
     public Text messageText;
+    public GameObject loadingDialogue;
+    public NetworkManager netManage;
+    public GameObject playFabLogin;
     public void Start() {
         
     }
@@ -41,13 +44,24 @@ public class PlayFabLogin : MonoBehaviour {
     void OnLoginSuccess(LoginResult result) {
         messageText.text = "Logged In!";
         Debug.Log("Successful login");
+        StartCoroutine(FinishPlayfabLogin());
     }
     void OnError(PlayFabError error) {
         messageText.text = error.ErrorMessage;
+        //if (error.ErrorMessage == "Invalid input parameters") {
+        //    messageText.text = "Username or Password does not exist";
+        //}
         Debug.Log(error.GenerateErrorReport());
     }
     void OnRegisterSuccess(RegisterPlayFabUserResult result) {
         messageText.text = "Registered and logged in!";
+        StartCoroutine(FinishPlayfabLogin());
+    }
+    IEnumerator FinishPlayfabLogin() {
+        yield return new WaitForSeconds(1f);
+        playFabLogin.SetActive(false);
+        loadingDialogue.SetActive(true);
+        netManage.PhotonLogin();
     }
     IEnumerator TurnOffError() {
         yield return new WaitForSeconds(3f);

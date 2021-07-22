@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 using Photon.Realtime;
+using PlayFab;
+using PlayFab.ClientModels;
 using TMPro;
 using Hashtable = ExitGames.Client.Photon.Hashtable;
 
@@ -25,6 +27,8 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     [HideInInspector] public bool fromRoomLobby = false;
 
+    string playFabNick;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -40,14 +44,30 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
+        
+    }
+    void Success(GetPlayerProfileResult result) {
+        playFabNick = result.PlayerProfile.DisplayName;
+        PhotonNetwork.NickName = playFabNick; // sets the player name to a random name for now till player profiles are made
+    }
+    void Fail(PlayFabError error) {
+        Debug.LogError(error.GenerateErrorReport());
+    }
+    public void PhotonLogin() {
+        GetPlayerProfileRequest request = new GetPlayerProfileRequest();
+        PlayFabClientAPI.GetPlayerProfile(request, Success, Fail);
+
+        PhotonConnect();
+    }
+    public void PhotonConnect() {
+        Debug.Log(PhotonNetwork.NickName + " has joined the server");
+
         PhotonNetwork.GameVersion = gameVersion.ToString();
         PhotonNetwork.ConnectUsingSettings();
 
-        PhotonNetwork.NickName = "Player " + Random.Range(0, 1000).ToString("0000"); // sets the player name to a random name for now till player profiles are made
-        Debug.Log(PhotonNetwork.NickName + " has joined the server");
-
         Debug.Log("Connecting online");
     }
+    
 
     public override void OnConnectedToMaster()
     {
