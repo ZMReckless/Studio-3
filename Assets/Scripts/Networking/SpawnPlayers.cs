@@ -5,9 +5,6 @@ using Photon.Pun;
 
 public class SpawnPlayers : MonoBehaviourPunCallbacks
 {
-    public GameObject mobilePrefab;
-    public GameObject pcPlayers;
-
     public Transform mobileSpawnpoint;
     public Transform team1PCSpawnpoint;
     public Transform team2PCSpawnpoint;
