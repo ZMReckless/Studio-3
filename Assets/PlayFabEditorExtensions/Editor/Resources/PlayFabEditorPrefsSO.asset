@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5d0199c11aa6f514784c5c69cd8378d8, type: 3}
   m_Name: PlayFabEditorPrefsSO
   m_EditorClassIdentifier: 
-  DevAccountEmail: 1019405@student.sae.edu.au
-  DevAccountToken: 37ogo1psq3ygrb9fm73yp4oxri8c6o39gn7bsco5fmwcgtz1fwsmkwundg6fnn3pohh7oxmwecmxsdn5gmj8sees3w3bx8et17f3g56ghosacsp369cy7qnb9yp53tcnbnemreixr71k1xt566beh49r1d3k61x7zgr6xjtp5s4h6b6jigrfi4pauuhrt8okunetw1hr
-  SelectedStudio: Mum and the Huns
-  SdkPath: Assets/PlayFabSDK
+  DevAccountEmail: 
+  DevAccountToken: 
+  SelectedStudio: 
+  SdkPath: 
   EdExPath: 
   LocalCloudScriptPath: 
   PanelIsShown: 0
-  curMainMenuIdx: 3
+  curMainMenuIdx: 0
   curSubMenuIdx: 0
