@@ -29,14 +29,16 @@ public class RoomDetails : MonoBehaviourPunCallbacks
                 });
             }
 
-            if (PhotonNetwork.PlayerList.Length == PhotonNetwork.CurrentRoom.MaxPlayers)
-            {
-                NetworkManager.Instance.startGameButton.SetActive(true);
-            }
-            else
-            {
-                NetworkManager.Instance.startGameButton.SetActive(false);
-            }
+            NetworkManager.Instance.startGameButton.SetActive(true);
+
+            //if (PhotonNetwork.PlayerList.Length == PhotonNetwork.CurrentRoom.MaxPlayers)
+            //{
+            //    NetworkManager.Instance.startGameButton.SetActive(true);
+            //}
+            //else
+            //{
+            //    NetworkManager.Instance.startGameButton.SetActive(false);
+            //}
         }
     }
 

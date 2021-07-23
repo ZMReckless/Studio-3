@@ -38,6 +38,9 @@ MonoBehaviour:
   - AddPlayer
   - PopulatePlayers
   - RemovePlayers
+  - SpawnAssignPlayers
+  - AddScore
+  - ResetPlayerPositions
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
