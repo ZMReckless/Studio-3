@@ -24,6 +24,6 @@ public class PlayerManager : MonoBehaviour
     {
         Debug.Log("Instantiated Player Controller");
         GameObject spawnPosition = GameObject.Find("SpawnPoint");
-        PhotonNetwork.Instantiate("Player", spawnPosition.transform.position, spawnPosition.transform.rotation);
+        PhotonNetwork.Instantiate("Player(Latest)", spawnPosition.transform.position, spawnPosition.transform.rotation);
     }
 }
