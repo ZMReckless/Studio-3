@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class Shootable : MonoBehaviour
+public class Shootable : MonoBehaviourPunCallbacks
 {
     public ParticleSystem shotAtEffect; //blood
     public Collider primaryCollider; //ragdoll
@@ -11,6 +13,13 @@ public class Shootable : MonoBehaviour
     public Camera mainCam; //killcam
     public Camera killCam; //killcam
     public GameObject canvases; //killcam
+
+    PhotonView PV;
+
+    private void Start()
+    {
+        PV = GetComponent<PhotonView>();
+    }
 
     private void Awake() //ragdoll
     {
@@ -31,9 +40,25 @@ public class Shootable : MonoBehaviour
 
     public void GetShot() //blood //killcam
     {
+        PV.RPC("RPC_GetShot", RpcTarget.All);
+        
+    }
+
+    [PunRPC]
+    public void RPC_GetShot()
+    {
+        if (!PV.IsMine)
+        {
+            return;
+        }
         shotAtEffect.Play();
         EnableKillCam();
+
+
+
     }
+
+
 
     public void EnableKillCam() //killcam
     {

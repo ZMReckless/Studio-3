@@ -22,19 +22,22 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     public Animator gunAnim; //attached to pivot
 
+    PhotonView PV;
+
     //public Transform bulletShellLocation; //moved to new script
     //public GameObject bulletShell;
     //public float bulletShellForce;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
+        PV = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
-    [PunRPC]
+
     void Update()
     {
         ammoDisplay.text = currentAmmo.ToString() + slash + maxAmmo.ToString();
@@ -42,23 +45,33 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         {
             nextShot = Time.time + 1 / fireRate;
 
-            Shoot();
+            RPC_Shoot();
             isFiring = true;
-            currentAmmo --;
+            currentAmmo--;
             isFiring = false;
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             Reload();
         }
-       
+
+    }
+
+
+    public void Shoot()
+    {
+        PV.RPC("RPC_Shoot", RpcTarget.All);
     }
 
     [PunRPC]
-    public void Shoot()
+    public void RPC_Shoot()
     {
+        if (!PV.IsMine)
+        {
+            return;
+        }
+
         gunAnim.SetTrigger("Shoot");
-        
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, shotRange))
@@ -66,17 +79,25 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             Shootable shootable = hit.transform.GetComponent<Shootable>();
             if (shootable != null)
             {
-                shootable.GetShot();
+                shootable.RPC_GetShot();
                 shootable.EnableRagdoll(true);
             }
 
             if (hit.rigidbody != null)
             {
                 hit.rigidbody.AddForce(-hit.normal * pushBackForce);
-                
+
             }
         }
+
+
+
+
+
+
     }
+
+
 
     void Reload()
     {

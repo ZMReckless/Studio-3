@@ -2462,11 +2462,6 @@ PrefabInstance:
       propertyPath: sceneViewId
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 583897892151079646, guid: 68509cd9dc017314f80976ab9a6ac3d6,
-        type: 3}
-      propertyPath: ammoDisplay
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 583897893656808224, guid: 68509cd9dc017314f80976ab9a6ac3d6,
         type: 3}
       propertyPath: m_RootOrder
