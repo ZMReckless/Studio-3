@@ -546,7 +546,7 @@ MonoBehaviour:
   roomName: {fileID: 148903415298216963}
   mapName: {fileID: 148903416044154572}
   playerCount: {fileID: 148903415213348906}
-  maxMBPlayers: 0
+  maxMBPlayers: 2
   maxFPSPlayers: 2
   MBImages:
   - {fileID: 148903415823220201}
