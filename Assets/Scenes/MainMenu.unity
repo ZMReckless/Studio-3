@@ -30700,7 +30700,7 @@ PrefabInstance:
     - target: {fileID: 2933806985078990061, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2933806985078990061, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
@@ -30827,6 +30827,16 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2933806985510099764, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_InputType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806985510099764, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2933806985712868415, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: m_Color.b
@@ -30841,6 +30851,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.r
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806985827392482, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_InputType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806985827392482, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2933806985863964786, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
@@ -30885,6 +30905,11 @@ PrefabInstance:
     - target: {fileID: 2933806986010294694, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806986294810662, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_UiScaleMode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2933806986380576381, guid: c81935f958edb8549b2b3f05bd33443e,
