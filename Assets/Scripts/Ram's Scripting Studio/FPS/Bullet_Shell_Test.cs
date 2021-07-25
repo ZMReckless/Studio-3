@@ -14,7 +14,7 @@ public class Bullet_Shell_Test : MonoBehaviour
         var bulletShellForce_X = Random.Range(30, 50);
         var triggerBulletShell = Instantiate(bulletShell, bulletShellLocation.position, bulletShellLocation.rotation);
         triggerBulletShell.GetComponent<Rigidbody>().AddForce(bulletShellForce_X, bulletShellForce_Y, 0);
-        Destroy(triggerBulletShell, 5);
+        Destroy(triggerBulletShell, 8);
 
     }
 }

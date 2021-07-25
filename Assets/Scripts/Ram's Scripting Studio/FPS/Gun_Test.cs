@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class Gun_Test : MonoBehaviour
+public class Gun_Test : MonoBehaviourPunCallbacks
 {
     public ParticleSystem muzzleFlash;
     public float shotRange = 100f;
@@ -28,16 +30,18 @@ public class Gun_Test : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
+    [PunRPC]
     void Update()
     {
         ammoDisplay.text = currentAmmo.ToString() + slash + maxAmmo.ToString();
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
             nextShot = Time.time + 1 / fireRate;
+
             Shoot();
             isFiring = true;
             currentAmmo --;
@@ -50,9 +54,11 @@ public class Gun_Test : MonoBehaviour
        
     }
 
+    [PunRPC]
     public void Shoot()
     {
         gunAnim.SetTrigger("Shoot");
+        
         muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, shotRange))
