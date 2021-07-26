@@ -11,7 +11,7 @@ public class Shootable : MonoBehaviourPunCallbacks
     public Collider[] allColliders; //ragdoll
 
     public Camera mainCam; //killcam
-    public Camera killCam; //killcam
+    //public Camera killCam; //killcam
     public GameObject canvases; //killcam
 
     //PhotonView PV;
@@ -49,19 +49,19 @@ public class Shootable : MonoBehaviourPunCallbacks
     public void RPC_GetShot()
     {
         shotAtEffect.Play();
-        EnableKillCam();
+        //EnableKillCam();
     }
 
 
 
-    public void EnableKillCam() //killcam
-    {
-        mainCam.enabled = false;
-        killCam.enabled = true;
-        Time.timeScale = 0.5f;
-        Time.fixedDeltaTime = 0.02f * Time.timeScale;
-        canvases.SetActive(false);
-    }
+    //public void EnableKillCam() //killcam
+    //{
+    //    mainCam.enabled = false;
+    //    killCam.enabled = true;
+    //    Time.timeScale = 0.5f;
+    //    Time.fixedDeltaTime = 0.02f * Time.timeScale;
+    //    canvases.SetActive(false);
+    //}
 
     
 }
