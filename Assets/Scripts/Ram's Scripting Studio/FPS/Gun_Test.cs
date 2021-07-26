@@ -82,9 +82,9 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             Shootable shootable = hit.transform.GetComponent<Shootable>();
             if (shootable != null)
             {
-                Debug.Log("shot someone");
+                Debug.LogWarning("shot someone");
                 shootable.RPC_GetShot();
-                shootable.EnableRagdoll(true);
+                shootable.RPC_EnableRagdoll(true);
             }
 
             if (hit.rigidbody != null)
@@ -93,15 +93,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
             }
         }
-
-
-
-
-
-
     }
-
-
 
     void Reload()
     {
