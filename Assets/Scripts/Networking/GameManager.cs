@@ -19,13 +19,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int redWins;
     public int blueWins;
 
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject team1MBPlayer;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject team2MBPlayer;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject team1PCPlayer;
-    [HideInInspector]
+    //[HideInInspector]
     public GameObject team2PCPlayer;
 
     private void Awake()
