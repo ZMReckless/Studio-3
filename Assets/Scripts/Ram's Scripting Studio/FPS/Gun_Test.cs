@@ -72,7 +72,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         }
 
         gunAnim.SetTrigger("Shoot");
-        muzzleFlash.Play();
+        //muzzleFlash.Play();
+        photonView.RPC("PlayMuzzleFlash", RpcTarget.All);
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, shotRange))
         {
@@ -85,6 +86,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
                 Debug.LogWarning("shot someone");
                 shootable.photonView.RPC("RPC_GetShot", RpcTarget.All);
                 shootable.EnableRagdoll(true);
+               
             }
 
             if (hit.rigidbody != null)
@@ -100,7 +102,11 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         currentAmmo = maxAmmo;
     }
 
-    
+    [PunRPC]
+    void PlayMuzzleFlash()
+    {
+        muzzleFlash.Play();
+    }
     
 
     //void BulletShellTrigger() //moved to new script
