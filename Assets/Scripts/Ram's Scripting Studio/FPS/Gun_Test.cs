@@ -22,7 +22,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     public Animator gunAnim; //attached to pivot
 
-    PhotonView PV;
+    //PhotonView PV;
 
     //public Transform bulletShellLocation; //moved to new script
     //public GameObject bulletShell;
@@ -33,7 +33,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     void Start()
     {
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
-        PV = GetComponent<PhotonView>();
+        //PV = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
@@ -60,13 +60,13 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        PV.RPC("RPC_Shoot", RpcTarget.All);
+        photonView.RPC("RPC_Shoot", RpcTarget.All);
     }
 
     [PunRPC]
     public void RPC_Shoot()
     {
-        if (!PV.IsMine)
+        if (!photonView.IsMine)
         {
             return;
         }
@@ -76,6 +76,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, shotRange))
         {
+            Vector3 forward = transform.TransformDirection(Vector3.forward * shotRange);
+            Debug.DrawRay(transform.position, forward, Color.red);
             Shootable shootable = hit.transform.GetComponent<Shootable>();
             if (shootable != null)
             {
