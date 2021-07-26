@@ -47,6 +47,7 @@ MonoBehaviour:
   - RPC_GetShot
   - RPC_EnableRagdoll
   - PlayMuzzleFlash
+  - GunAnimSetTrigger
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

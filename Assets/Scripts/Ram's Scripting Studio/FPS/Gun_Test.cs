@@ -89,6 +89,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
                 Debug.LogWarning("shot someone");
                 shootable.photonView.RPC("RPC_GetShot", RpcTarget.All);
                 shootable.EnableRagdoll(true);
+                photonView.RPC("RPC_EnableRagdoll", RpcTarget.All);
             }
 
             
@@ -116,6 +117,13 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     void GunAnimSetTrigger()
     {
         gunAnim.SetTrigger("Shoot");
+    }
+
+    [PunRPC]
+    void RPC_EnableRagdoll()
+    {
+        Shootable shootable = GetComponent<Shootable>();
+        shootable.EnableRagdoll(true);
     }
     
 
