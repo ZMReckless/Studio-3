@@ -56,18 +56,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             Reload();
         }
 
-        if(Input.GetKeyDown(KeyCode.L))
-        {
-            
-            Shootable shootable = GetComponent<Shootable>();
-            if(shootable != null)
-            {
-                shootable.EnableRagdoll(true);
-            }
-            
-            
-
-        }
+        
     }
 
 
@@ -84,7 +73,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             return;
         }
 
-        gunAnim.SetTrigger("Shoot");
+        //gunAnim.SetTrigger("Shoot");
+        photonView.RPC("GunAnimSetTrigger", RpcTarget.All);
         //muzzleFlash.Play();
         photonView.RPC("PlayMuzzleFlash", RpcTarget.All);
         RaycastHit hit;
@@ -99,8 +89,9 @@ public class Gun_Test : MonoBehaviourPunCallbacks
                 Debug.LogWarning("shot someone");
                 shootable.photonView.RPC("RPC_GetShot", RpcTarget.All);
                 shootable.EnableRagdoll(true);
-               
             }
+
+            
 
             if (hit.rigidbody != null)
             {
@@ -119,6 +110,12 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     void PlayMuzzleFlash()
     {
         muzzleFlash.Play();
+    }
+
+    [PunRPC]
+    void GunAnimSetTrigger()
+    {
+        gunAnim.SetTrigger("Shoot");
     }
     
 
