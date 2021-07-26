@@ -6,13 +6,16 @@ using Photon.Pun;
 // script to activate controls for the specific mobile player
 public class MobileComponentActivator : MonoBehaviourPunCallbacks
 {
-    public GameObject mobileCamera;
+    public GameObject[] activateComponents;
 
     void Start()
     {
         if (photonView.IsMine)
         {
-            mobileCamera.SetActive(true);
+            foreach (GameObject component in activateComponents)
+            {
+                component.SetActive(true);
+            }
         }
     }
 }

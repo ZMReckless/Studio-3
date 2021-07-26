@@ -1668,7 +1668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6959753360357996614
 Transform:
   m_ObjectHideFlags: 0
@@ -1817,7 +1817,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d61e7d3d268116439a7201743c24e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mobileCamera: {fileID: 6959753361626815611}
+  activateComponents:
+  - {fileID: 6959753360982270730}
+  - {fileID: 6959753360357996608}
+  - {fileID: 6959753361176715210}
 --- !u!1 &6959753360982270730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1836,7 +1839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6959753360982270731
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1934,7 +1937,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6959753361176715208
 Transform:
   m_ObjectHideFlags: 0
@@ -2135,7 +2138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6959753361626815614
 Transform:
   m_ObjectHideFlags: 0
