@@ -76,14 +76,14 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, shotRange))
         {
-            Vector3 forward = transform.TransformDirection(Vector3.forward * shotRange);
-            Debug.DrawRay(transform.position, forward, Color.red);
+            //Vector3 forward = transform.TransformDirection(Vector3.forward * shotRange);
+            //Debug.DrawRay(transform.position, forward, Color.red);
 
             Shootable shootable = hit.transform.GetComponent<Shootable>();
             if (shootable != null)
             {
                 Debug.LogWarning("shot someone");
-                shootable.RPC_GetShot();
+                shootable.photonView.RPC("RPC_GetShot", RpcTarget.All);
                 shootable.EnableRagdoll(true);
             }
 
@@ -99,6 +99,9 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     {
         currentAmmo = maxAmmo;
     }
+
+    
+    
 
     //void BulletShellTrigger() //moved to new script
     //{
