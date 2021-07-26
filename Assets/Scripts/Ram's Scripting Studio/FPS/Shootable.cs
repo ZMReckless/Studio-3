@@ -43,7 +43,7 @@ public class Shootable : MonoBehaviourPunCallbacks
     public void GetShot() //blood //killcam
     {
         photonView.RPC("RPC_GetShot", RpcTarget.All);
-        
+        shotAtEffect.Play();
     }
 
     [PunRPC]

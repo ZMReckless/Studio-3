@@ -66,10 +66,10 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     [PunRPC]
     public void RPC_Shoot()
     {
-        //if (!photonView.IsMine)
-        //{
-        //    return;
-        //}
+        if (!photonView.IsMine)
+        {
+            return;
+        }
 
         gunAnim.SetTrigger("Shoot");
         muzzleFlash.Play();
