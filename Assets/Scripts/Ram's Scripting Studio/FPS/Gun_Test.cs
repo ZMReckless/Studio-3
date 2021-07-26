@@ -84,7 +84,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             {
                 Debug.LogWarning("shot someone");
                 shootable.RPC_GetShot();
-                shootable.RPC_EnableRagdoll(true);
+                shootable.EnableRagdoll(true);
             }
 
             if (hit.rigidbody != null)

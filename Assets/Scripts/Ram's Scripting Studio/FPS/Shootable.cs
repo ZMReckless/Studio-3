@@ -30,13 +30,6 @@ public class Shootable : MonoBehaviourPunCallbacks
 
     public void EnableRagdoll(bool ragDollEnabled) //ragdoll
     {
-        photonView.RPC("RPC_EnableRagdoll", RpcTarget.All, ragDollEnabled);
-        
-    }
-
-    [PunRPC]
-    public void RPC_EnableRagdoll(bool ragDollEnabled)
-    {
         foreach (var col in allColliders)
             col.enabled = ragDollEnabled;
         primaryCollider.enabled = !ragDollEnabled;
@@ -44,6 +37,9 @@ public class Shootable : MonoBehaviourPunCallbacks
         GetComponent<Animator>().enabled = !ragDollEnabled;
     }
 
+   
+
+    
     public void GetShot() //blood //killcam
     {
         photonView.RPC("RPC_GetShot", RpcTarget.All);
