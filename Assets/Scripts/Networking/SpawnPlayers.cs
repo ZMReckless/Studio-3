@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+// spawns players
 public class SpawnPlayers : MonoBehaviourPunCallbacks
 {
     public Transform mobileSpawnpoint;

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+// this script manages the game rounds
+// references the individual players
+// reset/next round code
+// adds round scores
 public class GameManager : MonoBehaviourPunCallbacks
 {
     public static GameManager Instance;
@@ -26,6 +30,8 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        Instance = this;
+
         roundIndex = 1;
         redWins = 0;
         blueWins = 0;
