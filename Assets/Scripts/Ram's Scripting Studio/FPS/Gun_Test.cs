@@ -78,9 +78,11 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         {
             Vector3 forward = transform.TransformDirection(Vector3.forward * shotRange);
             Debug.DrawRay(transform.position, forward, Color.red);
+
             Shootable shootable = hit.transform.GetComponent<Shootable>();
             if (shootable != null)
             {
+                Debug.Log("shot someone");
                 shootable.RPC_GetShot();
                 shootable.EnableRagdoll(true);
             }

@@ -14,11 +14,11 @@ public class Shootable : MonoBehaviourPunCallbacks
     public Camera killCam; //killcam
     public GameObject canvases; //killcam
 
-    PhotonView PV;
+    //PhotonView PV;
 
     private void Start()
     {
-        PV = GetComponent<PhotonView>();
+        //PhotonView = GetComponent<PhotonView>();
     }
 
     private void Awake() //ragdoll
@@ -40,17 +40,14 @@ public class Shootable : MonoBehaviourPunCallbacks
 
     public void GetShot() //blood //killcam
     {
-        PV.RPC("RPC_GetShot", RpcTarget.All);
+        photonView.RPC("RPC_GetShot", RpcTarget.All);
         
     }
 
     [PunRPC]
     public void RPC_GetShot()
     {
-        if (!PV.IsMine)
-        {
-            return;
-        }
+       
         shotAtEffect.Play();
         EnableKillCam();
 
