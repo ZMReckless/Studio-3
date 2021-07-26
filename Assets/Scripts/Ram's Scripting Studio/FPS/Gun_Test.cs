@@ -27,13 +27,14 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     //public Transform bulletShellLocation; //moved to new script
     //public GameObject bulletShell;
     //public float bulletShellForce;
-
+    
 
     // Start is called before the first frame update
     void Start()
     {
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         //PV = GetComponent<PhotonView>();
+        
     }
 
     // Update is called once per frame
@@ -55,6 +56,18 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             Reload();
         }
 
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            
+            Shootable shootable = GetComponent<Shootable>();
+            if(shootable != null)
+            {
+                shootable.EnableRagdoll(true);
+            }
+            
+            
+
+        }
     }
 
 
