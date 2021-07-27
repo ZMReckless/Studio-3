@@ -84,13 +84,14 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             //Debug.DrawRay(transform.position, forward, Color.red);
 
             Shootable shootable = hit.transform.GetComponent<Shootable>();
+            TriggerVicDefScreen triggerVicDefScreen = GetComponent<TriggerVicDefScreen>();
             if (shootable != null)
             {
                 //Debug.LogWarning("shot someone");
                 shootable.photonView.RPC("RPC_GetShot", RpcTarget.All, true);
                 //shootable.EnableRagdoll(true);
                 //shootable.photonView.RPC("RPC_EnableRagdoll", RpcTarget.All, true);
-                shootable.photonView.RPC("TriggerDefeatScreen", RpcTarget.All);
+                triggerVicDefScreen.photonView.RPC("TriggerDefeatScreen", RpcTarget.All);
             }
 
             if (hit.rigidbody != null)
