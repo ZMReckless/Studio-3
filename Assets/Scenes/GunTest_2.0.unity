@@ -345,12 +345,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 78e1c8c5b281b8b439229473779ac9aa, type: 3}
---- !u!1 &204530853 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 401817727, guid: bc93e796003c637468281b2f6b0dde3f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1488103549072278605}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &226955359 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1212466729672078, guid: 7aad5b0274fd2894eafec31a58e26a32,
@@ -1281,10 +1275,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1680217508, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
-      propertyPath: defeatScreen
-      value: 
-      objectReference: {fileID: 204530853}
     - target: {fileID: 583897893656808224, guid: 2689a2ef332987845b3c36f7b90e3e03,
         type: 3}
       propertyPath: m_RootOrder
@@ -1477,7 +1467,6 @@ MonoBehaviour:
   allColliders: []
   mainCam: {fileID: 0}
   canvases: {fileID: 363577523}
-  defeatScreen: {fileID: 0}
 --- !u!54 &1454948602
 Rigidbody:
   m_ObjectHideFlags: 0

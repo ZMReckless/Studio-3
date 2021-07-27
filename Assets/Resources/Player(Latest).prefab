@@ -11852,8 +11852,8 @@ MonoBehaviour:
   shotAtEffect: {fileID: 583897893102979918}
   primaryCollider: {fileID: 583897892542343483}
   allColliders: []
-  mainCam: {fileID: 0}
-  canvases: {fileID: 0}
+  vicScreen: {fileID: 0}
+  defScreen: {fileID: 0}
 --- !u!114 &8440355946620501824
 MonoBehaviour:
   m_ObjectHideFlags: 0

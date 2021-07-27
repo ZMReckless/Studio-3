@@ -10,10 +10,12 @@ public class Shootable : MonoBehaviourPunCallbacks
     public Collider primaryCollider; //ragdoll
     public Collider[] allColliders; //ragdoll
 
-    public Camera mainCam; //killcam
-    //public Camera killCam; //killcam
-    public GameObject canvases; //killcam
-    private Victory_Selector VS;
+    //public Camera mainCam; //killcam
+    ////public Camera killCam; //killcam
+    //public GameObject canvases; //killcam
+
+    public GameObject vicScreen;
+    public GameObject defScreen;
 
     //PhotonView PV;
 
@@ -31,6 +33,11 @@ public class Shootable : MonoBehaviourPunCallbacks
         RPC_GetShot(false);
         shotAtEffect.Pause();
         
+    }
+
+    void start()
+    {
+        defScreen.SetActive(false);
     }
 
     public void EnableRagdoll(bool ragDollEnabled) //ragdoll
@@ -71,7 +78,7 @@ public class Shootable : MonoBehaviourPunCallbacks
         GetComponent<Rigidbody>().useGravity = !ragDollEnabled;
         GetComponent<Animator>().enabled = !ragDollEnabled;
 
-        VS.defeatScreen.SetActive(true);
+        defScreen.SetActive(true);
 
         //EnableKillCam();
     }
