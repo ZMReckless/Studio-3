@@ -14,8 +14,10 @@ public class Shootable : MonoBehaviourPunCallbacks
     ////public Camera killCam; //killcam
     //public GameObject canvases; //killcam
 
-    public GameObject vicScreen;
-    public GameObject defScreen;
+    [SerializeField]
+    private GameObject vicScreen;
+    [SerializeField]
+    private GameObject defScreen;
 
     //PhotonView PV;
 
@@ -37,7 +39,8 @@ public class Shootable : MonoBehaviourPunCallbacks
 
     void start()
     {
-        defScreen.SetActive(false);
+        //defScreen.SetActive(false);
+       defScreen = GameObject.Find("Defeat_Panel");
     }
 
     public void EnableRagdoll(bool ragDollEnabled) //ragdoll
@@ -79,8 +82,14 @@ public class Shootable : MonoBehaviourPunCallbacks
         GetComponent<Animator>().enabled = !ragDollEnabled;
 
         defScreen.SetActive(true);
-
+        
         //EnableKillCam();
+    }
+
+    [PunRPC]
+    void TriggerDefeatScreen()
+    {
+        defScreen.SetActive(true);
     }
 
     //[PunRPC]
@@ -103,5 +112,5 @@ public class Shootable : MonoBehaviourPunCallbacks
     //    canvases.SetActive(false);
     //}
 
-    
+
 }
