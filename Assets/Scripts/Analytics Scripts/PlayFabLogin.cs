@@ -3,12 +3,13 @@ using PlayFab.ClientModels;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using TMPro;
 
 public class PlayFabLogin : MonoBehaviour {
-    public InputField username;
-    public InputField loginUsername;
-    public InputField password;
-    public InputField loginPassword;
+    public TMP_InputField username;
+    public TMP_InputField loginUsername;
+    public TMP_InputField password;
+    public TMP_InputField loginPassword;
     public InputField email;
     public InputField display;
     public Text messageText;
