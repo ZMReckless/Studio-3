@@ -43870,7 +43870,7 @@ PrefabInstance:
     - target: {fileID: 114660324495345796, guid: f32d628d70fd4a04dafdc10352f00f7c,
         type: 3}
       propertyPath: buttonText
-      value: SIGN UP
+      value: Back To Login
       objectReference: {fileID: 0}
     - target: {fileID: 114827750117084474, guid: f32d628d70fd4a04dafdc10352f00f7c,
         type: 3}
@@ -44000,7 +44000,7 @@ PrefabInstance:
     - target: {fileID: 224759924622938868, guid: f32d628d70fd4a04dafdc10352f00f7c,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -164
+      value: -157
       objectReference: {fileID: 0}
     - target: {fileID: 224759924622938868, guid: f32d628d70fd4a04dafdc10352f00f7c,
         type: 3}
