@@ -172,21 +172,22 @@ public class RoomDetails : MonoBehaviourPunCallbacks
     {
         base.OnPlayerLeftRoom(otherPlayer);
 
-        if ((int)otherPlayer.CustomProperties["PlayerPlatform"] == 0)
+        int playerIndex = (int)otherPlayer.CustomProperties["PlayerPlatform"];
+
+        switch (playerIndex) 
         {
-            team1MBPlayer.text = "Team 1 MB Player";
-        }
-        else if ((int)otherPlayer.CustomProperties["PlayerPlatform"] == 1)
-        {
-            team2MBPlayer.text = "Team 2 MB Player";
-        }
-        else if ((int)otherPlayer.CustomProperties["PlayerPlatform"] == 2)
-        {
-            team1FPSPlayer.text = "Team 1 FPS Player";
-        }
-        else
-        {
-            team2FPSPlayer.text = "Team 2 FPS Player";
+            case 0:
+                team1MBPlayer.text = "Empty Slot";
+                break;
+            case 1:
+                team2MBPlayer.text = "Empty Slot";
+                break;
+            case 2:
+                team1FPSPlayer.text = "Empty Slot";
+                break;
+            case 3:
+                team2FPSPlayer.text = "Empty Slot";
+                break;
         }
     }
 
@@ -200,23 +201,26 @@ public class RoomDetails : MonoBehaviourPunCallbacks
 
         foreach (Player player in players)
         {
-            if ((int)player.CustomProperties["PlayerPlatform"] == 0)
+            int playerIndex = (int)player.CustomProperties["PlayerPlatform"];
+
+            switch (playerIndex)
             {
-                team1MBPlayer.text = player.NickName;
-            }
-            else if ((int)player.CustomProperties["PlayerPlatform"] == 1)
-            {
-                team2MBPlayer.text = player.NickName;
-            }
-            else if ((int)player.CustomProperties["PlayerPlatform"] == 2)
-            {
-                team1FPSPlayer.text = player.NickName;
-            }
-            else
-            {
-                team2FPSPlayer.text = player.NickName;
+                case 0:
+                    team1MBPlayer.text = player.NickName;
+
+                    break;
+                case 1:
+                    team2MBPlayer.text = player.NickName;
+                    break;
+                case 2:
+                    team1FPSPlayer.text = player.NickName;
+                    break;
+                case 3:
+                    team2FPSPlayer.text = player.NickName;
+                    break;
             }
         }
+
         Debug.Log((int)PhotonNetwork.CurrentRoom.CustomProperties["FPSPlayer"]);
     }
 }
