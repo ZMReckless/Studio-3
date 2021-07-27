@@ -987,8 +987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSens: 3
   playerBody: {fileID: 579382110883416101}
-  minClamp: -90
-  maxClamp: 90
+  minClamp: -30
+  maxClamp: 25
   photonView: {fileID: 309308392958404017}
 --- !u!222 &583897891949566803
 CanvasRenderer:
@@ -11713,7 +11713,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1167325499110747474}
   - {fileID: 678949477405727410}
-  sceneViewId: 3
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &678949477405727410
@@ -13043,6 +13043,7 @@ MonoBehaviour:
   isFiring: 0
   ammoDisplay: {fileID: 0}
   gunAnim: {fileID: 583897892921752822}
+  playerAnim: {fileID: 670659410933681497}
 --- !u!114 &1237093227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13062,7 +13063,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 1
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &585015069673618170
@@ -14533,7 +14534,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 2
+  sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1626456573

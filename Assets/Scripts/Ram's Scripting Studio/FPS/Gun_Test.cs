@@ -21,7 +21,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     public TextMeshProUGUI ammoDisplay;
 
     public Animator gunAnim; //attached to pivot
-
+    public Animator playerAnim;
 
     //PhotonView PV;
 
@@ -46,7 +46,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
             nextShot = Time.time + 1 / fireRate;
-
+            playerAnim.SetBool("isIdle", true);
             RPC_Shoot();
             isFiring = true;
             currentAmmo--;
