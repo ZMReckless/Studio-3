@@ -43875,7 +43875,7 @@ PrefabInstance:
     - target: {fileID: 114827750117084474, guid: f32d628d70fd4a04dafdc10352f00f7c,
         type: 3}
       propertyPath: m_text
-      value: SIGN UP
+      value: Back To Login
       objectReference: {fileID: 0}
     - target: {fileID: 114827750117084474, guid: f32d628d70fd4a04dafdc10352f00f7c,
         type: 3}
