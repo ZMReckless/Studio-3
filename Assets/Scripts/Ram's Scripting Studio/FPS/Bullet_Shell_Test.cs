@@ -10,10 +10,10 @@ public class Bullet_Shell_Test : MonoBehaviour
 
     void BulletShellTrigger()
     {
-        var bulletShellForce_Y = Random.Range(100, 130);
-        var bulletShellForce_X = Random.Range(30, 50);
+        var bulletShellForce_Y = Random.Range(90, 110);
+        var bulletShellForce_Z = Random.Range(30, 50);
         var triggerBulletShell = Instantiate(bulletShell, bulletShellLocation.position, bulletShellLocation.rotation);
-        triggerBulletShell.GetComponent<Rigidbody>().AddForce(bulletShellForce_X, bulletShellForce_Y, 0);
+        triggerBulletShell.GetComponent<Rigidbody>().AddForce(0, bulletShellForce_Y, -bulletShellForce_Z);
         Destroy(triggerBulletShell, 8);
 
     }

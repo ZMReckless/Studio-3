@@ -26,6 +26,7 @@ public class Shootable : MonoBehaviourPunCallbacks
         primaryCollider = GetComponent<Collider>(); 
         allColliders = GetComponentsInChildren<Collider>(true);
         RPC_GetShot(false);
+        shotAtEffect.Pause();
     }
 
     public void EnableRagdoll(bool ragDollEnabled) //ragdoll
@@ -59,6 +60,7 @@ public class Shootable : MonoBehaviourPunCallbacks
     public void RPC_GetShot(bool ragDollEnabled)
     {
         shotAtEffect.Play();
+
         foreach (var col in allColliders)
             col.enabled = ragDollEnabled;
         primaryCollider.enabled = !ragDollEnabled;
