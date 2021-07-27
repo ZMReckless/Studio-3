@@ -88,7 +88,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             if (shootable != null)
             {
                 //Debug.LogWarning("shot someone");
-                shootable.photonView.RPC("RPC_GetShot", RpcTarget.All, true);
+                shootable.photonView.RPC("RPC_GetShot", RpcTarget.All);
                 //shootable.EnableRagdoll(true);
                 //shootable.photonView.RPC("RPC_EnableRagdoll", RpcTarget.All, true);
                
