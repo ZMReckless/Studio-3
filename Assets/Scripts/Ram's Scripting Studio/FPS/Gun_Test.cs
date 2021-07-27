@@ -55,7 +55,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         {
             Reload();
         }
-
+       
         
     }
 
@@ -87,12 +87,10 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             if (shootable != null)
             {
                 //Debug.LogWarning("shot someone");
-                shootable.photonView.RPC("RPC_GetShot", RpcTarget.All);
+                shootable.photonView.RPC("RPC_GetShot", RpcTarget.All, true);
                 //shootable.EnableRagdoll(true);
-                photonView.RPC("RPC_EnableRagdoll", RpcTarget.All);
+                //shootable.photonView.RPC("RPC_EnableRagdoll", RpcTarget.All, true);
             }
-
-            
 
             if (hit.rigidbody != null)
             {
@@ -119,12 +117,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         gunAnim.SetTrigger("Shoot");
     }
 
-    [PunRPC]
-    void RPC_EnableRagdoll()
-    {
-        Shootable shootable = GetComponent<Shootable>();
-        shootable.EnableRagdoll(true);
-    }
+ 
     
 
     //void BulletShellTrigger() //moved to new script
