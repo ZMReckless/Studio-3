@@ -21,7 +21,7 @@ public class Shootable : MonoBehaviourPunCallbacks
     private void Start()
     {
         //PhotonView = GetComponent<PhotonView>();
-       
+        shotAtEffect.Pause();
     }
 
     private void Awake() //ragdoll
@@ -78,8 +78,7 @@ public class Shootable : MonoBehaviourPunCallbacks
         GetComponent<Rigidbody>().useGravity = !ragDollEnabled;
         GetComponent<Animator>().enabled = !ragDollEnabled;
 
-        TriggerVicDefScreen triggerVicDefScreen = GetComponent<TriggerVicDefScreen>();
-        triggerVicDefScreen.photonView.RPC("TriggerDefeatScreen", RpcTarget.All);
+       
 
         //EnableKillCam();
     }
