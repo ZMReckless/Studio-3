@@ -987,6 +987,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mouseSens: 3
   playerBody: {fileID: 579382110883416101}
+  minClamp: -90
+  maxClamp: 90
   photonView: {fileID: 309308392958404017}
 --- !u!222 &583897891949566803
 CanvasRenderer:
@@ -11711,7 +11713,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1167325499110747474}
   - {fileID: 678949477405727410}
-  sceneViewId: 0
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &678949477405727410
@@ -13060,7 +13062,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &585015069673618170
@@ -14531,7 +14533,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1626456573

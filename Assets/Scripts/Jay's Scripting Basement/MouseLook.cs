@@ -11,7 +11,8 @@ public class MouseLook : MonoBehaviour
     
 
     float xRot = 0f;
-
+    public float minClamp = -90;
+    public float maxClamp = 90;
 
     [SerializeField] PhotonView photonView;
 
@@ -46,7 +47,7 @@ public class MouseLook : MonoBehaviour
         float mouseY = Input.GetAxis("Mouse Y") * (mouseSens * 100) * Time.deltaTime;
 
         xRot -= mouseY;
-        xRot = Mathf.Clamp(xRot, -90f, 90f);
+        xRot = Mathf.Clamp(xRot, minClamp, maxClamp);
 
         transform.localRotation = Quaternion.Euler(xRot, 0f, 0f);
         playerBody.Rotate(Vector3.up * mouseX);
