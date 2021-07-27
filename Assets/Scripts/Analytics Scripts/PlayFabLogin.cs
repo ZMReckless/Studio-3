@@ -10,8 +10,8 @@ public class PlayFabLogin : MonoBehaviour {
     public TMP_InputField loginUsername;
     public TMP_InputField password;
     public TMP_InputField loginPassword;
-    public InputField email;
-    public InputField display;
+    public TMP_InputField email;
+    public TMP_InputField display;
     public Text messageText;
     public GameObject loadingDialogue;
     public NetworkManager netManage;
