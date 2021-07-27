@@ -1211,12 +1211,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 998775033}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1172103280 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 316881846, guid: bc93e796003c637468281b2f6b0dde3f,
-    type: 3}
-  m_PrefabInstance: {fileID: 1488103549072278605}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1216491362
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1281,23 +1275,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1237093227, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
-      propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1680217508, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
-      propertyPath: defScreen
-      value: 
-      objectReference: {fileID: 465889144}
-    - target: {fileID: 1680217508, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
-      propertyPath: vicScreen
-      value: 
-      objectReference: {fileID: 1172103280}
-    - target: {fileID: 309308392958404017, guid: 2689a2ef332987845b3c36f7b90e3e03,
-        type: 3}
-      propertyPath: sceneViewId
-      value: 3
-      objectReference: {fileID: 0}
     - target: {fileID: 583897893656808224, guid: 2689a2ef332987845b3c36f7b90e3e03,
         type: 3}
       propertyPath: m_RootOrder
@@ -1358,11 +1335,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player(Latest)
       objectReference: {fileID: 0}
-    - target: {fileID: 5429881369492978406, guid: 2689a2ef332987845b3c36f7b90e3e03,
+    - target: {fileID: 6444746654499658752, guid: 2689a2ef332987845b3c36f7b90e3e03,
         type: 3}
-      propertyPath: sceneViewId
-      value: 2
-      objectReference: {fileID: 0}
+      propertyPath: defeatScreen
+      value: 
+      objectReference: {fileID: 465889144}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
 --- !u!1 &1320415039 stripped

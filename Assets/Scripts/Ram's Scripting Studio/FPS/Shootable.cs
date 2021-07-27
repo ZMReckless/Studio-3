@@ -37,7 +37,7 @@ public class Shootable : MonoBehaviourPunCallbacks
     void start()
     {
         //defScreen.SetActive(false);
-     
+        
     }
 
     public void EnableRagdoll(bool ragDollEnabled) //ragdoll
@@ -78,8 +78,9 @@ public class Shootable : MonoBehaviourPunCallbacks
         GetComponent<Rigidbody>().useGravity = !ragDollEnabled;
         GetComponent<Animator>().enabled = !ragDollEnabled;
 
-       
-        
+        TriggerVicDefScreen triggerVicDefScreen = GetComponent<TriggerVicDefScreen>();
+        triggerVicDefScreen.photonView.RPC("TriggerDefeatScreen", RpcTarget.All);
+
         //EnableKillCam();
     }
 
