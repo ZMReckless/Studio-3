@@ -37,6 +37,14 @@ public class GameManager : MonoBehaviourPunCallbacks
         blueWins = 0;
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F1))
+        {
+            Application.Quit();
+        }
+    }
+
     public void CompleteRound(int scoreIndex)
     {
         photonView.RPC("AddScore", RpcTarget.All, scoreIndex);
