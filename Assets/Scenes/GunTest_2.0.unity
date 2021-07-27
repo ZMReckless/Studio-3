@@ -1281,6 +1281,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1237093227, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1680217508, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
       propertyPath: defScreen
       value: 
@@ -1289,6 +1293,11 @@ PrefabInstance:
       propertyPath: vicScreen
       value: 
       objectReference: {fileID: 1172103280}
+    - target: {fileID: 309308392958404017, guid: 2689a2ef332987845b3c36f7b90e3e03,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 583897893656808224, guid: 2689a2ef332987845b3c36f7b90e3e03,
         type: 3}
       propertyPath: m_RootOrder
@@ -1348,6 +1357,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player(Latest)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5429881369492978406, guid: 2689a2ef332987845b3c36f7b90e3e03,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2689a2ef332987845b3c36f7b90e3e03, type: 3}
@@ -1479,8 +1493,6 @@ MonoBehaviour:
   shotAtEffect: {fileID: 1620615652}
   primaryCollider: {fileID: 0}
   allColliders: []
-  vicScreen: {fileID: 0}
-  defScreen: {fileID: 0}
 --- !u!54 &1454948602
 Rigidbody:
   m_ObjectHideFlags: 0

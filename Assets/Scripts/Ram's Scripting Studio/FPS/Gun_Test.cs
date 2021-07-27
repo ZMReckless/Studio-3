@@ -90,6 +90,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
                 shootable.photonView.RPC("RPC_GetShot", RpcTarget.All, true);
                 //shootable.EnableRagdoll(true);
                 //shootable.photonView.RPC("RPC_EnableRagdoll", RpcTarget.All, true);
+                shootable.photonView.RPC("TriggerDefeatScreen", RpcTarget.All);
             }
 
             if (hit.rigidbody != null)
@@ -117,7 +118,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         gunAnim.SetTrigger("Shoot");
     }
 
- 
+   
     
 
     //void BulletShellTrigger() //moved to new script
