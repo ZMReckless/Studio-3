@@ -48,6 +48,10 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             CompleteRound(0);
         }
+        if (Input.GetKeyDown(KeyCode.F3))
+        {
+            CompleteRound(1);
+        }
         if (Input.GetKeyDown(KeyCode.F1))
         {
             Application.Quit();
@@ -75,7 +79,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         else if (scoreIndex == 1)
         {
-            if (playerPlatform == 1 || playerPlatform == 3)
+            if (playerPlatform == 0 || playerPlatform == 2)
             {
                 defeatScreen.SetActive(true);
                 Debug.Log("You Lost");
