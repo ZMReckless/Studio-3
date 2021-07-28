@@ -29,6 +29,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     private float deTriggerThresholdValue = 0f;
     private float thresholdChangeAmount = 0.025f;
 
+   
 
     //PhotonView PV;
 
@@ -193,6 +194,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     #endregion
 
+  
 
     //void BulletShellTrigger() //moved to new script
     //{

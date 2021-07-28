@@ -6,7 +6,8 @@ public class Bullet_Shell_Test : MonoBehaviour
 {
     public Transform bulletShellLocation;
     public GameObject bulletShell;
-    
+
+    public AudioSource audioSource;
 
     void BulletShellTrigger()
     {
@@ -16,5 +17,10 @@ public class Bullet_Shell_Test : MonoBehaviour
         triggerBulletShell.GetComponent<Rigidbody>().AddForce(bulletShellForce_X, bulletShellForce_Y, 0);
         Destroy(triggerBulletShell, 8);
 
+    }
+
+    public void ShotSound()
+    {
+        audioSource.Play();
     }
 }
