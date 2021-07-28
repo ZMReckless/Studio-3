@@ -80,6 +80,8 @@ public class Shootable : MonoBehaviourPunCallbacks
         shotAtEffect.Play();
         GetComponent<Animator>().enabled = false;
 
+
+
         //if compare tag = say red (because red just died here)
         //find GameObjectWithCompareTag in scene (blue opposite of who died ^) and add 1 to score
         //whoever's score pluses = they run GameManager.Instance.CompleteRound(0);
@@ -88,12 +90,12 @@ public class Shootable : MonoBehaviourPunCallbacks
         {
             GameManager.Instance.CompleteRound(1);
             
-            photonView.RPC("ReloadScene", RpcTarget.All);
+            //photonView.RPC("ReloadScene", RpcTarget.All);
         }
         else
         {
             GameManager.Instance.CompleteRound(0);
-            photonView.RPC("ReloadScene", RpcTarget.All);
+            //photonView.RPC("ReloadScene", RpcTarget.All);
         }
 
         Rigidbody[] rb = Rigidbody.FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
@@ -117,10 +119,10 @@ public class Shootable : MonoBehaviourPunCallbacks
         //EnableKillCam();
     }
 
-    [PunRPC]
-    void ReloadScene() {
-        SceneManager.LoadScene("TheGame");
-    }
+    //[PunRPC]
+    //void ReloadScene() {
+    //    SceneManager.LoadScene("TheGame");
+    //}
 
     //[PunRPC]
     //public void RPC_EnableRagdoll(bool ragDollEnabled)

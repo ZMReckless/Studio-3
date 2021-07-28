@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+
 // this script manages the game rounds
 // references the individual players
 // reset/next round code
@@ -20,7 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int blueWins;
 
     [Header("Round Variables")]
-    public float roundRestartTime = 5;
+    public float roundRestartTime = 2.5f;
     public int maxRound = 5;
     public int finalRound;
     [HideInInspector]
@@ -44,8 +45,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         Instance = this;
 
         roundIndex = 1;
-        maxRound = 5;
-        finalRound = maxRound - 2;
+        maxRound = 2;
+        finalRound = maxRound;
         redWins = 0;
         blueWins = 0;
         roundEnded = false;
@@ -53,12 +54,12 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F3))
         {
             // test for red win
             CompleteRound(0);
         }
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (Input.GetKeyDown(KeyCode.F4))
         {
             // test for blue win
             CompleteRound(1);
@@ -67,6 +68,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             Application.Quit();
         }
+        if (Input.GetKeyDown(KeyCode.O))
+        {
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LoadLevel(0);
+        }
     }
 
     public void CompleteRound(int scoreIndex)
@@ -74,13 +80,24 @@ public class GameManager : MonoBehaviourPunCallbacks
         photonView.RPC("AddScore", RpcTarget.All, scoreIndex);
     }
 
+    [PunRPC] //testing
+    IEnumerator EnableVictoryScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        victoryScreen.SetActive(true);
+    }
+
+    [PunRPC] //testing
+    IEnumerator EnableDefeatScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        defeatScreen.SetActive(true);
+    }
+
     [PunRPC]
     public void ResetPlayerPositions()
     {
-        //team1MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
-        //team2MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
-        //team1PCPlayer.transform.position = spawnPlayers.team1PCSpawnpoint.position;
-        //team2PCPlayer.transform.position = spawnPlayers.team2PCSpawnpoint.position;
+        spawnPlayers.Start();
     }
 
     [PunRPC]
@@ -92,12 +109,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (playerPlatform == 0 || playerPlatform == 2)
             {
-                victoryScreen.SetActive(true);
+                StartCoroutine(EnableVictoryScreen(2.5f));
                 Debug.Log("You Won");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
-                defeatScreen.SetActive(true);
+                StartCoroutine(EnableDefeatScreen(2.5f));
                 Debug.Log("You Lost");
             }
         }
@@ -105,12 +122,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (playerPlatform == 0 || playerPlatform == 2)
             {
-                defeatScreen.SetActive(true);
+                StartCoroutine(EnableDefeatScreen(2.5f));
                 Debug.Log("You Lost");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
-                victoryScreen.SetActive(true);
+                StartCoroutine(EnableVictoryScreen(2.5f));
                 Debug.Log("You Won");
             }
         }
@@ -145,10 +162,16 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (redWins == finalRound)
             {
                 Debug.Log("Red team wins");
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else if (blueWins == finalRound)
             {
                 Debug.Log("Blue team wins");
+                Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             // code for winning conditions
         }
@@ -157,8 +180,39 @@ public class GameManager : MonoBehaviourPunCallbacks
             victoryScreen.SetActive(false);
             defeatScreen.SetActive(false);
 
+            team1PCPlayer.transform.position = spawnPlayers.team1PCSpawnpoint.position;
+
+            //int controllerIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
+
+            //switch (controllerIndex)
+            //{
+            //    case 0:
+            //        PhotonNetwork.Destroy(team1MBPlayer);
+            //        break;
+            //    case 1:
+            //        PhotonNetwork.Destroy(team2MBPlayer);
+            //        break;
+            //    case 2:
+            //        PhotonNetwork.Destroy(team1PCPlayer);
+            //        break;
+            //    case 3:
+            //        PhotonNetwork.Destroy(team2PCPlayer);
+            //        break;
+            //}
+
+            //if (photonView.IsMine)
+            //{
+            //    photonView.RPC("ResetPlayerPositions", RpcTarget.All);
+            //}
+
             // reset reset
             Debug.Log("Resetting round");
         }
+    }
+
+    public void BackToLobby()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel(0);
     }
 }

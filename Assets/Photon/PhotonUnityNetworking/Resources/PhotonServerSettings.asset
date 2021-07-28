@@ -51,6 +51,11 @@ MonoBehaviour:
   - TriggerDefeatScreen
   - AssignPlayer
   - ReloadScene
+  - RPC_TriggerCloseContact
+  - RPC_TriggerCloseContactTeam1
+  - RPC_TriggerCloseContactTeam2
+  - EnableVictoryScreen
+  - EnableDefeatScreen
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

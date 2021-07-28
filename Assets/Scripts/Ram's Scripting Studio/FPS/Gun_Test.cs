@@ -23,18 +23,27 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     public Animator gunAnim; //attached to pivot
     public Animator playerAnim;
 
+
+    public Material mat;
+    private float thresholdValue = 1f;
+    private float deTriggerThresholdValue = 0f;
+    private float thresholdChangeAmount = 0.025f;
+
+
     //PhotonView PV;
 
     //public Transform bulletShellLocation; //moved to new script
     //public GameObject bulletShell;
     //public float bulletShellForce;
 
-
     // Start is called before the first frame update
     void Start()
     {
+        
+
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         //PV = GetComponent<PhotonView>();
+        mat.SetFloat("Threshold", 1);
 
     }
 
@@ -42,11 +51,15 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     void Update()
     {
+        
+
         ammoDisplay.text = currentAmmo.ToString() + slash + maxAmmo.ToString();
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
+            photonView.RPC("RPC_TriggerCloseContact", RpcTarget.All);
+
+
             nextShot = Time.time + 1 / fireRate;
-            playerAnim.SetBool("isIdle", true);
             RPC_Shoot();
             isFiring = true;
             currentAmmo--;
@@ -121,7 +134,56 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         gunAnim.SetTrigger("Shoot");
     }
 
+    #region shader
 
+    [PunRPC]
+    public void RPC_TriggerCloseContact()
+    {
+        StartCoroutine(TriggerCloseContact());
+    }
+
+
+    IEnumerator TriggerCloseContact()
+    {
+        while (thresholdValue > 0)
+        {
+            yield return new WaitForSeconds(0);
+
+            thresholdValue -= thresholdChangeAmount;
+            mat.SetFloat("Threshold", thresholdValue);
+
+            if (thresholdValue <= 0)
+            {
+                thresholdValue = 0;
+                if (thresholdValue == 0)
+                {
+                    StopAllCoroutines();
+                }
+            }
+        }
+    }
+
+    //IEnumerator DeTriggerCloseContact()
+    //{
+    //    while (deTriggerThresholdValue < 1)
+    //    {
+    //        yield return new WaitForSeconds(0);
+
+    //        thresholdValue += thresholdChangeAmount;
+    //        matTeam1.SetFloat("Threshold", thresholdValue);
+
+    //        if (thresholdValue >= 1)
+    //        {
+    //            thresholdValue = 1;
+    //            if (thresholdValue == 1)
+    //            {
+    //                StopAllCoroutines();
+    //            }
+    //        }
+    //    }
+    //}
+
+    #endregion
 
 
     //void BulletShellTrigger() //moved to new script

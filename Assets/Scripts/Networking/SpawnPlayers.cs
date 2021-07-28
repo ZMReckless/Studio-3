@@ -11,7 +11,7 @@ public class SpawnPlayers : MonoBehaviourPunCallbacks
     public Transform team1PCSpawnpoint;
     public Transform team2PCSpawnpoint;
 
-    void Start()
+    public void Start()
     {
         int playerIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
 
