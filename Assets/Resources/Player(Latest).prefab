@@ -6849,7 +6849,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controller: {fileID: 6759713434743546006}
-  moveSpeed: 10
+  moveSpeed: 8
   gravity: -9.81
   jumpSpeed: 6
   groundCheck: {fileID: 7569893877947064232}
@@ -6873,6 +6873,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotAtEffect: {fileID: 5264571141068034867}
+  rollWhenDead: {fileID: 7191777779972003597}
 --- !u!114 &3231242294086145498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6935,7 +6936,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3705334051567363038}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 1.9331373

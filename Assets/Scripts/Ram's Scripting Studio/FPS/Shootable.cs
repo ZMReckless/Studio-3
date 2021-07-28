@@ -8,14 +8,14 @@ using Photon.Pun;
 public class Shootable : MonoBehaviourPunCallbacks
 {
     public ParticleSystem shotAtEffect; //blood
-    //public Rigidbody[] rootRB;
-                        //public Collider primaryCollider; //ragdoll
-                        //public Collider[] allColliders; //ragdoll
+                                        //public Rigidbody[] rootRB;
+                                        //public Collider primaryCollider; //ragdoll
+                                        //public Collider[] allColliders; //ragdoll
 
     //public Camera mainCam; //killcam
     ////public Camera killCam; //killcam
     //public GameObject canvases; //killcam
-
+    public Collider rollWhenDead;
    
 
     //PhotonView PV;
@@ -79,6 +79,7 @@ public class Shootable : MonoBehaviourPunCallbacks
     {
         shotAtEffect.Play();
         GetComponent<Animator>().enabled = false;
+        rollWhenDead.isTrigger = false;
 
 
 
