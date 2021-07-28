@@ -6857,7 +6857,7 @@ MonoBehaviour:
   groundDistance: 0.4
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   animator: {fileID: 2586480478737783803}
   isIdle: 0
   photonView: {fileID: 5081957662999274055}
