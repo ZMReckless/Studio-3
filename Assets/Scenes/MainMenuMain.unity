@@ -31791,6 +31791,16 @@ PrefabInstance:
       propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 224297914457284458, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 224759923213704680, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -193
+      objectReference: {fileID: 0}
     - target: {fileID: 1783772072100004784, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: m_Name
@@ -31859,6 +31869,11 @@ PrefabInstance:
     - target: {fileID: 2933806985078990061, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806985897601388, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2933806986380576381, guid: c81935f958edb8549b2b3f05bd33443e,
@@ -46256,7 +46271,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.15
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
