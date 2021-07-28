@@ -10843,7 +10843,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 583897893656808224}
-  - component: {fileID: 115185184}
   m_Layer: 0
   m_Name: Player(Latest)
   m_TagString: Team2
@@ -10866,20 +10865,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &115185184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 583897893656808225}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e45c52c25698b1846939976238521706, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  team1_Mat: {fileID: 2100000, guid: 833489890ce44454cabf51139c95c950, type: 2}
-  team2_Mat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
 --- !u!1 &583897893825953769
 GameObject:
   m_ObjectHideFlags: 0
@@ -11609,6 +11594,7 @@ GameObject:
   - component: {fileID: 215952923}
   - component: {fileID: 215952922}
   - component: {fileID: 8976548243406082838}
+  - component: {fileID: 4194303597184650953}
   m_Layer: 0
   m_Name: Character_Badguy_01
   m_TagString: Team1
@@ -11729,7 +11715,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 1167325499110747474}
   - {fileID: 678949477405727410}
-  sceneViewId: 0
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &678949477405727410
@@ -11937,6 +11923,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfd5067808267341b24134bfe89a451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &4194303597184650953
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 584494379214286465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e45c52c25698b1846939976238521706, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  team1_Mat: {fileID: 2100000, guid: 833489890ce44454cabf51139c95c950, type: 2}
+  team2_Mat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
 --- !u!1 &584498272674857759
 GameObject:
   m_ObjectHideFlags: 0
@@ -13093,7 +13093,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &585015069673618170
@@ -14564,7 +14564,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &1626456573

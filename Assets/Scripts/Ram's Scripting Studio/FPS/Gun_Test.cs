@@ -42,7 +42,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     void Start()
     {
 
-        mat = GetComponent<Renderer>().material;
+        mat = transform.root.gameObject.GetComponent<Renderer>().material;
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         //PV = GetComponent<PhotonView>();
         mat.SetFloat("Threshold", 1);
