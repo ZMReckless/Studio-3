@@ -95,8 +95,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         RaycastHit hit;
         if (Physics.Raycast(mainCam.transform.position, mainCam.transform.forward, out hit, shotRange))
         {
-            //Vector3 forward = transform.TransformDirection(Vector3.forward * shotRange);
-            //Debug.DrawRay(transform.position, forward, Color.red);
+            Vector3 forward = transform.TransformDirection(Vector3.forward * shotRange);
+            Debug.DrawRay(transform.position, forward, Color.red);
 
             Shootable shootable = hit.transform.GetComponent<Shootable>();
 
