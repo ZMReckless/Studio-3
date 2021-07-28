@@ -21,7 +21,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int blueWins;
 
     [Header("Round Variables")]
-    public float roundRestartTime = 5;
+    public float roundRestartTime = 2.5f;
     public int maxRound = 5;
     public int finalRound;
     [HideInInspector]
@@ -68,7 +68,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             Application.Quit();
         }
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.O))
         {
             PhotonNetwork.LeaveRoom();
             PhotonNetwork.LoadLevel(0);
@@ -163,11 +163,15 @@ public class GameManager : MonoBehaviourPunCallbacks
             {
                 Debug.Log("Red team wins");
                 Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             else if (blueWins == finalRound)
             {
                 Debug.Log("Blue team wins");
                 Time.timeScale = 0;
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
             }
             // code for winning conditions
         }
