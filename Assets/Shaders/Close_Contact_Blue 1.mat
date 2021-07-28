@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Close_Contact_Blue 1
+  m_Shader: {fileID: -6465566751694194690, guid: 75a4092aea357114c919cea4674d9224,
+    type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_53352c72a8c84b85913c8203c26a418a:
+        m_Texture: {fileID: 2800000, guid: 105f80efe20ead547ab33f2649bd1a84, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_119582a1b53a4fb7a30525a8c5a1e375_Texture_1:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _SampleTexture2D_488f3e16ead6407c99e46a9eb0094ed0_Texture_1:
+        m_Texture: {fileID: 2800000, guid: caa9c4279fb0c714b8f14bda99421b73, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Threshold: 1
+    - Vector1_e810cbb934e9478885812cbd10fc6a50: 53.77
+    - Vector1_f4a051e569d14421a1acb976793686a3: 0.01
+    - Vector1_f549a4bee52e4e9d8b922487bbfa19f6: 1
+    m_Colors:
+    - Color_1b17b1998d534057887a77767a6ec370: {r: 0, g: 0.7529412, b: 20.580393, a: 0}
+  m_BuildTextureStacks: []

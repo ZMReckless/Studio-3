@@ -88,12 +88,12 @@ public class Shootable : MonoBehaviourPunCallbacks
         {
             GameManager.Instance.CompleteRound(1);
             
-            photonView.RPC("ReloadScene", RpcTarget.All);
+            //photonView.RPC("ReloadScene", RpcTarget.All);
         }
         else
         {
             GameManager.Instance.CompleteRound(0);
-            photonView.RPC("ReloadScene", RpcTarget.All);
+            //photonView.RPC("ReloadScene", RpcTarget.All);
         }
 
         Rigidbody[] rb = Rigidbody.FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
@@ -117,10 +117,10 @@ public class Shootable : MonoBehaviourPunCallbacks
         //EnableKillCam();
     }
 
-    [PunRPC]
-    void ReloadScene() {
-        SceneManager.LoadScene("TheGame");
-    }
+    //[PunRPC]
+    //void ReloadScene() {
+    //    SceneManager.LoadScene("TheGame");
+    //}
 
     //[PunRPC]
     //public void RPC_EnableRagdoll(bool ragDollEnabled)

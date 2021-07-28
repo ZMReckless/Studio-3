@@ -123,6 +123,38 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &44671510 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1383799692419554, guid: 7aad5b0274fd2894eafec31a58e26a32,
+    type: 3}
+  m_PrefabInstance: {fileID: 1859229218}
+  m_PrefabAsset: {fileID: 0}
+--- !u!135 &44671513
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44671510}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.5942538
+  m_Center: {x: 0.0014834396, y: 0.86469007, z: 0.12128354}
+--- !u!114 &44671514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 44671510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
 --- !u!4 &170096619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4805635839906090, guid: 1736047b30b9d7145b7b1f3f9545e278,
@@ -1471,9 +1503,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotAtEffect: {fileID: 1620615652}
-  mainCam: {fileID: 0}
-  killCam: {fileID: 0}
-  canvases: {fileID: 0}
 --- !u!54 &1454948602
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2039,7 +2068,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 5146a78f90d41354b9e048f81986a8f3, type: 2}
+      objectReference: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7aad5b0274fd2894eafec31a58e26a32, type: 3}
 --- !u!4 &1860600732 stripped
@@ -2708,6 +2737,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 316881847, guid: bc93e796003c637468281b2f6b0dde3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.8469238
+      objectReference: {fileID: 0}
+    - target: {fileID: 401817728, guid: bc93e796003c637468281b2f6b0dde3f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.2819824
+      objectReference: {fileID: 0}
+    - target: {fileID: 401817728, guid: bc93e796003c637468281b2f6b0dde3f, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.8469238
+      objectReference: {fileID: 0}
     - target: {fileID: 1488103549263430905, guid: bc93e796003c637468281b2f6b0dde3f,
         type: 3}
       propertyPath: m_RootOrder
@@ -2908,7 +2949,7 @@ GameObject:
   - component: {fileID: 2555832931351487383}
   - component: {fileID: 2555832931351487384}
   - component: {fileID: 2555832931351487385}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Character_Woman_01.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}

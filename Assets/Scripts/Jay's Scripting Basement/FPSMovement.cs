@@ -19,7 +19,7 @@ public class FPSMovement : MonoBehaviour
 
     Vector3 velocity;
     bool isGrounded;
-    bool isIdle;
+    public bool isIdle;
 
     [SerializeField] PhotonView photonView;
 
