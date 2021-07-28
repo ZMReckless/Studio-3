@@ -108,12 +108,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (playerPlatform == 0 || playerPlatform == 2)
             {
-                StartCoroutine(EnableVictoryScreen(2));
+                StartCoroutine(EnableVictoryScreen(4));
                 Debug.Log("You Won");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
-                StartCoroutine(EnableDefeatScreen(2));
+                StartCoroutine(EnableDefeatScreen(4));
                 Debug.Log("You Lost");
             }
         }
@@ -121,12 +121,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (playerPlatform == 0 || playerPlatform == 2)
             {
-                defeatScreen.SetActive(true);
+                StartCoroutine(EnableDefeatScreen(4));
                 Debug.Log("You Lost");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
-                victoryScreen.SetActive(true);
+                StartCoroutine(EnableVictoryScreen(4));
                 Debug.Log("You Won");
             }
         }
