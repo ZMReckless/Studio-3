@@ -21,20 +21,21 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     public TextMeshProUGUI ammoDisplay;
 
     public Animator gunAnim; //attached to pivot
+    public Animator playerAnim;
 
     //PhotonView PV;
 
     //public Transform bulletShellLocation; //moved to new script
     //public GameObject bulletShell;
     //public float bulletShellForce;
-    
+
 
     // Start is called before the first frame update
     void Start()
     {
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         //PV = GetComponent<PhotonView>();
-        
+
     }
 
     // Update is called once per frame
@@ -45,7 +46,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
             nextShot = Time.time + 1 / fireRate;
-
+            playerAnim.SetBool("isIdle", true);
             RPC_Shoot();
             isFiring = true;
             currentAmmo--;
@@ -55,8 +56,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         {
             Reload();
         }
-       
-        
+
+
     }
 
 
@@ -73,6 +74,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             return;
         }
 
+
         //gunAnim.SetTrigger("Shoot");
         photonView.RPC("GunAnimSetTrigger", RpcTarget.All);
         //muzzleFlash.Play();
@@ -84,14 +86,14 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             //Debug.DrawRay(transform.position, forward, Color.red);
 
             Shootable shootable = hit.transform.GetComponent<Shootable>();
-            
+
             if (shootable != null)
             {
                 //Debug.LogWarning("shot someone");
-                shootable.photonView.RPC("RPC_GetShot", RpcTarget.All, true);
+                shootable.photonView.RPC("RPC_GetShot", RpcTarget.All);
                 //shootable.EnableRagdoll(true);
                 //shootable.photonView.RPC("RPC_EnableRagdoll", RpcTarget.All, true);
-               
+
             }
 
             if (hit.rigidbody != null)
@@ -119,8 +121,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         gunAnim.SetTrigger("Shoot");
     }
 
-   
-    
+
+
 
     //void BulletShellTrigger() //moved to new script
     //{

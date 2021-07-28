@@ -1330,6 +1330,16 @@ PrefabInstance:
       propertyPath: m_VerticalAlignment
       value: 512
       objectReference: {fileID: 0}
+    - target: {fileID: 114594570875668262, guid: a77e2c4748edcd5429717838a8f70fb0,
+        type: 3}
+      propertyPath: m_InputType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594570875668262, guid: a77e2c4748edcd5429717838a8f70fb0,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 114987855375207344, guid: a77e2c4748edcd5429717838a8f70fb0,
         type: 3}
       propertyPath: m_text
@@ -2154,6 +2164,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_VerticalAlignment
       value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594570875668262, guid: a77e2c4748edcd5429717838a8f70fb0,
+        type: 3}
+      propertyPath: m_InputType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114594570875668262, guid: a77e2c4748edcd5429717838a8f70fb0,
+        type: 3}
+      propertyPath: m_ContentType
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114987855375207344, guid: a77e2c4748edcd5429717838a8f70fb0,
         type: 3}
