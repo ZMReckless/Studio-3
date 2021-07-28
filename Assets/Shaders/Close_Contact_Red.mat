@@ -45,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Threshold: 0.00000039115548
+    - Threshold: 1.0249996
     - Vector1_e810cbb934e9478885812cbd10fc6a50: 53.77
     - Vector1_f4a051e569d14421a1acb976793686a3: 0.01
     - Vector1_f549a4bee52e4e9d8b922487bbfa19f6: 1
