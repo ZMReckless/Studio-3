@@ -52,6 +52,8 @@ MonoBehaviour:
   - AssignPlayer
   - ReloadScene
   - RPC_TriggerCloseContact
+  - RPC_TriggerCloseContactTeam1
+  - RPC_TriggerCloseContactTeam2
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1

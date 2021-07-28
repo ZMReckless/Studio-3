@@ -23,11 +23,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     public Animator gunAnim; //attached to pivot
     public Animator playerAnim;
 
-   
-    private Material mat;
-    public Material team1;
-    public Material team2;
 
+    public Material mat;
     private float thresholdValue = 1f;
     private float deTriggerThresholdValue = 0f;
     private float thresholdChangeAmount = 0.025f;
@@ -42,18 +39,12 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
-        if(transform.root.gameObject.CompareTag("Team1"))
-        {
-            mat = team1;
-        }
-        if (transform.root.gameObject.CompareTag("Team2"))
-        {
-            mat = team2;
-        }
+        
 
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         //PV = GetComponent<PhotonView>();
         mat.SetFloat("Threshold", 1);
+
     }
 
     // Update is called once per frame
@@ -65,10 +56,10 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         ammoDisplay.text = currentAmmo.ToString() + slash + maxAmmo.ToString();
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
-            nextShot = Time.time + 1 / fireRate;
-
-
             photonView.RPC("RPC_TriggerCloseContact", RpcTarget.All);
+
+
+            nextShot = Time.time + 1 / fireRate;
             RPC_Shoot();
             isFiring = true;
             currentAmmo--;
@@ -151,6 +142,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         StartCoroutine(TriggerCloseContact());
     }
 
+
     IEnumerator TriggerCloseContact()
     {
         while (thresholdValue > 0)
@@ -171,25 +163,25 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         }
     }
 
-    IEnumerator DeTriggerCloseContact()
-    {
-        while (deTriggerThresholdValue < 1)
-        {
-            yield return new WaitForSeconds(0);
+    //IEnumerator DeTriggerCloseContact()
+    //{
+    //    while (deTriggerThresholdValue < 1)
+    //    {
+    //        yield return new WaitForSeconds(0);
 
-            thresholdValue += thresholdChangeAmount;
-            mat.SetFloat("Threshold", thresholdValue);
+    //        thresholdValue += thresholdChangeAmount;
+    //        matTeam1.SetFloat("Threshold", thresholdValue);
 
-            if (thresholdValue >= 1)
-            {
-                thresholdValue = 1;
-                if (thresholdValue == 1)
-                {
-                    StopAllCoroutines();
-                }
-            }
-        }
-    }
+    //        if (thresholdValue >= 1)
+    //        {
+    //            thresholdValue = 1;
+    //            if (thresholdValue == 1)
+    //            {
+    //                StopAllCoroutines();
+    //            }
+    //        }
+    //    }
+    //}
 
     #endregion
 
