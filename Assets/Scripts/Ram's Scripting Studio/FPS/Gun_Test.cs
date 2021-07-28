@@ -142,6 +142,12 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         StartCoroutine(TriggerCloseContact());
     }
 
+    [PunRPC]
+    public void RPC_DeTriggerCloseContact()
+    {
+        StartCoroutine(DeTriggerCloseContact());
+    }
+
 
     IEnumerator TriggerCloseContact()
     {
@@ -158,30 +164,32 @@ public class Gun_Test : MonoBehaviourPunCallbacks
                 if (thresholdValue == 0)
                 {
                     StopAllCoroutines();
+                    yield return new WaitForSeconds(3);
+                    photonView.RPC("RPC_DeTriggerCloseContact", RpcTarget.All);
                 }
             }
         }
     }
 
-    //IEnumerator DeTriggerCloseContact()
-    //{
-    //    while (deTriggerThresholdValue < 1)
-    //    {
-    //        yield return new WaitForSeconds(0);
+    IEnumerator DeTriggerCloseContact()
+    {
+        while (deTriggerThresholdValue < 1)
+        {
+            yield return new WaitForSeconds(0);
 
-    //        thresholdValue += thresholdChangeAmount;
-    //        matTeam1.SetFloat("Threshold", thresholdValue);
+            thresholdValue += thresholdChangeAmount;
+            mat.SetFloat("Threshold", thresholdValue);
 
-    //        if (thresholdValue >= 1)
-    //        {
-    //            thresholdValue = 1;
-    //            if (thresholdValue == 1)
-    //            {
-    //                StopAllCoroutines();
-    //            }
-    //        }
-    //    }
-    //}
+            if (thresholdValue >= 1)
+            {
+                thresholdValue = 1;
+                if (thresholdValue == 1)
+                {
+                    StopAllCoroutines();
+                }
+            }
+        }
+    }
 
     #endregion
 
