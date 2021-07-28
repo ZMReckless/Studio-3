@@ -79,6 +79,20 @@ public class GameManager : MonoBehaviourPunCallbacks
         photonView.RPC("AddScore", RpcTarget.All, scoreIndex);
     }
 
+    [PunRPC] //testing
+    IEnumerator EnableVictoryScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        victoryScreen.SetActive(true);
+    }
+
+    [PunRPC] //testing
+    IEnumerator EnableDefeatScreen(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        defeatScreen.SetActive(true);
+    }
+
     [PunRPC]
     public void ResetPlayerPositions()
     {
@@ -94,12 +108,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (playerPlatform == 0 || playerPlatform == 2)
             {
-                victoryScreen.SetActive(true);
+                StartCoroutine(EnableVictoryScreen(2));
                 Debug.Log("You Won");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
-                defeatScreen.SetActive(true);
+                StartCoroutine(EnableDefeatScreen(2));
                 Debug.Log("You Lost");
             }
         }

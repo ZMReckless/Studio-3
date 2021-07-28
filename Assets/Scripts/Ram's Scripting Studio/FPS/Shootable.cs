@@ -80,6 +80,8 @@ public class Shootable : MonoBehaviourPunCallbacks
         shotAtEffect.Play();
         GetComponent<Animator>().enabled = false;
 
+
+
         //if compare tag = say red (because red just died here)
         //find GameObjectWithCompareTag in scene (blue opposite of who died ^) and add 1 to score
         //whoever's score pluses = they run GameManager.Instance.CompleteRound(0);
