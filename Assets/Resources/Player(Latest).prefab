@@ -6612,6 +6612,7 @@ GameObject:
   - component: {fileID: 6471801769855827447}
   - component: {fileID: 4371807479312843319}
   - component: {fileID: 4809871630528802198}
+  - component: {fileID: 7191777779972003597}
   m_Layer: 0
   m_Name: Character_Badguy_01
   m_TagString: Team1
@@ -6926,6 +6927,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfd5067808267341b24134bfe89a451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &7191777779972003597
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705334051567363038}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.5
+  m_Height: 1.9920753
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.93204516, z: 0}
 --- !u!1 &3828874384842491156
 GameObject:
   m_ObjectHideFlags: 0
