@@ -90,7 +90,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
         if (string.IsNullOrEmpty(roomNameInputField.text)
             || !PhotonNetwork.IsConnected)
         {
-            return;
+            roomNameInputField.text = "Room " + Random.Range(0, 101).ToString();
         }
 
         RoomOptions roomOptions = new RoomOptions();

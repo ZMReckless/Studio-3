@@ -163,7 +163,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
                 thresholdValue = 0;
                 if (thresholdValue == 0)
                 {
-                    StopAllCoroutines();
+                    //StopAllCoroutines();
                     yield return new WaitForSeconds(3);
                     photonView.RPC("RPC_DeTriggerCloseContact", RpcTarget.All);
                 }
