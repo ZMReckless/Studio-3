@@ -18,7 +18,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     public int roundIndex;
     public int redWins;
     public int blueWins;
+
+    [Header("Round Variables")]
     public float roundRestartTime = 5;
+    public int maxRound = 5;
+    public int finalRound;
+    [HideInInspector]
+    public bool roundEnded = false;
 
     [HideInInspector]
     public GameObject team1MBPlayer;
@@ -38,18 +44,23 @@ public class GameManager : MonoBehaviourPunCallbacks
         Instance = this;
 
         roundIndex = 1;
+        maxRound = 5;
+        finalRound = maxRound - 2;
         redWins = 0;
         blueWins = 0;
+        roundEnded = false;
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.F2))
         {
+            // test for red win
             CompleteRound(0);
         }
         if (Input.GetKeyDown(KeyCode.F3))
         {
+            // test for blue win
             CompleteRound(1);
         }
         if (Input.GetKeyDown(KeyCode.F1))
@@ -61,7 +72,20 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void CompleteRound(int scoreIndex)
     {
         photonView.RPC("AddScore", RpcTarget.All, scoreIndex);
+    }
 
+    [PunRPC]
+    public void ResetPlayerPositions()
+    {
+        //team1MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
+        //team2MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
+        //team1PCPlayer.transform.position = spawnPlayers.team1PCSpawnpoint.position;
+        //team2PCPlayer.transform.position = spawnPlayers.team2PCSpawnpoint.position;
+    }
+
+    [PunRPC]
+    public void AddScore(int scoreIndex)
+    {
         int playerPlatform = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
 
         if (scoreIndex == 0)
@@ -71,7 +95,7 @@ public class GameManager : MonoBehaviourPunCallbacks
                 victoryScreen.SetActive(true);
                 Debug.Log("You Won");
             }
-            else if(playerPlatform == 1 || playerPlatform == 3)
+            else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 defeatScreen.SetActive(true);
                 Debug.Log("You Lost");
@@ -90,21 +114,11 @@ public class GameManager : MonoBehaviourPunCallbacks
                 Debug.Log("You Won");
             }
         }
-    }
 
-    [PunRPC]
-    public void ResetPlayerPositions()
-    {
-        //team1MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
-        //team2MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
-        team1PCPlayer.transform.position = spawnPlayers.team1PCSpawnpoint.position;
-        //team2PCPlayer.transform.position = spawnPlayers.team2PCSpawnpoint.position;
-    }
-
-    [PunRPC]
-    public void AddScore(int scoreIndex)
-    {
-        roundIndex++;
+        if (roundIndex < maxRound)
+        {
+            roundIndex++;
+        }
 
         switch (scoreIndex)
         {
@@ -126,13 +140,13 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(roundRestartTime);
 
-        if (redWins == 3 || blueWins == 3)
+        if (redWins == finalRound || blueWins == finalRound)
         {
-            if (redWins == 3)
+            if (redWins == finalRound)
             {
                 Debug.Log("Red team wins");
             }
-            else if (blueWins == 3)
+            else if (blueWins == finalRound)
             {
                 Debug.Log("Blue team wins");
             }
@@ -143,7 +157,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             victoryScreen.SetActive(false);
             defeatScreen.SetActive(false);
 
-            // reset powerups
+            // reset reset
             Debug.Log("Resetting round");
         }
     }

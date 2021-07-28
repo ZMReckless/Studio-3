@@ -83,12 +83,20 @@ public class Shootable : MonoBehaviourPunCallbacks
         //find GameObjectWithCompareTag in scene (blue opposite of who died ^) and add 1 to score
         //whoever's score pluses = they run GameManager.Instance.CompleteRound(0);
         //and if GameManager.Instance.CompleteRound(0) runs automatically the other person runs the opposite
+        if (transform.root.gameObject.CompareTag("Team1"))
+        {
+            GameManager.Instance.CompleteRound(1);
+        }
+        else
+        {
+            GameManager.Instance.CompleteRound(0);
+        }
+
         Rigidbody[] rb = Rigidbody.FindObjectsOfType(typeof(Rigidbody)) as Rigidbody[];
         foreach (Rigidbody rigidbody in rb)
         {
             rigidbody.isKinematic = false;
         }
-
 
 
 
