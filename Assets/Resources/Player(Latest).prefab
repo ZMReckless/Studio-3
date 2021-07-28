@@ -1054,7 +1054,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 1
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!1 &2027300084391285433
@@ -6733,7 +6733,7 @@ MonoBehaviour:
   ObservedComponents:
   - {fileID: 7390332360798165257}
   - {fileID: 2977062490528909373}
-  sceneViewId: 0
+  sceneViewId: 3
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &2977062490528909373
@@ -17066,7 +17066,7 @@ MonoBehaviour:
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents: []
-  sceneViewId: 0
+  sceneViewId: 2
   InstantiationId: 0
   isRuntimeInstantiated: 0
 --- !u!114 &8417015902978170421
@@ -18170,7 +18170,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7028492786834131026}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12363672, y: 0.6468589, z: -0.119702816}
+  m_LocalPosition: {x: -0.12363672, y: 0.6468589, z: -0.58}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children: []
   m_Father: {fileID: 8088618593128805478}
@@ -18236,8 +18236,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 3.4530387
+  m_Center: {x: 0, y: 0, z: 0.43034315}
 --- !u!54 &623207020478255364
 Rigidbody:
   m_ObjectHideFlags: 0
