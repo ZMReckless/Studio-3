@@ -23,9 +23,10 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     public Animator gunAnim; //attached to pivot
     public Animator playerAnim;
 
-    [SerializeField]
+   
     private Material mat;
-    
+    public Material team1;
+    public Material team2;
 
     private float thresholdValue = 1f;
     private float deTriggerThresholdValue = 0f;
@@ -41,8 +42,15 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     // Start is called before the first frame update
     void Start()
     {
+        if(transform.root.gameObject.CompareTag("Team1"))
+        {
+            mat = team1;
+        }
+        if (transform.root.gameObject.CompareTag("Team2"))
+        {
+            mat = team2;
+        }
 
-        mat = transform.root.gameObject.GetComponent<Renderer>().material;
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         //PV = GetComponent<PhotonView>();
         mat.SetFloat("Threshold", 1);
