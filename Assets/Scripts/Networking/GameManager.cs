@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
 
+
 // this script manages the game rounds
 // references the individual players
 // reset/next round code
@@ -44,8 +45,8 @@ public class GameManager : MonoBehaviourPunCallbacks
         Instance = this;
 
         roundIndex = 1;
-        maxRound = 5;
-        finalRound = maxRound - 2;
+        maxRound = 2;
+        finalRound = maxRound;
         redWins = 0;
         blueWins = 0;
         roundEnded = false;
@@ -108,12 +109,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (playerPlatform == 0 || playerPlatform == 2)
             {
-                StartCoroutine(EnableVictoryScreen(4));
+                StartCoroutine(EnableVictoryScreen(2.5f));
                 Debug.Log("You Won");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
-                StartCoroutine(EnableDefeatScreen(4));
+                StartCoroutine(EnableDefeatScreen(2.5f));
                 Debug.Log("You Lost");
             }
         }
@@ -121,12 +122,12 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (playerPlatform == 0 || playerPlatform == 2)
             {
-                StartCoroutine(EnableDefeatScreen(4));
+                StartCoroutine(EnableDefeatScreen(2.5f));
                 Debug.Log("You Lost");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
-                StartCoroutine(EnableVictoryScreen(4));
+                StartCoroutine(EnableVictoryScreen(2.5f));
                 Debug.Log("You Won");
             }
         }
@@ -161,10 +162,12 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (redWins == finalRound)
             {
                 Debug.Log("Red team wins");
+                Time.timeScale = 0;
             }
             else if (blueWins == finalRound)
             {
                 Debug.Log("Blue team wins");
+                Time.timeScale = 0;
             }
             // code for winning conditions
         }
@@ -201,5 +204,11 @@ public class GameManager : MonoBehaviourPunCallbacks
             // reset reset
             Debug.Log("Resetting round");
         }
+    }
+
+    public void BackToLobby()
+    {
+        PhotonNetwork.LeaveRoom();
+        PhotonNetwork.LoadLevel(0);
     }
 }
