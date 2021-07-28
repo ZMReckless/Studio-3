@@ -12522,6 +12522,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 384839420}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &385260948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114594571651008330, guid: c81935f958edb8549b2b3f05bd33443e,
+    type: 3}
+  m_PrefabInstance: {fileID: 891819706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &386894610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19501,6 +19513,53 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1fd0ee1cec6d08941be2665d295b40aa, type: 3}
+--- !u!1 &603614909
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603614910}
+  - component: {fileID: 603614911}
+  m_Layer: 0
+  m_Name: AutoLogIn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &603614910
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603614909}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -39.394302, y: -0.3479972, z: 42.57254}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &603614911
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603614909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 890a1608f8ad1f04ab441625c2b2e08a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: tests
+  password: password
+  usernameInput: {fileID: 385260948}
+  passwordInput: {fileID: 909610056}
 --- !u!4 &603622036 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4561428493897970, guid: 45474d70eaa8bda4e9db7db645bc8642,
@@ -30496,6 +30555,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1783772072100004784, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_Name
+      value: AutoLogInButton
+      objectReference: {fileID: 0}
     - target: {fileID: 2933806985078990058, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: m_Name
@@ -30571,6 +30635,76 @@ PrefabInstance:
       propertyPath: loadingDialogue
       value: 
       objectReference: {fileID: 593066483}
+    - target: {fileID: 3652749072065258630, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_text
+      value: Auto Log In
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 603614911}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1077346240}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: InputDetails
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LoginButton
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: AutoLogin, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PlayFabLogin, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 7768053484974246303, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c81935f958edb8549b2b3f05bd33443e, type: 3}
 --- !u!1001 &893149751
@@ -31217,6 +31351,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908138871}
   m_CullTransparentMesh: 1
+--- !u!114 &909610056 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114594572103095966, guid: c81935f958edb8549b2b3f05bd33443e,
+    type: 3}
+  m_PrefabInstance: {fileID: 891819706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &909774673
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -37829,6 +37975,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 335045323}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1077346240 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2933806986380576381, guid: c81935f958edb8549b2b3f05bd33443e,
+    type: 3}
+  m_PrefabInstance: {fileID: 891819706}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23dffde45b5e73846a295e16f5eafcc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1077421159
 PrefabInstance:
   m_ObjectHideFlags: 0

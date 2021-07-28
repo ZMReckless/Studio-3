@@ -53,12 +53,12 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F2))
+        if (Input.GetKeyDown(KeyCode.F3))
         {
             // test for red win
             CompleteRound(0);
         }
-        if (Input.GetKeyDown(KeyCode.F3))
+        if (Input.GetKeyDown(KeyCode.F4))
         {
             // test for blue win
             CompleteRound(1);
@@ -66,6 +66,11 @@ public class GameManager : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.F1))
         {
             Application.Quit();
+        }
+        if (Input.GetKeyDown(KeyCode.F2))
+        {
+            PhotonNetwork.LeaveRoom();
+            PhotonNetwork.LoadLevel(0);
         }
     }
 
@@ -77,10 +82,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void ResetPlayerPositions()
     {
-        //team1MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
-        //team2MBPlayer.transform.position = spawnPlayers.mobileSpawnpoint.position;
-        //team1PCPlayer.transform.position = spawnPlayers.team1PCSpawnpoint.position;
-        //team2PCPlayer.transform.position = spawnPlayers.team2PCSpawnpoint.position;
+        spawnPlayers.Start();
     }
 
     [PunRPC]
@@ -156,6 +158,31 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             victoryScreen.SetActive(false);
             defeatScreen.SetActive(false);
+
+            team1PCPlayer.transform.position = spawnPlayers.team1PCSpawnpoint.position;
+
+            //int controllerIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
+
+            //switch (controllerIndex)
+            //{
+            //    case 0:
+            //        PhotonNetwork.Destroy(team1MBPlayer);
+            //        break;
+            //    case 1:
+            //        PhotonNetwork.Destroy(team2MBPlayer);
+            //        break;
+            //    case 2:
+            //        PhotonNetwork.Destroy(team1PCPlayer);
+            //        break;
+            //    case 3:
+            //        PhotonNetwork.Destroy(team2PCPlayer);
+            //        break;
+            //}
+
+            //if (photonView.IsMine)
+            //{
+            //    photonView.RPC("ResetPlayerPositions", RpcTarget.All);
+            //}
 
             // reset reset
             Debug.Log("Resetting round");
