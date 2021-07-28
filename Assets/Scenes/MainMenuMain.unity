@@ -19556,8 +19556,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890a1608f8ad1f04ab441625c2b2e08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: tests
-  password: password
+  username: ram
+  password: 123456
   usernameInput: {fileID: 385260948}
   passwordInput: {fileID: 909610056}
 --- !u!4 &603622036 stripped

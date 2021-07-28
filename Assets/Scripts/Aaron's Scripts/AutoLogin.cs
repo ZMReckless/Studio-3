@@ -12,10 +12,12 @@ public class AutoLogin : MonoBehaviour
     [Header("Components")]
     public TMP_InputField usernameInput;
     public TMP_InputField passwordInput;
+   
 
     public void InputDetails()
     {
         usernameInput.text = username;
         passwordInput.text = password;
+        
     }
 }
