@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using Photon.Realtime;
 using Photon.Pun;
 
@@ -98,7 +99,7 @@ public class Shootable : MonoBehaviourPunCallbacks
             rigidbody.isKinematic = false;
         }
 
-
+        SceneManager.LoadScene("TheGame");
 
 
 
