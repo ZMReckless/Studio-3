@@ -28,6 +28,7 @@ public class NetworkManager : MonoBehaviourPunCallbacks
     [HideInInspector] public bool fromRoomLobby = false;
 
     string playFabNick;
+    public GameObject playfabLogin;
 
     private void Awake()
     {
@@ -36,8 +37,41 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     private void Start()
     {
-        
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        if (PhotonNetwork.IsConnected)
+        {
+            playfabLogin.SetActive(false);
+            MenuManager.Instance.OpenMenu("loading");
+        }
+        else if (!PhotonNetwork.IsConnected)
+        {
+            playfabLogin.SetActive(true);
+        }
     }
+
+    private void Update()
+    {
+        if (PhotonNetwork.InRoom)
+        {
+            Debug.Log("Player is still in a room");
+        }
+        else
+        {
+            Debug.Log("Player is not in a room");
+        }
+
+        if (PhotonNetwork.IsConnected)
+        {
+            Debug.Log("Is connected");
+        }
+        else
+        {
+            Debug.Log("Is not connected");
+        }
+    }
+
     void Success(GetPlayerProfileResult result) {
         playFabNick = result.PlayerProfile.DisplayName;
         PhotonNetwork.NickName = playFabNick; // sets the player name to a random name for now till player profiles are made
@@ -144,7 +178,10 @@ public class NetworkManager : MonoBehaviourPunCallbacks
 
     public override void OnLeftRoom()
     {
-        MenuManager.Instance.OpenMenu("main lobby");
+        if (fromRoomLobby)
+        {
+            MenuManager.Instance.OpenMenu("main lobby");
+        }
         ConnectToLobby();
 
         Debug.Log("Left room");

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
-
+using UnityEngine.SceneManagement;
 
 // this script manages the game rounds
 // references the individual players
@@ -70,8 +70,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         }
         if (Input.GetKeyDown(KeyCode.O))
         {
-            PhotonNetwork.LeaveRoom();
-            PhotonNetwork.LoadLevel(0);
+            BackToLobby();
         }
     }
 
@@ -180,39 +179,30 @@ public class GameManager : MonoBehaviourPunCallbacks
             victoryScreen.SetActive(false);
             defeatScreen.SetActive(false);
 
-            team1PCPlayer.transform.position = spawnPlayers.team1PCSpawnpoint.position;
-
-            //int controllerIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
-
-            //switch (controllerIndex)
-            //{
-            //    case 0:
-            //        PhotonNetwork.Destroy(team1MBPlayer);
-            //        break;
-            //    case 1:
-            //        PhotonNetwork.Destroy(team2MBPlayer);
-            //        break;
-            //    case 2:
-            //        PhotonNetwork.Destroy(team1PCPlayer);
-            //        break;
-            //    case 3:
-            //        PhotonNetwork.Destroy(team2PCPlayer);
-            //        break;
-            //}
-
-            //if (photonView.IsMine)
-            //{
-            //    photonView.RPC("ResetPlayerPositions", RpcTarget.All);
-            //}
-
-            // reset reset
             Debug.Log("Resetting round");
         }
     }
 
     public void BackToLobby()
     {
+        StartCoroutine(BackToMain());
+    }
+
+    IEnumerator BackToMain()
+    {
+        Debug.Log("Going back to main");
+
         PhotonNetwork.LeaveRoom();
-        PhotonNetwork.LoadLevel(0);
+
+        while (PhotonNetwork.InRoom)
+        {
+            Debug.Log("Still in room");
+
+            yield return null;
+        }
+
+        Time.timeScale = 1;
+        Debug.Log("Leaving room");
+        SceneManager.LoadScene(0);
     }
 }
