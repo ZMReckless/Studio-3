@@ -39,17 +39,23 @@ public class GameManager : MonoBehaviourPunCallbacks
     [Header("Condition Screens")]
     public GameObject victoryScreen;
     public GameObject defeatScreen;
+    public GameObject[] lobbyButtons;
 
     private void Awake()
     {
         Instance = this;
 
         roundIndex = 1;
-        maxRound = 2;
-        finalRound = maxRound;
+        maxRound = 5;
+        finalRound = maxRound - 2;
         redWins = 0;
         blueWins = 0;
         roundEnded = false;
+
+        foreach (GameObject lobbyButton in lobbyButtons)
+        {
+            lobbyButton.SetActive(false);
+        }
     }
 
     private void Update()
@@ -76,7 +82,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     public void CompleteRound(int scoreIndex)
     {
-        photonView.RPC("AddScore", RpcTarget.All, scoreIndex);
+        if (photonView.IsMine)
+        {
+            photonView.RPC("AddScore", RpcTarget.All, scoreIndex);
+        }
     }
 
     [PunRPC] //testing
@@ -91,12 +100,6 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         yield return new WaitForSeconds(delay);
         defeatScreen.SetActive(true);
-    }
-
-    [PunRPC]
-    public void ResetPlayerPositions()
-    {
-        spawnPlayers.Start();
     }
 
     [PunRPC]
@@ -160,27 +163,51 @@ public class GameManager : MonoBehaviourPunCallbacks
         {
             if (redWins == finalRound)
             {
+                EndScreen();
                 Debug.Log("Red team wins");
-                Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
             else if (blueWins == finalRound)
             {
+                EndScreen();
                 Debug.Log("Blue team wins");
-                Time.timeScale = 0;
-                Cursor.lockState = CursorLockMode.None;
-                Cursor.visible = true;
             }
-            // code for winning conditions
         }
         else
         {
             victoryScreen.SetActive(false);
             defeatScreen.SetActive(false);
 
+            int playerControllerIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
+
+            switch (playerControllerIndex)
+            {
+                case 0:
+                    PhotonNetwork.Destroy(team1MBPlayer);
+                    break;
+                case 1:
+                    PhotonNetwork.Destroy(team2MBPlayer);
+                    break;
+                case 2:
+                    PhotonNetwork.Destroy(team1PCPlayer);
+                    break;
+                case 3:
+                    PhotonNetwork.Destroy(team2PCPlayer);
+                    break;
+            }
+
+            if (photonView.IsMine)
+            {
+                photonView.RPC("ResetPlayerPositions", RpcTarget.All);
+            }
+
             Debug.Log("Resetting round");
         }
+    }
+
+    [PunRPC]
+    public void ResetPlayerPositions()
+    {
+        spawnPlayers.Start();
     }
 
     public void BackToLobby()
@@ -204,5 +231,18 @@ public class GameManager : MonoBehaviourPunCallbacks
         Time.timeScale = 1;
         Debug.Log("Leaving room");
         SceneManager.LoadScene(0);
+    }
+
+    public void EndScreen()
+    {
+        Time.timeScale = 0;
+
+        foreach (GameObject lobbyButton in lobbyButtons)
+        {
+            lobbyButton.SetActive(true);
+        }
+
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
     }
 }

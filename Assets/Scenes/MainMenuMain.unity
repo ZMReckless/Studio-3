@@ -19367,6 +19367,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dac69029d8cec4b41b5f41bba35472b0, type: 3}
+--- !u!1 &585869590 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2933806985078990058, guid: c81935f958edb8549b2b3f05bd33443e,
+    type: 3}
+  m_PrefabInstance: {fileID: 891819706}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &586240350 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4204682416310886, guid: e0d0943bc8fc8664cb244c9312993dc9,
@@ -20167,8 +20173,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 890a1608f8ad1f04ab441625c2b2e08a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  username: ram
-  password: 123456
+  username: tests
+  password: password
   usernameInput: {fileID: 385260948}
   passwordInput: {fileID: 909610056}
 --- !u!4 &603622036 stripped
@@ -63659,6 +63665,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 7f9d0a18ac96a1748bf4fbda5d241a1a, type: 3}
   - {fileID: 21300000, guid: 5b59a747ea6fb9346888325d8111095c, type: 3}
   fromRoomLobby: 0
+  playfabLogin: {fileID: 585869590}
 --- !u!1001 &1720249549
 PrefabInstance:
   m_ObjectHideFlags: 0
