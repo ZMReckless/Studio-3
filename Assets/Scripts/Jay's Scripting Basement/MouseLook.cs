@@ -38,10 +38,10 @@ public class MouseLook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!photonView.IsMine)
-        {
-            return;
-        }
+        //if (!photonView.IsMine)
+        //{
+        //    return;
+        //}
 
         float mouseX = Input.GetAxis("Mouse X") * (mouseSens * 100) * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * (mouseSens * 100) * Time.deltaTime;

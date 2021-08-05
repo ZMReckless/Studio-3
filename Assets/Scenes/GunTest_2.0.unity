@@ -142,19 +142,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 2.5942538
   m_Center: {x: 0.0014834396, y: 0.86469007, z: 0.12128354}
---- !u!114 &44671514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 44671510}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  mat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
 --- !u!4 &170096619 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4805635839906090, guid: 1736047b30b9d7145b7b1f3f9545e278,
@@ -1308,45 +1295,50 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1681106261432421674, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2568933024562076366, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
         type: 3}
       propertyPath: sceneViewId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2590403099419207669, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.x
-      value: -0.23311019
-      objectReference: {fileID: 0}
-    - target: {fileID: 2590403099419207669, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.y
-      value: -0.010144532
-      objectReference: {fileID: 0}
-    - target: {fileID: 2590403099419207669, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
-        type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: -1.8376623e-15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3587916888353302970, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
         type: 3}
       propertyPath: m_Name
       value: Player(Latest)
       objectReference: {fileID: 0}
-    - target: {fileID: 4712361886362611314, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
+    - target: {fileID: 3848090520345136661, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
         type: 3}
-      propertyPath: m_ConnectedAnchor.z
-      value: 0.098967075
+      propertyPath: sceneViewId
+      value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 5081957662999274055, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
+    - target: {fileID: 3855924249656988892, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5248208266625250202, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5564914837150224066, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
         type: 3}
       propertyPath: sceneViewId
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 8599368719675982483, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
+    - target: {fileID: 6713428158710989253, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
         type: 3}
       propertyPath: sceneViewId
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8599368719675982483, guid: d60acb2fdeae7784c85ffc1b82ec5fe3,
+        type: 3}
+      propertyPath: sceneViewId
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d60acb2fdeae7784c85ffc1b82ec5fe3, type: 3}
@@ -2451,6 +2443,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 316881847, guid: bc93e796003c637468281b2f6b0dde3f, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.2822266
+      objectReference: {fileID: 0}
+    - target: {fileID: 316881847, guid: bc93e796003c637468281b2f6b0dde3f, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 3.8469238
       objectReference: {fileID: 0}
@@ -2591,7 +2587,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Woman_UVT-Pose
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7109702541130856354, guid: a05589a7341ffac4689ae551278beb2f, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a05589a7341ffac4689ae551278beb2f, type: 3}
 --- !u!1001 &7955082913189314979
 PrefabInstance:
