@@ -43,6 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba2db9dea5973d488808b4e6bd058c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: ac3019f4ccc9e534a9c701fa5cb411fb, type: 3}
+  powerUpObject: {fileID: 2623993787998352476, guid: c09bddff6ece2ed46868d1679cf3b3f9,
+    type: 3}
   cage: {fileID: 2623993787998352476, guid: 72f94f9df3fd7044b83ab7d9e6b73702, type: 3}
   dropRadius: 5

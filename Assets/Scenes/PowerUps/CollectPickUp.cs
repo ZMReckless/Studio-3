@@ -11,21 +11,20 @@ public class CollectPickUp : MonoBehaviour
     // when player collides with the pick up
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == ("Player"))
+        if (other.gameObject.tag == ("Team1"))
         {
-            playerPowerUp = other.gameObject.GetComponent<PlayerPowerUp>();
+            //playerPowerUp = other.gameObject.GetComponent<PlayerPowerUp>();
 
-            if (playerPowerUp.powerUp == null)
-            {
-                playerPowerUp.powerUp = transform.GetComponentInParent<PickUp>().powerUp; // sets the available powerup
-                Debug.Log("Collected PickUp");
-                Destroy(pickUpItem);
-            }
-            else
-            {
-                Debug.Log("Player already has a powerup");
-            }
-            
+            //if (playerPowerUp.powerUp == null)
+            //{
+            //    playerPowerUp.powerUp = transform.GetComponentInParent<PickUp>().powerUp; // sets the available powerup
+            //    Debug.Log("Collected PickUp");
+            //    Destroy(pickUpItem);
+            //}
+            //else
+            //{
+            //    Debug.Log("Player already has a powerup");
+            //}
         }
     }
 }

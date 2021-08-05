@@ -7,7 +7,7 @@ using UnityEngine;
 // variables may be added/removed/changed due to needs
 public class PowerUp : MonoBehaviour
 {
-    public Sprite sprite; // the powerups UI sprite
+    public GameObject powerUpObject;
 
     // this method will be overridden by the inherited classes
     public virtual void PowerUpEffects()

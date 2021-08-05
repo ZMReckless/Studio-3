@@ -13,19 +13,17 @@ public class PickUp : MonoBehaviour
     private PowerUpDatabase powerUpDatabase; // reference the gameobject with the powerup array
     public PowerUp powerUp; // references the randomly chosen powerup
 
-    public Image image;
-    private Sprite sprite; // reference to the pickup material
-
     private void Start()
     {
-        powerUpDatabase = transform.parent.GetComponentInParent<PickUpSpawner>().powerUpDatabase;
+        powerUpDatabase = PowerUpDatabase.Instance;
         powerUp = powerUpDatabase.powerUps[Random.Range(0, powerUpDatabase.powerUps.Length)]; // chooses a random powerup
-        sprite = powerUp.sprite; // retrieves the sprite information
-        image.sprite = sprite; // sets the pickup material to the pickup
+
+        GameObject pickUp = Instantiate(powerUp.powerUpObject, transform.position, Quaternion.identity);
+        pickUp.transform.SetParent(gameObject.transform);
     }
 
     private void Update()
     {
-        //image.transform.LookAt(GameObject.Find("PlayerCam").transform);
+        
     }
 }
