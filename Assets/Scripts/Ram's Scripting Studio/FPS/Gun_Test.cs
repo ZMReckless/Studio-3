@@ -24,12 +24,13 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     public Animator playerAnim;
 
 
-    public Material mat;
-    private float thresholdValue = 1f;
-    private float deTriggerThresholdValue = 0f;
-    private float thresholdChangeAmount = 0.025f;
 
-   
+    //public Material mat;
+    //private float thresholdValue = 1f;
+    //private float deTriggerThresholdValue = 0f;
+    //private float thresholdChangeAmount = 0.025f;
+
+
 
     //PhotonView PV;
 
@@ -44,8 +45,8 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
         //PV = GetComponent<PhotonView>();
-        mat.SetFloat("Threshold", 1);
-
+        //mat.SetFloat("Threshold", 1);
+        
     }
 
     // Update is called once per frame
@@ -57,8 +58,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         ammoDisplay.text = currentAmmo.ToString() + slash + maxAmmo.ToString();
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
-            photonView.RPC("RPC_TriggerCloseContact", RpcTarget.All);
-
+            //photonView.RPC("RPC_TriggerCloseContact", RpcTarget.All);
 
             nextShot = Time.time + 1 / fireRate;
             RPC_Shoot();
@@ -137,64 +137,64 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     #region shader
 
-    [PunRPC]
-    public void RPC_TriggerCloseContact()
-    {
-        StartCoroutine(TriggerCloseContact());
-    }
+    //[PunRPC]
+    //public void RPC_TriggerCloseContact()
+    //{
+    //    StartCoroutine(TriggerCloseContact());
+    //}
 
-    [PunRPC]
-    public void RPC_DeTriggerCloseContact()
-    {
-        StartCoroutine(DeTriggerCloseContact());
-    }
+    //[PunRPC]
+    //public void RPC_DeTriggerCloseContact()
+    //{
+    //    StartCoroutine(DeTriggerCloseContact());
+    //}
 
 
-    IEnumerator TriggerCloseContact()
-    {
-        while (thresholdValue > 0)
-        {
-            yield return new WaitForSeconds(0);
+    //IEnumerator TriggerCloseContact()
+    //{
+    //    while (thresholdValue > 0)
+    //    {
+    //        yield return new WaitForSeconds(0);
 
-            thresholdValue -= thresholdChangeAmount;
-            mat.SetFloat("Threshold", thresholdValue);
+    //        thresholdValue -= thresholdChangeAmount;
+    //        mat.SetFloat("Threshold", thresholdValue);
 
-            if (thresholdValue <= 0)
-            {
-                thresholdValue = 0;
-                if (thresholdValue == 0)
-                {
-                    //StopAllCoroutines();
-                    yield return new WaitForSeconds(3);
-                    photonView.RPC("RPC_DeTriggerCloseContact", RpcTarget.All);
-                }
-            }
-        }
-    }
+    //        if (thresholdValue <= 0)
+    //        {
+    //            thresholdValue = 0;
+    //            if (thresholdValue == 0)
+    //            {
+    //                //StopAllCoroutines();
+    //                yield return new WaitForSeconds(3);
+    //                photonView.RPC("RPC_DeTriggerCloseContact", RpcTarget.All);
+    //            }
+    //        }
+    //    }
+    //}
 
-    IEnumerator DeTriggerCloseContact()
-    {
-        while (deTriggerThresholdValue < 1)
-        {
-            yield return new WaitForSeconds(0);
+    //IEnumerator DeTriggerCloseContact()
+    //{
+    //    while (deTriggerThresholdValue < 1)
+    //    {
+    //        yield return new WaitForSeconds(0);
 
-            thresholdValue += thresholdChangeAmount;
-            mat.SetFloat("Threshold", thresholdValue);
+    //        thresholdValue += thresholdChangeAmount;
+    //        mat.SetFloat("Threshold", thresholdValue);
 
-            if (thresholdValue >= 1)
-            {
-                thresholdValue = 1;
-                if (thresholdValue == 1)
-                {
-                    StopAllCoroutines();
-                }
-            }
-        }
-    }
+    //        if (thresholdValue >= 1)
+    //        {
+    //            thresholdValue = 1;
+    //            if (thresholdValue == 1)
+    //            {
+    //                StopAllCoroutines();
+    //            }
+    //        }
+    //    }
+    //}
 
     #endregion
 
-  
+
 
     //void BulletShellTrigger() //moved to new script
     //{

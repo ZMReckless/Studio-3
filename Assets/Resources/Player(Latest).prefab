@@ -174,6 +174,8 @@ GameObject:
   - component: {fileID: 2660054816279812986}
   - component: {fileID: 2285875706056929256}
   - component: {fileID: 244360808752126145}
+  - component: {fileID: 1008296524}
+  - component: {fileID: 5248208266625250202}
   m_Layer: 0
   m_Name: SM_Wep_Rifle_01_Trigger
   m_TagString: Untagged
@@ -244,6 +246,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1008296524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199092805091714782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
+  seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
+--- !u!114 &5248208266625250202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 199092805091714782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &268833634002517388
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +762,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.4608737, y: 0.036608577, z: 0}
+  m_ConnectedAnchor: {x: -0.46087366, y: 0.036608696, z: 0}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -802,6 +840,7 @@ GameObject:
   - component: {fileID: 1091165752005084005}
   - component: {fileID: 2568933024562076366}
   - component: {fileID: 2124120813}
+  - component: {fileID: 1326845762}
   m_Layer: 0
   m_Name: SM_Wep_Rifle_01
   m_TagString: Untagged
@@ -903,7 +942,6 @@ MonoBehaviour:
   ammoDisplay: {fileID: 0}
   gunAnim: {fileID: 9081113566251025161}
   playerAnim: {fileID: 5765894139203352489}
-  mat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
 --- !u!114 &2568933024562076366
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1022,6 +1060,20 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1326845762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876041221958918213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
+  seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
 --- !u!1 &2027300084391285433
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,6 +5916,8 @@ GameObject:
   - component: {fileID: 7015018692170896044}
   - component: {fileID: 3168049201464625671}
   - component: {fileID: 574532381818159945}
+  - component: {fileID: 200578997}
+  - component: {fileID: 5564914837150224066}
   m_Layer: 0
   m_Name: SM_Wep_Rifle_01_Lever
   m_TagString: Untagged
@@ -5934,6 +5988,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &200578997
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543401579664922193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
+  seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
+--- !u!114 &5564914837150224066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2543401579664922193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &2736819539541987837
 GameObject:
   m_ObjectHideFlags: 0
@@ -6276,7 +6366,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3587916888353302970}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -3.6545448, y: 0.9047117, z: -7.5304456}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_Children:
@@ -6668,7 +6758,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.33947462, y: 0.001447585, z: 0.0014364254}
+  m_ConnectedAnchor: {x: 0.33947462, y: 0.0014475845, z: 0.0014363416}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: -1}
   m_TwistLimitSpring:
@@ -6842,7 +6932,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.3993092, y: -0.00000016391277, z: 0.0000006183982}
+  m_ConnectedAnchor: {x: -0.39930925, y: -0.000000007450581, z: -0.000000022351742}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -6886,6 +6976,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8088618593128805478}
   - component: {fileID: 1219425074593860356}
+  - component: {fileID: 421632779}
+  - component: {fileID: 3855924249656988892}
   m_Layer: 0
   m_Name: Character_Badguy_01
   m_TagString: Untagged
@@ -7008,6 +7100,42 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.00000011920929, y: 0.8587489, z: -0.027915299}
     m_Extent: {x: 1.0258236, y: 0.9798567, z: 0.30891627}
   m_DirtyAABB: 0
+--- !u!114 &421632779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705334051567363038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
+  seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
+--- !u!114 &3855924249656988892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705334051567363038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &3828874384842491156
 GameObject:
   m_ObjectHideFlags: 0
@@ -16630,7 +16758,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.041157775, y: -0.026921323, z: 0.098967075}
+  m_ConnectedAnchor: {x: 0.0411578, y: -0.026920758, z: 0.098967105}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -16676,6 +16804,8 @@ GameObject:
   - component: {fileID: 6778311988151330952}
   - component: {fileID: 8468937711405952495}
   - component: {fileID: 4373023614676216504}
+  - component: {fileID: 527030514}
+  - component: {fileID: 1681106261432421674}
   m_Layer: 0
   m_Name: SM_Wep_Rifle_01_Hammer
   m_TagString: Untagged
@@ -16765,6 +16895,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &527030514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003277266886974473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
+  seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
+--- !u!114 &1681106261432421674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4003277266886974473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &4019923513912631712
 GameObject:
   m_ObjectHideFlags: 0
@@ -17226,7 +17392,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.051593825, y: 0.019736286, z: 0.19098902}
+  m_ConnectedAnchor: {x: -0.05159379, y: 0.019736378, z: 0.190989}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 1, z: 0}
   m_TwistLimitSpring:
@@ -17397,7 +17563,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: -1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.39930925, y: -0.00000024959445, z: -0.0000005662441}
+  m_ConnectedAnchor: {x: 0.39930925, y: -0.00000037252903, z: 0.000000044703484}
   serializedVersion: 2
   m_SwingAxis: {x: 1, y: 0, z: 0}
   m_TwistLimitSpring:
@@ -17605,6 +17771,8 @@ GameObject:
   - component: {fileID: 4085858387039395738}
   - component: {fileID: 8868706523122643358}
   - component: {fileID: 29836894719753127}
+  - component: {fileID: 1520250356}
+  - component: {fileID: 6713428158710989253}
   m_Layer: 0
   m_Name: SM_Wep_Rifle_01_Slide
   m_TagString: Untagged
@@ -17675,6 +17843,42 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1520250356
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800979797013516806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b37b9c127287c542a79fb8ee20b374a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
+  seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
+--- !u!114 &6713428158710989253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5800979797013516806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &5830181195721634764
 GameObject:
   m_ObjectHideFlags: 0
@@ -17899,7 +18103,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 0, z: 1}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.05159648, y: 0.019736513, z: -0.19098926}
+  m_ConnectedAnchor: {x: -0.051596478, y: 0.019736595, z: -0.19098924}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -18175,7 +18379,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: -1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.339474, y: -0.0014490336, z: -0.0014363546}
+  m_ConnectedAnchor: {x: -0.3394741, y: -0.0014490033, z: -0.0014362782}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: 0, z: 1}
   m_TwistLimitSpring:
@@ -18439,7 +18643,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 1, y: 0, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: -0.23311019, y: -0.010144532, z: -1.8376623e-15}
+  m_ConnectedAnchor: {x: -0.2331102, y: -0.010144405, z: -1.8376623e-15}
   serializedVersion: 2
   m_SwingAxis: {x: 0, y: -1, z: 0}
   m_TwistLimitSpring:
@@ -18926,7 +19130,7 @@ CharacterJoint:
   m_Anchor: {x: 0, y: 0, z: 0}
   m_Axis: {x: 0, y: 1, z: 0}
   m_AutoConfigureConnectedAnchor: 1
-  m_ConnectedAnchor: {x: 0.04115742, y: -0.026921267, z: -0.098967075}
+  m_ConnectedAnchor: {x: 0.041157685, y: -0.026920708, z: -0.09896706}
   serializedVersion: 2
   m_SwingAxis: {x: -1, y: 0, z: 0}
   m_TwistLimitSpring:
