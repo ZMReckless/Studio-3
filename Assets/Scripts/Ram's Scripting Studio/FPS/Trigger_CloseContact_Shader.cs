@@ -27,7 +27,7 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
     
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Mouse0))
+        if(Input.GetKeyDown(KeyCode.Mouse0)) 
         {
             if(photonView.IsMine)
             {
