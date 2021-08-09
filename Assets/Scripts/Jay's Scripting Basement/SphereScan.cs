@@ -6,6 +6,11 @@ public class SphereScan : MonoBehaviour
 {
     public Vector3 growthRate = new Vector3 (10f, 10f, 10f);
 
+    public Material mat1;
+    public Material mat2;
+
+
+
     void Awake()
     {
         gameObject.GetComponent<MeshRenderer>().material.color = new Color(1f, 1f, 1f, 0.1f);
@@ -28,11 +33,16 @@ public class SphereScan : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.collider.tag == "player")
+        if (other.CompareTag("Player"))
         {
 
+
+            Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
+            //Trigger_CloseContact_Shader.ChangeMatTest();
+            other.gameObject.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
+            Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
         }
     }
 }

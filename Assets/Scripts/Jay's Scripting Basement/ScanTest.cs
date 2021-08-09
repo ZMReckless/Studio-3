@@ -18,6 +18,8 @@ public class ScanTest : MonoBehaviour
     [SerializeField]
     private Vector3 _mousePos;
 
+    // COMMENT THIS OUT IF TESTING ON PC
+    // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
     private void Start()
     {
         cooldownBar.fillAmount = 0f;
@@ -34,6 +36,9 @@ public class ScanTest : MonoBehaviour
         //    ScanTimer();
         //    Scan();
         //}
+        
+        // COMMENT THIS OUT IF TESTING ON PC
+        // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
         if (hasScanned == true)
         {
             cooldownBar.fillAmount += 1.0f / waitTime * Time.deltaTime;
@@ -43,6 +48,18 @@ public class ScanTest : MonoBehaviour
         {
             cooldownBar.fillAmount = 0f;
         }
+
+        // UNCOMMENT THIS IF TESTING ON PC
+        // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+        //if (Input.GetKeyDown(KeyCode.Mouse0))
+        //{
+        //    if (hasScanned == false)
+        //    {
+        //        hasScanned = true;
+        //        ScanTimer();
+        //        Scan();
+        //    }
+        //}
     }
 
     public void fire()

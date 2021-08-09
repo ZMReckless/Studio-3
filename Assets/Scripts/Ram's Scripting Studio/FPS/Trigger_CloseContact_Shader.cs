@@ -24,7 +24,12 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
         GetComponent<Renderer>().material = seenMat;
     }
 
-    
+
+    public void ChangeMatTest()
+    {
+        GetComponent<Renderer>().material = seenMat;
+    }
+
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.Mouse0)) 
@@ -37,7 +42,7 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
         }
     }
 
-    IEnumerator BackToInvisible()
+    public IEnumerator BackToInvisible()
     {
         yield return new WaitForSeconds(2);
 

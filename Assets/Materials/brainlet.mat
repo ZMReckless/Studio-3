@@ -8,14 +8,14 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: brainlet
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 3c49ce095508b1440b48ec9afce09837,
+    type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -25,6 +25,10 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_c45007f222ab4b5b878963a2abf03bc4:
+        m_Texture: {fileID: 2800000, guid: c0fbd318231095c4dbeb785e61412ae9, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _AnisotropyMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -158,6 +162,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_266dc73645444910b9a9ed511ecef7e3: 0.05
+    - Vector1_8f7441bf7feb4c6e83af0eba03abc2ff: 5
+    - Vector1_93b6a204e06841d9b03545266ad6076a: 0.01
+    - Vector1_f9ee2b653f4443ddb54bb4d137704e5e: 0.6
     - _AORemapMax: 1
     - _AORemapMin: 0
     - _ATDistance: 1
@@ -287,6 +295,8 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
+    - Color_64a0b71b7e364310aefcdd939dc1febc: {r: 3.32549, g: 0.6117647, b: 0, a: 0}
+    - Vector2_40e3851da4494fd68b9a91212a5ca226: {r: 2, g: 2, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.24705882}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 0.24705882}
