@@ -1,28 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class Mine : PowerUp
 {
-    public GameObject mine;
-    private GameObject player;
-
-    private Vector3 droppedObstacleLocation;
-
-    public float dropRadius = 3f;
-
     public override void PowerUpEffects()
     {
-        player = GameObject.Find("Player");
+        Ray castPoint = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
 
-        float x, y, z;
-
-        x = Random.Range(player.transform.position.x - dropRadius, player.transform.position.x + dropRadius);
-        y = Random.Range(player.transform.position.y, player.transform.position.y + dropRadius);
-        z = Random.Range(player.transform.position.z - dropRadius, player.transform.position.z + dropRadius);
-
-        droppedObstacleLocation = new Vector3(x, y, z);
-
-        Instantiate(mine, droppedObstacleLocation, Quaternion.identity);
+        if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
+        {
+            PhotonNetwork.InstantiateRoomObject("Mine",
+                (new Vector3(hit.point.x, hit.point.y + 0.5f, hit.point.z)), Quaternion.identity);
+        }
     }
 }

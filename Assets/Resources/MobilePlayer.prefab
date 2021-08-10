@@ -1668,7 +1668,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6959753360357996614
 Transform:
   m_ObjectHideFlags: 0
@@ -1760,6 +1760,7 @@ GameObject:
   - component: {fileID: 7833198583867857083}
   - component: {fileID: 6496515095028886219}
   - component: {fileID: 4688183114997388840}
+  - component: {fileID: 1517625754944137333}
   m_Layer: 0
   m_Name: MobilePlayer
   m_TagString: Untagged
@@ -1834,6 +1835,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bfd5067808267341b24134bfe89a451, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1517625754944137333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6959753360396185867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82b87d236d298444184dd5ed4052f9ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUp: {fileID: 0}
 --- !u!1 &6959753360982270730
 GameObject:
   m_ObjectHideFlags: 0
@@ -1950,7 +1964,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6959753361176715208
 Transform:
   m_ObjectHideFlags: 0

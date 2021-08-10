@@ -6,6 +6,6 @@ public class TumbleweedStorm : PowerUp
 {
     public override void PowerUpEffects()
     {
-        
+        GameManager.Instance.ActivateStorm();
     }
 }

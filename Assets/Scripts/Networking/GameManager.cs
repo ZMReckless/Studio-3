@@ -41,6 +41,9 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject defeatScreen;
     public GameObject[] lobbyButtons;
 
+    [Header("PowerUp GameObjects")]
+    public GameObject tumbleweedStorm;
+
     private void Awake()
     {
         Instance = this;
@@ -244,5 +247,15 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void ActivateStorm()
+    {
+        photonView.RPC("StartStorm", RpcTarget.All);
+    }
+
+    public void StartStorm()
+    {
+        tumbleweedStorm.SetActive(true);
     }
 }

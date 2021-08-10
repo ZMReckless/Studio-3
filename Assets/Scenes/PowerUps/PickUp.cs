@@ -21,9 +21,4 @@ public class PickUp : MonoBehaviour
         GameObject pickUp = Instantiate(powerUp.powerUpObject, transform.position, Quaternion.identity);
         pickUp.transform.SetParent(gameObject.transform);
     }
-
-    private void Update()
-    {
-        
-    }
 }

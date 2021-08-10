@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 5766296172650193185}
   - component: {fileID: 1558772354675524341}
   - component: {fileID: 7162935355352725976}
+  - component: {fileID: 8710226927389571655}
   m_Layer: 0
   m_Name: Mine
   m_TagString: Untagged
@@ -322,3 +323,25 @@ MonoBehaviour:
   smokeObject: {fileID: 2541154823341822135, guid: 12ed7776cb16765439a9717fabf846e8,
     type: 3}
   explosionDistance: 5
+--- !u!114 &8710226927389571655
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8177530418338808499}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0

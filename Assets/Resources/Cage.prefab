@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419252221415210198}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotPoint (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419252221487362578}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotPoint (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419252221854139430}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotPoint (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -102,7 +102,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1419252222404236563}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PivotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 2623993787757778850}
   - component: {fileID: 2623993787757778851}
   - component: {fileID: 2623993787757778908}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CageWall (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -232,7 +232,7 @@ GameObject:
   - component: {fileID: 2623993787799166381}
   - component: {fileID: 2623993787799166382}
   - component: {fileID: 2623993787799166383}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CageWall (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ GameObject:
   - component: {fileID: 3749344329573174416}
   - component: {fileID: 1189398183069406295}
   - component: {fileID: 5751740463015464654}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Cage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -386,7 +386,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 1419252220800461852}
-  trapDescent: 3
   delayLength: 3
   debrisLength: 1
 --- !u!65 &1189398183069406295
@@ -430,7 +429,7 @@ GameObject:
   - component: {fileID: 2623993788380702178}
   - component: {fileID: 2623993788380702179}
   - component: {fileID: 2623993788380702236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CageWall (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -526,7 +525,7 @@ GameObject:
   - component: {fileID: 6334184278358205110}
   - component: {fileID: 6323783677325995380}
   - component: {fileID: 6302726938448970250}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: CageWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
