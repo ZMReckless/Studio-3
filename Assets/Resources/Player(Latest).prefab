@@ -260,7 +260,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
   seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
-  volume: {fileID: 0}
 --- !u!114 &5248208266625250202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1075,7 +1074,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
   seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
-  volume: {fileID: 0}
 --- !u!1 &2027300084391285433
 GameObject:
   m_ObjectHideFlags: 0
@@ -6004,7 +6002,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
   seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
-  volume: {fileID: 0}
 --- !u!114 &5564914837150224066
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7098,6 +7095,7 @@ GameObject:
   - component: {fileID: 3855924249656988892}
   - component: {fileID: 2000212372}
   - component: {fileID: 2000212368}
+  - component: {fileID: 382325129}
   m_Layer: 0
   m_Name: Character_Badguy_01
   m_TagString: Untagged
@@ -7234,7 +7232,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
   seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
-  volume: {fileID: 0}
 --- !u!114 &3855924249656988892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7286,6 +7283,23 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.65578055, y: 1.8453296, z: 0.41188836}
   m_Center: {x: 0.0399706, y: 0.9266919, z: -0.0186102}
+--- !u!114 &382325129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3705334051567363038}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 0
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 41382f3c3d6a45c44bfb11e1b9e273ef, type: 2}
 --- !u!1 &3828874384842491156
 GameObject:
   m_ObjectHideFlags: 0
@@ -17059,7 +17073,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
   seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
-  volume: {fileID: 0}
 --- !u!114 &1681106261432421674
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18008,7 +18021,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hiddenMat: {fileID: 2100000, guid: 1f653e41a01abde45a20f5b3ac739d0b, type: 2}
   seenMat: {fileID: 2100000, guid: 08bcfff0d8ae3d946aa76d040b39a673, type: 2}
-  volume: {fileID: 0}
 --- !u!114 &6713428158710989253
 MonoBehaviour:
   m_ObjectHideFlags: 0

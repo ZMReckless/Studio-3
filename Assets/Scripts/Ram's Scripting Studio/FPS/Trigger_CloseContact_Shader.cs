@@ -13,14 +13,18 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
     public Material hiddenMat;
     public Material seenMat;
 
-    [SerializeField]
+    
     private Volume volume;
+   
 
     private void Start()
     {
         GetComponent<Renderer>().material = hiddenMat;
 
         volume = FindObjectOfType<Volume>();
+
+        //volume.sharedProfile.TryGet<Vignette>(out var vignette);
+        //vignette.active = true;
     }
     //private float thresholdValue = 1f;
     //private float deTriggerThresholdValue = 0f;
@@ -29,23 +33,31 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
     [PunRPC]
     public void EnableVignette()
     {
+        
         volume.sharedProfile.TryGet<Vignette>(out var vignette);
-        vignette.active = true;
+        if(photonView.IsMine)
+        {
+            vignette.active = true;
+        }
     }
 
     [PunRPC]
     public void DisableVignette()
     {
-        volume = FindObjectOfType<Volume>();
+        
         volume.sharedProfile.TryGet<Vignette>(out var vignette);
-        vignette.active = false;
+        if(photonView.IsMine)
+        {
+            vignette.active = false;
+        }
     }
-    
+
 
     [PunRPC]
     public void ChangeMat()
     {
         GetComponent<Renderer>().material = seenMat;
+        photonView.RPC("DisableVignette", RpcTarget.All);
     }
 
 
@@ -61,11 +73,12 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
             if(photonView.IsMine)
             {
                 photonView.RPC("ChangeMat", RpcTarget.All);
-                photonView.RPC("DisableVignette", RpcTarget.All);
-                photonView.RPC("RPC_BackToInvisible", RpcTarget.All);
                 
+                photonView.RPC("RPC_BackToInvisible", RpcTarget.All);
             }
         }
+        
+        
     }
 
     public IEnumerator BackToInvisible()
@@ -74,6 +87,7 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
 
         GetComponent<Renderer>().material = hiddenMat;
         photonView.RPC("EnableVignette", RpcTarget.All);
+
     }
 
     [PunRPC]

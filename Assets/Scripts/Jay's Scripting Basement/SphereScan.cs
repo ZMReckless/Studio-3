@@ -33,6 +33,7 @@ public class SphereScan : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Team1") || other.CompareTag("Team2"))
