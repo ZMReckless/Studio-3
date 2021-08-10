@@ -30,7 +30,7 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
     {
         GetComponent<Renderer>().material = seenMat;
 
-        
+        globalVolume.GetComponent<Vignette>().active = false;
     }
 
 
