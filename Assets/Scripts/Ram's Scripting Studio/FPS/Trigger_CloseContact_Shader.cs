@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Photon.Realtime;
 using Photon.Pun;
+using UnityEngine.Rendering;
+using UnityEngine.Rendering.Universal;
 
 public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
 {
@@ -10,9 +12,14 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
     public Material hiddenMat;
     public Material seenMat;
 
+    [SerializeField]
+    private Volume globalVolume;
+
     private void Start()
     {
         GetComponent<Renderer>().material = hiddenMat;
+
+        globalVolume = FindObjectOfType<Volume>();
     }
     //private float thresholdValue = 1f;
     //private float deTriggerThresholdValue = 0f;
@@ -22,6 +29,8 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
     public void ChangeMat()
     {
         GetComponent<Renderer>().material = seenMat;
+
+        
     }
 
 
