@@ -15,13 +15,16 @@ public static class SendDataInGame
             Keys = null
         }, result => {
             Debug.Log("Got user Data");
-            if (result.Data == null || !result.Data.ContainsKey("Kills")) {
+            if (result.Data == null || !result.Data.ContainsKey("Kills") || !result.Data.ContainsKey("Deaths")) {
 
             }
             else {
                 Debug.Log("Kills:" + result.Data["Kills"].Value);
+                Debug.Log("Deaths:" + result.Data["Deaths"].Value);
                 kills = System.Convert.ToInt32(result.Data["Kills"].Value);
+                deaths = System.Convert.ToInt32(result.Data["Deaths"].Value);
                 Debug.Log(kills);
+                Debug.Log(deaths);
             }
         }, error => {
             Debug.Log("Got Error Retrieving User Data:");

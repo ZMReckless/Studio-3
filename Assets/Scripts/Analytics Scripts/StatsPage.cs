@@ -3,18 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using PlayFab;
 using PlayFab.ClientModels;
+using TMPro;
 
 public class StatsPage : MonoBehaviour
 {
-    public int r1, r2, r3, r4, r5;
+    //public int r1, r2, r3, r4, r5;
     int[] rounds;
     string matchRoundVal, playFabId;
     Dictionary<string, UserDataRecord> playerDataPulled;
-    void Start()
+    public TextMeshProUGUI killsText, deathsText;
+    public GameObject statsPage, loading;
+    void Awake()
     {
-        
+        SendDataInGame.PullData();
+        StartCoroutine(Load());
     }
-
+    IEnumerator Load() {
+        yield return new WaitForSeconds(2f);
+        killsText.text = SendDataInGame.kills.ToString();
+        deathsText.text = SendDataInGame.deaths.ToString();
+        statsPage.SetActive(true);
+        loading.SetActive(false);
+    }
     //public void SendMatchData() {
     //    PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest() {
     //        PlayFabId = playFabId
