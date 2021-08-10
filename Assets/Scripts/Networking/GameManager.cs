@@ -43,6 +43,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
     private void Awake()
     {
+        SendDataInGame.PullData();
         Instance = this;
 
         roundIndex = 1;
@@ -112,11 +113,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (playerPlatform == 0 || playerPlatform == 2)
             {
                 StartCoroutine(EnableVictoryScreen(2.5f));
+                SendDataInGame.UpdateKillsOrDeaths(1);
                 Debug.Log("You Won");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 StartCoroutine(EnableDefeatScreen(2.5f));
+                SendDataInGame.UpdateKillsOrDeaths(0);
                 Debug.Log("You Lost");
             }
         }
