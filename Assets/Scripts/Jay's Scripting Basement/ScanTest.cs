@@ -36,7 +36,7 @@ public class ScanTest : MonoBehaviour
         //    ScanTimer();
         //    Scan();
         //}
-        
+
         // COMMENT THIS OUT IF TESTING ON PC
         // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
         if (hasScanned == true)
@@ -49,7 +49,7 @@ public class ScanTest : MonoBehaviour
             cooldownBar.fillAmount = 0f;
         }
 
-        // UNCOMMENT THIS IF TESTING ON PC
+        //UNCOMMENT THIS IF TESTING ON PC
         // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
         //if (Input.GetKeyDown(KeyCode.Mouse0))
         //{

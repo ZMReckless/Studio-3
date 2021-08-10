@@ -6,6 +6,7 @@ using Photon.Pun;
 using UnityEngine.Rendering;
 using UnityEngine.Rendering.Universal;
 
+
 public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
 {
 
@@ -13,28 +14,42 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
     public Material seenMat;
 
     [SerializeField]
-    private Volume globalVolume;
+    private Volume volume;
 
     private void Start()
     {
         GetComponent<Renderer>().material = hiddenMat;
 
-        globalVolume = FindObjectOfType<Volume>();
+        volume = FindObjectOfType<Volume>();
     }
     //private float thresholdValue = 1f;
     //private float deTriggerThresholdValue = 0f;
     //private float thresholdChangeAmount = 0.025f;
 
     [PunRPC]
+    public void EnableVignette()
+    {
+        volume.sharedProfile.TryGet<Vignette>(out var vignette);
+        vignette.active = true;
+    }
+
+    [PunRPC]
+    public void DisableVignette()
+    {
+        volume = FindObjectOfType<Volume>();
+        volume.sharedProfile.TryGet<Vignette>(out var vignette);
+        vignette.active = false;
+    }
+    
+
+    [PunRPC]
     public void ChangeMat()
     {
         GetComponent<Renderer>().material = seenMat;
-
-        globalVolume.GetComponent<Vignette>().active = false;
     }
 
 
-    public void ChangeMatTest()
+    public void ChangeMatTest() //testing
     {
         GetComponent<Renderer>().material = seenMat;
     }
@@ -46,7 +61,9 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
             if(photonView.IsMine)
             {
                 photonView.RPC("ChangeMat", RpcTarget.All);
+                photonView.RPC("DisableVignette", RpcTarget.All);
                 photonView.RPC("RPC_BackToInvisible", RpcTarget.All);
+                
             }
         }
     }
@@ -56,7 +73,7 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
         yield return new WaitForSeconds(2);
 
         GetComponent<Renderer>().material = hiddenMat;
-
+        photonView.RPC("EnableVignette", RpcTarget.All);
     }
 
     [PunRPC]

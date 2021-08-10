@@ -35,10 +35,8 @@ public class SphereScan : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Team1") || other.CompareTag("Untagged"))
         {
-
-
             Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
             //Trigger_CloseContact_Shader.ChangeMatTest();
             other.gameObject.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
