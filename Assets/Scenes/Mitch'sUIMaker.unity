@@ -1344,6 +1344,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4b3b79c802bc254ea0297da61ed43fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dolly: {fileID: 0}
+  speed: 0.1
 --- !u!1 &290601106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5849,7 +5851,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1696075655
 RectTransform:
   m_ObjectHideFlags: 0

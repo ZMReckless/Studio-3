@@ -5,9 +5,16 @@ using Cinemachine;
 
 public class JoystickController : MonoBehaviour
 {
+
     private Rigidbody2D rb;
     private float deltaX;
-    //public CinemachineVirtualCamera dolly;
+
+    //Dolly Movement 
+    public CinemachineVirtualCamera dolly;
+
+    public float speed = 0.1f;
+
+    bool incrementUp;
 
     // Start is called before the first frame update
     void Start()
@@ -45,13 +52,25 @@ public class JoystickController : MonoBehaviour
             if (this.gameObject.transform.position.x  < 140)
             {
                 Debug.Log("Left");
+                incrementUp = false;
                 //dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition -= speed;
             }
             if (this.gameObject.transform.position.x > 140)
             {
                 Debug.Log("Right");
+                incrementUp = true;
                 //dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition += speed;
             }
+
+            if (incrementUp)
+            {
+                dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition += speed;
+            }
+            else
+            {
+                dolly.GetComponent<CinemachineVirtualCamera>().GetCinemachineComponent<CinemachineTrackedDolly>().m_PathPosition -= speed;
+            }
+
 
         }
     }
