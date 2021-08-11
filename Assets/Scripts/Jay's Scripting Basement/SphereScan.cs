@@ -44,18 +44,10 @@ public class SphereScan : MonoBehaviourPunCallbacks
     {
         if (other.CompareTag("Team1") || other.CompareTag("Team2"))
         {
-
-            photonView.RPC("RPC_OnTriggerEnter", RpcTarget.All, other);
+            Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
+            //Trigger_CloseContact_Shader.ChangeMatTest();
+            other.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
+            Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
         }
     }
-
-    [PunRPC]
-    void RPC_OnTriggerEnter(Collider other)
-    {
-        Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
-        //Trigger_CloseContact_Shader.ChangeMatTest();
-        other.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
-        Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
-    }
-
 }
