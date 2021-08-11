@@ -15,7 +15,8 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
 
     
     private Volume volume;
-   
+
+    
 
     private void Start()
     {
@@ -49,6 +50,7 @@ public class Trigger_CloseContact_Shader : MonoBehaviourPunCallbacks
         if(photonView.IsMine)
         {
             vignette.active = false;
+            
         }
     }
 
