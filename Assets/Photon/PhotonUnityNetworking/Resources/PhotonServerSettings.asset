@@ -61,6 +61,7 @@ MonoBehaviour:
   - RPC_BackToInvisible
   - DisableVignette
   - EnableVignette
+  - Scan
   DisableAutoOpenWizard: 1
   ShowSettings: 0
   DevRegionSetOnce: 1
