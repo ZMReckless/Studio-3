@@ -34,11 +34,11 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         ammoDisplay.text = currentAmmo.ToString() + slash + maxAmmo.ToString();
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
+            SendDataInGame.UpdateShotsFired();
             nextShot = Time.time + 1 / fireRate;
             RPC_Shoot();
             isFiring = true;
             currentAmmo--;
-            SendDataInGame.UpdateShotsFired();
             isFiring = false;
         }
         if (Input.GetKeyDown(KeyCode.R))

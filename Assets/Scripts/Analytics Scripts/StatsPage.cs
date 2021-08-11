@@ -46,7 +46,7 @@ public class StatsPage : MonoBehaviour
             wlrText.text = ((SendDataInGame.wins + 1 / SendDataInGame.losses) * 100).ToString();
         }
         else if (SendDataInGame.losses == 0) {
-            wlrText.text = ((SendDataInGame.wins/ SendDataInGame.losses + 1) * 100).ToString();
+            wlrText.text = ((SendDataInGame.wins/ (SendDataInGame.losses + 1)) * 100).ToString();
         }
         else {
             wlrText.text = ((SendDataInGame.wins / SendDataInGame.losses) * 100).ToString();
