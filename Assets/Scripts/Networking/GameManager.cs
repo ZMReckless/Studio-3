@@ -180,24 +180,6 @@ public class GameManager : MonoBehaviourPunCallbacks
             victoryScreen.SetActive(false);
             defeatScreen.SetActive(false);
 
-            int playerControllerIndex = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
-
-            switch (playerControllerIndex)
-            {
-                case 0:
-                    PhotonNetwork.Destroy(team1MBPlayer);
-                    break;
-                case 1:
-                    PhotonNetwork.Destroy(team2MBPlayer);
-                    break;
-                case 2:
-                    PhotonNetwork.Destroy(team1PCPlayer);
-                    break;
-                case 3:
-                    PhotonNetwork.Destroy(team2PCPlayer);
-                    break;
-            }
-
             if (photonView.IsMine)
             {
                 photonView.RPC("ResetPlayerPositions", RpcTarget.All);
