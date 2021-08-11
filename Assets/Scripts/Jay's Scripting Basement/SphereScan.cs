@@ -32,20 +32,28 @@ public class SphereScan : MonoBehaviourPunCallbacks
             gameObject.transform.localScale.z >= 10)
         {
             //Destroy(gameObject); // testing this
-            photonView.RPC("Destroy_Scan", RpcTarget.All);
+            if (photonView.IsMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
+        }
+    }
+
+    
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Team1") || other.CompareTag("Team2"))
+        {
+            photonView.RPC("RPC_OnTriggerEnter", RpcTarget.All, other);
+            //Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
+            ////Trigger_CloseContact_Shader.ChangeMatTest();
+            //other.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
+            //Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
         }
     }
 
     [PunRPC]
-    void Destroy_Scan()
-    {
-        if(photonView.IsMine)
-        {
-            PhotonNetwork.Destroy(gameObject);
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
+    void RPC_OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Team1") || other.CompareTag("Team2"))
         {
@@ -55,4 +63,5 @@ public class SphereScan : MonoBehaviourPunCallbacks
             Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
         }
     }
+
 }
