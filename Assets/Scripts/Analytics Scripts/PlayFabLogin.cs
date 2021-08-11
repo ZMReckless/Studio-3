@@ -56,6 +56,7 @@ public class PlayFabLogin : MonoBehaviour {
     }
     void OnRegisterSuccess(RegisterPlayFabUserResult result) {
         messageText.text = "Registered and logged in!";
+        SendDataInGame.SendData();
         StartCoroutine(FinishPlayfabLogin());
     }
     IEnumerator FinishPlayfabLogin() {
