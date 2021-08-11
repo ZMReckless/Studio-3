@@ -7,5 +7,4 @@ public class SkinDatabase : MonoBehaviour
 {
     public ItemSkin[] gunSkins;
     public ItemSkin[] modelSkins;
-    public ItemSkin[] handSkins;
 }
