@@ -11,19 +11,41 @@ public class StatsPage : MonoBehaviour
     int[] rounds;
     string matchRoundVal, playFabId;
     Dictionary<string, UserDataRecord> playerDataPulled;
-    public TextMeshProUGUI killsText, deathsText;
-    public GameObject statsPage, loading;
-    void Awake()
-    {
-        SendDataInGame.PullData();
-        StartCoroutine(Load());
+    public TextMeshProUGUI killsText, deathsText, kdrText;
+    public GameObject statsPage, loading, menuCanv, statCanv;
+    bool runOnce;
+    void Update() {
+        if (gameObject.activeSelf) {
+            if (!runOnce) {
+                StopAllCoroutines();
+                SendDataInGame.PullData();
+                StartCoroutine(Load());
+                runOnce = true;
+            }
+        }
     }
     IEnumerator Load() {
-        yield return new WaitForSeconds(2f);
+        yield return new WaitForSeconds(0.25f);
         killsText.text = SendDataInGame.kills.ToString();
         deathsText.text = SendDataInGame.deaths.ToString();
+        if (SendDataInGame.kills == 0) {
+            kdrText.text = ((SendDataInGame.kills + 1) / SendDataInGame.deaths).ToString("F2");
+        }
+        else if (SendDataInGame.deaths == 0) {
+            kdrText.text = (SendDataInGame.kills / (SendDataInGame.deaths + 1)).ToString("F2");
+        }
+        else {
+            kdrText.text = (SendDataInGame.kills / SendDataInGame.deaths).ToString("F2");
+        }
         statsPage.SetActive(true);
         loading.SetActive(false);
+    }
+    public void ReturnToMenu() {
+        menuCanv.SetActive(true);
+        loading.SetActive(false);
+        statsPage.SetActive(true);
+        runOnce = false;
+        statCanv.SetActive(false);
     }
     //public void SendMatchData() {
     //    PlayFabClientAPI.GetAccountInfo(new GetAccountInfoRequest() {
