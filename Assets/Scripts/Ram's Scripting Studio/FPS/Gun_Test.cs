@@ -38,6 +38,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
             RPC_Shoot();
             isFiring = true;
             currentAmmo--;
+            SendDataInGame.UpdateShotsFired();
             isFiring = false;
         }
         if (Input.GetKeyDown(KeyCode.R))

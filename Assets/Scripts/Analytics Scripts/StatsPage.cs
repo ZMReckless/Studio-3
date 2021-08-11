@@ -11,7 +11,7 @@ public class StatsPage : MonoBehaviour
     int[] rounds;
     string matchRoundVal, playFabId;
     Dictionary<string, UserDataRecord> playerDataPulled;
-    public TextMeshProUGUI killsText, deathsText, kdrText;
+    public TextMeshProUGUI killsText, deathsText, kdrText, shotsFiredText, gunAccuracyText;
     public GameObject statsPage, loading, menuCanv, statCanv;
     bool runOnce;
     void Update() {
@@ -28,7 +28,20 @@ public class StatsPage : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
         killsText.text = SendDataInGame.kills.ToString();
         deathsText.text = SendDataInGame.deaths.ToString();
-        if (SendDataInGame.kills == 0) {
+        shotsFiredText.text = SendDataInGame.shotsFired.ToString();
+        if (SendDataInGame.shotsFired == 0) {
+            gunAccuracyText.text = "N/A";
+        }
+        else if (SendDataInGame.kills == 0) {
+            gunAccuracyText.text = "0%";
+        }
+        else {
+            gunAccuracyText.text = ((SendDataInGame.kills / SendDataInGame.shotsFired) * 100).ToString() + "%";
+        }
+        if (SendDataInGame.kills == 0 && SendDataInGame.deaths == 0) {
+            kdrText.text = "N/A";
+        }
+        else if (SendDataInGame.kills == 0) {
             kdrText.text = ((SendDataInGame.kills + 1) / SendDataInGame.deaths).ToString("F2");
         }
         else if (SendDataInGame.deaths == 0) {

@@ -6,7 +6,7 @@ using PlayFab.ClientModels;
 
 public static class SendDataInGame
 {
-    public static int kills, deaths;
+    public static int kills, deaths, shotsFired;
     static string userPlayFabID;
     public static void PullData() {
         GetAccountInfo();
@@ -15,16 +15,13 @@ public static class SendDataInGame
             Keys = null
         }, result => {
             Debug.Log("Got user Data");
-            if (result.Data == null || !result.Data.ContainsKey("Kills") || !result.Data.ContainsKey("Deaths")) {
+            if (result.Data == null || !result.Data.ContainsKey("Kills") || !result.Data.ContainsKey("Deaths") || !result.Data.ContainsKey("ShotsFired")) {
 
             }
             else {
-                Debug.Log("Kills:" + result.Data["Kills"].Value);
-                Debug.Log("Deaths:" + result.Data["Deaths"].Value);
                 kills = System.Convert.ToInt32(result.Data["Kills"].Value);
                 deaths = System.Convert.ToInt32(result.Data["Deaths"].Value);
-                Debug.Log(kills);
-                Debug.Log(deaths);
+                shotsFired = System.Convert.ToInt32(result.Data["ShotsFired"].Value);
             }
         }, error => {
             Debug.Log("Got Error Retrieving User Data:");
@@ -35,7 +32,8 @@ public static class SendDataInGame
         PlayFabClientAPI.UpdateUserData(new UpdateUserDataRequest() {
             Data = new Dictionary<string, string>(){
                 {"Kills", kills.ToString()},
-                {"Deaths", deaths.ToString()}
+                {"Deaths", deaths.ToString()},
+                {"ShotsFired", shotsFired.ToString()}
             }
         }, result => Debug.Log("Successfully Update User Data"),
         error => {
@@ -50,6 +48,10 @@ public static class SendDataInGame
         else {
             deaths++;
         }
+        SendData();
+    }
+    public static void UpdateShotsFired() {
+        shotsFired++;
         SendData();
     }
     #region GetUserID
