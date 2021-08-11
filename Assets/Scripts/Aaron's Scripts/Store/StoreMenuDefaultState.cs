@@ -18,7 +18,7 @@ public class StoreMenuDefaultState : MonoBehaviour
 
     void ResetStoreCanvas()
     {
-        storeMenuTitle.text = "Store Home";
+        //storeMenuTitle.text = "Store Home";
         foreach (GameObject gameObject in startActiveObjects)
         {
             gameObject.SetActive(true);
