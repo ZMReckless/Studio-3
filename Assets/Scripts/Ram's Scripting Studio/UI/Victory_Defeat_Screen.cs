@@ -42,11 +42,11 @@ public class Victory_Defeat_Screen : MonoBehaviour
             victory_defeat_Text.color = textColorChange;
 
         }
-        else
-        {
-            crosshair_canvas.enabled = true;
-            HUD_canvas.enabled = true;
-        }
+        //else
+        //{
+        //    crosshair_canvas.enabled = true;
+        //    HUD_canvas.enabled = true;
+        //}
         
     }
 
