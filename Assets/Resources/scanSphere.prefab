@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5982909672584616348}
   - component: {fileID: 5681600477509828891}
   - component: {fileID: 6113237022321291678}
+  - component: {fileID: 603555266966913225}
   m_Layer: 0
   m_Name: scanSphere
   m_TagString: Untagged
@@ -136,3 +137,18 @@ MonoBehaviour:
   m_SynchronizeRotation: 1
   m_SynchronizeScale: 1
   m_UseLocal: 1
+--- !u!114 &603555266966913225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5982909672584616322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a660bd8344746a4485fc12496422ee4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  growthRate: {x: 10, y: 10, z: 10}
+  mat1: {fileID: 0}
+  mat2: {fileID: 0}

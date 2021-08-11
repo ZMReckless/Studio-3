@@ -8,8 +8,8 @@ public class SphereScan : MonoBehaviourPunCallbacks
 {
     public Vector3 growthRate = new Vector3 (10f, 10f, 10f);
 
-    public Material mat1;
-    public Material mat2;
+    //public Material mat1;
+    //public Material mat2;
 
 
 

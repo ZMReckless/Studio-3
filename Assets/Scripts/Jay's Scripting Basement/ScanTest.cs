@@ -20,6 +20,7 @@ public class ScanTest : MonoBehaviourPunCallbacks
     [SerializeField]
     private Vector3 _mousePos;
 
+    private GameObject scan;
     // COMMENT THIS OUT IF TESTING ON PC
     // VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
     private void Start()
@@ -103,17 +104,17 @@ public class ScanTest : MonoBehaviourPunCallbacks
         RaycastHit hit;
         if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
         {
-            var scan = PhotonNetwork.Instantiate("scanSphere", (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
-            photonView.RPC("AddSphereScanScript", RpcTarget.All, scan);
+            scan = PhotonNetwork.Instantiate("scanSphere", (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
+            //photonView.RPC("AddSphereScanScript", RpcTarget.All);
         }
 
     }
 
-    [PunRPC]
-    void AddSphereScanScript(GameObject scan)
-    {
-        scan.AddComponent<SphereScan>();
-    }
+    //[PunRPC]
+    //void AddSphereScanScript()
+    //{
+    //    scan.AddComponent<SphereScan>();
+    //}
 
     IEnumerator timer()
     {
