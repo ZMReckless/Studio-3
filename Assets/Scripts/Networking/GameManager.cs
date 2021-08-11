@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using Photon.Pun;
 using UnityEngine.SceneManagement;
 
@@ -36,7 +37,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     [HideInInspector]
     public GameObject team2PCPlayer;
 
-    [Header("Condition Screens")]
+    [Header("Game UI")]
+    public Text roundText;
     public GameObject victoryScreen;
     public GameObject defeatScreen;
     public GameObject[] lobbyButtons;
@@ -54,6 +56,9 @@ public class GameManager : MonoBehaviourPunCallbacks
         redWins = 0;
         blueWins = 0;
         roundEnded = false;
+
+        roundText.transform.parent.gameObject.SetActive(true);
+        ChangeRoundText(roundIndex);
 
         foreach (GameObject lobbyButton in lobbyButtons)
         {
@@ -197,6 +202,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public void ResetPlayerPositions()
     {
         spawnPlayers.Start();
+
+        ChangeRoundText(roundIndex);
     }
 
     public void BackToLobby()
@@ -226,6 +233,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     {
         Time.timeScale = 0;
 
+        roundText.transform.parent.gameObject.SetActive(false);
+
         foreach (GameObject lobbyButton in lobbyButtons)
         {
             lobbyButton.SetActive(true);
@@ -233,5 +242,10 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
+    }
+
+    public void ChangeRoundText(int roundIndex)
+    {
+        roundText.text = $"Round {roundIndex}";
     }
 }
