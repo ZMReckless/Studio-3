@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class SphereScan : MonoBehaviour
+public class SphereScan : MonoBehaviourPunCallbacks
 {
     public Vector3 growthRate = new Vector3 (10f, 10f, 10f);
 
@@ -29,10 +31,16 @@ public class SphereScan : MonoBehaviour
             gameObject.transform.localScale.y >= 10 &&
             gameObject.transform.localScale.z >= 10)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject); // testing this
+            photonView.RPC("Destroy_Scan", RpcTarget.All);
         }
     }
 
+    [PunRPC]
+    void Destroy_Scan()
+    {
+        Destroy(gameObject);
+    }
 
     private void OnTriggerEnter(Collider other)
     {
