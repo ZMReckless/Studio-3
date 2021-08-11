@@ -18,16 +18,51 @@ public class SpawnPlayers : MonoBehaviourPunCallbacks
         switch (playerIndex)
         {
             case 0:
-                PhotonNetwork.Instantiate("MobilePlayer", mobileSpawnpoint.position, Quaternion.identity);
+                if (GameManager.Instance.team1MBPlayer != null)
+                {
+                    PhotonNetwork.Destroy(GameManager.Instance.team1MBPlayer);
+                    PhotonNetwork.Instantiate("MobilePlayer", mobileSpawnpoint.position, Quaternion.identity);
+                }
+                else if (GameManager.Instance.team1MBPlayer == null)
+                {
+                    PhotonNetwork.Instantiate("MobilePlayer", mobileSpawnpoint.position, Quaternion.identity);
+                }
                 break;
             case 1:
-                PhotonNetwork.Instantiate("MobilePlayer", mobileSpawnpoint.position, Quaternion.identity);
+                if (GameManager.Instance.team2MBPlayer != null)
+                {
+                    PhotonNetwork.Destroy(GameManager.Instance.team2MBPlayer);
+
+                    PhotonNetwork.Instantiate("MobilePlayer", mobileSpawnpoint.position, Quaternion.identity);
+                }
+                else if (GameManager.Instance.team2MBPlayer == null)
+                {
+                    PhotonNetwork.Instantiate("MobilePlayer", mobileSpawnpoint.position, Quaternion.identity);
+                }
                 break;
             case 2:
-                PhotonNetwork.Instantiate("Player(Latest)", team1PCSpawnpoint.position, Quaternion.identity);
+                if (GameManager.Instance.team1PCPlayer != null)
+                {
+                    PhotonNetwork.Destroy(GameManager.Instance.team1PCPlayer);
+
+                    PhotonNetwork.Instantiate("Player(Latest)", team1PCSpawnpoint.position, Quaternion.identity);
+                }
+                else if (GameManager.Instance.team1PCPlayer == null)
+                {
+                    PhotonNetwork.Instantiate("Player(Latest)", team1PCSpawnpoint.position, Quaternion.identity);
+                }
                 break;
             case 3:
-                PhotonNetwork.Instantiate("Player(Latest)", team2PCSpawnpoint.position, Quaternion.identity);
+                if (GameManager.Instance.team2PCPlayer != null)
+                {
+                    PhotonNetwork.Destroy(GameManager.Instance.team2PCPlayer);
+
+                    PhotonNetwork.Instantiate("Player(Latest)", team2PCSpawnpoint.position, Quaternion.identity);
+                }
+                else if (GameManager.Instance.team2PCPlayer == null)
+                {
+                    PhotonNetwork.Instantiate("Player(Latest)", team2PCSpawnpoint.position, Quaternion.identity);
+                }
                 break;
         }
     }

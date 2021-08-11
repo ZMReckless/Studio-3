@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class SphereScan : MonoBehaviour
+public class SphereScan : MonoBehaviourPunCallbacks
 {
     public Vector3 growthRate = new Vector3 (10f, 10f, 10f);
 
@@ -29,19 +31,31 @@ public class SphereScan : MonoBehaviour
             gameObject.transform.localScale.y >= 10 &&
             gameObject.transform.localScale.z >= 10)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject); // testing this
+            if (photonView.IsMine)
+            {
+                PhotonNetwork.Destroy(gameObject);
+            }
         }
     }
 
-
+    
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Team1") || other.CompareTag("Team2"))
         {
-            Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
-            //Trigger_CloseContact_Shader.ChangeMatTest();
-            other.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
-            Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
+
+            photonView.RPC("RPC_OnTriggerEnter", RpcTarget.All, other);
         }
     }
+
+    [PunRPC]
+    void RPC_OnTriggerEnter(Collider other)
+    {
+        Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
+        //Trigger_CloseContact_Shader.ChangeMatTest();
+        other.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
+        Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
+    }
+
 }
