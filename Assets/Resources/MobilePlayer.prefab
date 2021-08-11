@@ -2297,8 +2297,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mainCam: {fileID: 6959753361626815609}
-  scanSphere: {fileID: 5982909672584616322, guid: 2a8e7e4a713764342a634c65b7c4ec17,
-    type: 3}
   cooldownBar: {fileID: 2863532090670367932}
   _mousePos: {x: 0, y: 0, z: 0}
 --- !u!114 &4844477899912188752

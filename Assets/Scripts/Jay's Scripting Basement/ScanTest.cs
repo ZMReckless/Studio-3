@@ -103,9 +103,6 @@ public class ScanTest : MonoBehaviourPunCallbacks
         RaycastHit hit;
         if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
         {
-            Vector3 forward = transform.TransformDirection(Vector3.forward * Mathf.Infinity);
-            Debug.DrawRay(transform.position, forward, Color.red);
-
             var scan = PhotonNetwork.Instantiate("scanSphere", (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
                 scan.AddComponent<SphereScan>();
         }
