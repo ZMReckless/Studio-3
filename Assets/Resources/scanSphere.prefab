@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 5982909672584616348}
   - component: {fileID: -2159018501888418257}
   m_Layer: 0
-  m_Name: Scan
+  m_Name: scanSphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

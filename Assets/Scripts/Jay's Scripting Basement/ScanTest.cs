@@ -10,7 +10,7 @@ public class ScanTest : MonoBehaviourPunCallbacks
 {
     public Camera mainCam;
 
-    public GameObject scanSphere;
+    //public GameObject scanSphere;
     public Image cooldownBar;
 
     private float waitTime = 3.0f;
@@ -106,17 +106,12 @@ public class ScanTest : MonoBehaviourPunCallbacks
             Vector3 forward = transform.TransformDirection(Vector3.forward * Mathf.Infinity);
             Debug.DrawRay(transform.position, forward, Color.red);
 
-            var scan = Instantiate(scanSphere, (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
+            var scan = PhotonNetwork.Instantiate("scanSphere", (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
                 scan.AddComponent<SphereScan>();
         }
 
     }
 
-    [PunRPC]
-    void RPC_InstantiateSphere()
-    {
-
-    }
 
     IEnumerator timer()
     {
