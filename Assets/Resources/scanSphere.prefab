@@ -150,5 +150,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   growthRate: {x: 10, y: 10, z: 10}
-  mat1: {fileID: 0}
-  mat2: {fileID: 0}
