@@ -104,11 +104,16 @@ public class ScanTest : MonoBehaviourPunCallbacks
         if (Physics.Raycast(castPoint, out hit, Mathf.Infinity))
         {
             var scan = PhotonNetwork.Instantiate("scanSphere", (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
-                scan.AddComponent<SphereScan>();
+            photonView.RPC("AddSphereScanScript", RpcTarget.All, scan);
         }
 
     }
 
+    [PunRPC]
+    void AddSphereScanScript(GameObject scan)
+    {
+        scan.AddComponent<SphereScan>();
+    }
 
     IEnumerator timer()
     {
