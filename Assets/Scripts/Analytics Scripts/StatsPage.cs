@@ -11,9 +11,15 @@ public class StatsPage : MonoBehaviour
     int[] rounds;
     string matchRoundVal, playFabId;
     Dictionary<string, UserDataRecord> playerDataPulled;
-    public TextMeshProUGUI killsText, deathsText, kdrText, shotsFiredText, gunAccuracyText;
+    public TextMeshProUGUI killsText, deathsText, kdrText, shotsFiredText, gunAccuracyText, winsText, lossesText, wlrText, shotsHitText;
     public GameObject statsPage, loading, menuCanv, statCanv;
     bool runOnce;
+    private void Awake() {
+        StopAllCoroutines();
+        SendDataInGame.PullData();
+        StartCoroutine(Load());
+        runOnce = true;
+    }
     void Update() {
         if (gameObject.activeSelf) {
             if (!runOnce) {
@@ -29,6 +35,24 @@ public class StatsPage : MonoBehaviour
         killsText.text = SendDataInGame.kills.ToString();
         deathsText.text = SendDataInGame.deaths.ToString();
         shotsFiredText.text = SendDataInGame.shotsFired.ToString();
+        winsText.text = SendDataInGame.wins.ToString();
+        lossesText.text = SendDataInGame.losses.ToString();
+        shotsHitText.text = SendDataInGame.kills.ToString();
+        #region winLossStat
+        if (SendDataInGame.wins == 0 && SendDataInGame.losses == 0) {
+            wlrText.text = "N/A";
+        }
+        else if (SendDataInGame.wins == 0) {
+            wlrText.text = ((SendDataInGame.wins + 1 / SendDataInGame.losses) * 100).ToString();
+        }
+        else if (SendDataInGame.losses == 0) {
+            wlrText.text = ((SendDataInGame.wins/ SendDataInGame.losses + 1) * 100).ToString();
+        }
+        else {
+            wlrText.text = ((SendDataInGame.wins / SendDataInGame.losses) * 100).ToString();
+        }
+        #endregion
+        #region accuracyStat
         if (SendDataInGame.shotsFired == 0) {
             gunAccuracyText.text = "N/A";
         }
@@ -38,6 +62,8 @@ public class StatsPage : MonoBehaviour
         else {
             gunAccuracyText.text = ((SendDataInGame.kills / SendDataInGame.shotsFired) * 100).ToString() + "%";
         }
+        #endregion
+        #region kdr
         if (SendDataInGame.kills == 0 && SendDataInGame.deaths == 0) {
             kdrText.text = "N/A";
         }
@@ -50,6 +76,8 @@ public class StatsPage : MonoBehaviour
         else {
             kdrText.text = (SendDataInGame.kills / SendDataInGame.deaths).ToString("F2");
         }
+        #endregion
+
         statsPage.SetActive(true);
         loading.SetActive(false);
     }

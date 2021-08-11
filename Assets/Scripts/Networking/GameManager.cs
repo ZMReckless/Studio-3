@@ -41,6 +41,8 @@ public class GameManager : MonoBehaviourPunCallbacks
     public GameObject defeatScreen;
     public GameObject[] lobbyButtons;
 
+    int playerPlatform;
+
     private void Awake()
     {
         SendDataInGame.PullData();
@@ -106,7 +108,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     [PunRPC]
     public void AddScore(int scoreIndex)
     {
-        int playerPlatform = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
+        playerPlatform = (int)PhotonNetwork.LocalPlayer.CustomProperties["PlayerPlatform"];
 
         if (scoreIndex == 0)
         {
@@ -167,11 +169,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (redWins == finalRound)
             {
                 EndScreen();
+                SendDataInGame.UpdateWinsOrLosses(2, playerPlatform);
                 Debug.Log("Red team wins");
             }
             else if (blueWins == finalRound)
             {
                 EndScreen();
+                SendDataInGame.UpdateWinsOrLosses(1, playerPlatform);
                 Debug.Log("Blue team wins");
             }
         }
