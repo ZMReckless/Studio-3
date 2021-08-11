@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Photon.Realtime;
+using Photon.Pun;
 
-public class ScanTest : MonoBehaviour
+public class ScanTest : MonoBehaviourPunCallbacks
 {
     public Camera mainCam;
 
@@ -68,7 +70,8 @@ public class ScanTest : MonoBehaviour
         {
             hasScanned = true;
             ScanTimer();
-            Scan();
+            //Scan(); //testing this
+            photonView.RPC("Scan", RpcTarget.All); //^
         }
     }
 
@@ -77,8 +80,13 @@ public class ScanTest : MonoBehaviour
         StartCoroutine("timer");
     }
 
-    public void Scan()
+    [PunRPC] //
+    public void Scan() // 
     {
+        if(!photonView.IsMine) //
+        { // 
+            return; //
+        } //
         //Use this for touch input
         //_mousePos = Input.mousePosition;
         //RaycastHit hit;
@@ -88,9 +96,8 @@ public class ScanTest : MonoBehaviour
         //    var scan = Instantiate(scanSphere, (new Vector3(hit.point.x, hit.point.y, hit.point.z)), Quaternion.identity);
         //    scan.AddComponent<SphereScan>();
         //}
-
-
             //Use this for button press
+
 
         Ray castPoint = Camera.main.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
