@@ -37683,6 +37683,51 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1004276717}
     m_Modifications:
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 785545127}
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OpenMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: MenuManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 323706009}
+    - target: {fileID: 4212911881626940972, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: Menu, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6299485269795573506, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
+        type: 3}
+      propertyPath: coinManager
+      value: 
+      objectReference: {fileID: 611204096}
     - target: {fileID: 6299485271581572563, guid: 5df4db1f4c6208c4bb008fe6bd83cb04,
         type: 3}
       propertyPath: m_Name
