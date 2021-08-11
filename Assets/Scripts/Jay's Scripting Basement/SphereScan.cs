@@ -39,7 +39,10 @@ public class SphereScan : MonoBehaviourPunCallbacks
     [PunRPC]
     void Destroy_Scan()
     {
-        Destroy(gameObject);
+        if(photonView.IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
