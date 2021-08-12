@@ -23,14 +23,15 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     public Animator gunAnim; //attached to pivot
     public Animator playerAnim;
 
-
+    private Canvas canvases;
 
     // Start is called before the first frame update
     void Start()
     {
         ammoDisplay = GameObject.Find("AmmoDisplay").GetComponent<TextMeshProUGUI>();
 
-
+        canvases = FindObjectOfType<Canvas>();
+        canvases.enabled = true;
     }
 
     void Update()
