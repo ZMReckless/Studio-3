@@ -125,7 +125,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 StartCoroutine(EnableDefeatScreen(2.5f));
-                if (playerPlatform == 2) {
+                if (playerPlatform == 3) {
                     SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
                 }
                 Debug.Log("You Lost");
@@ -144,7 +144,7 @@ public class GameManager : MonoBehaviourPunCallbacks
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 StartCoroutine(EnableVictoryScreen(2.5f));
-                if (playerPlatform == 2) {
+                if (playerPlatform == 3) {
                     SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
                 }
                 Debug.Log("You Won");
