@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviourPunCallbacks
     public Text roundText;
     public GameObject victoryScreen;
     public GameObject defeatScreen;
-    public GameObject[] lobbyButtons;
+    public GameObject lobbyButton;
 
     int playerPlatform;
 
@@ -60,10 +60,7 @@ public class GameManager : MonoBehaviourPunCallbacks
         roundText.transform.parent.gameObject.SetActive(true);
         ChangeRoundText(roundIndex);
 
-        foreach (GameObject lobbyButton in lobbyButtons)
-        {
-            lobbyButton.SetActive(false);
-        }
+        lobbyButton.SetActive(false);
     }
 
     private void Update()
@@ -235,10 +232,7 @@ public class GameManager : MonoBehaviourPunCallbacks
 
         roundText.transform.parent.gameObject.SetActive(false);
 
-        foreach (GameObject lobbyButton in lobbyButtons)
-        {
-            lobbyButton.SetActive(true);
-        }
+        lobbyButton.SetActive(true);
 
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
