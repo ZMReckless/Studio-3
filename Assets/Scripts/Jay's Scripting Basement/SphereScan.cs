@@ -49,6 +49,7 @@ public class SphereScan : MonoBehaviourPunCallbacks
             //Trigger_CloseContact_Shader.ChangeMatTest();
             other.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
             Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
+            //test
         }
     }
 }
