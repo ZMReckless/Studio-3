@@ -5849,7 +5849,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 0, y: 0}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -9495,6 +9495,16 @@ PrefabInstance:
     - target: {fileID: 3363988163812073320, guid: 3902d54fb790d3c4e85c06c504a5dd6e,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363988163812073322, guid: 3902d54fb790d3c4e85c06c504a5dd6e,
+        type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3363988163812073322, guid: 3902d54fb790d3c4e85c06c504a5dd6e,
+        type: 3}
+      propertyPath: m_ReferenceResolution.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3363988163812073324, guid: 3902d54fb790d3c4e85c06c504a5dd6e,
@@ -33310,6 +33320,26 @@ PrefabInstance:
       propertyPath: m_text
       value: Playtest V_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1333823965, guid: c81935f958edb8549b2b3f05bd33443e, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.0327916
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333823965, guid: c81935f958edb8549b2b3f05bd33443e, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0327916
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333823965, guid: c81935f958edb8549b2b3f05bd33443e, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0327916
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333823965, guid: c81935f958edb8549b2b3f05bd33443e, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -488
+      objectReference: {fileID: 0}
+    - target: {fileID: 1333823965, guid: c81935f958edb8549b2b3f05bd33443e, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 394
+      objectReference: {fileID: 0}
     - target: {fileID: 114660324152990621, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: clickEvent.m_PersistentCalls.m_Calls.Array.size
@@ -33605,6 +33635,21 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2933806985897601391, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.3612
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806985897601391, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.3612
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806985897601391, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.3612
+      objectReference: {fileID: 0}
     - target: {fileID: 2933806986294810662, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
       propertyPath: m_ReferenceResolution.x
@@ -33614,6 +33659,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ReferenceResolution.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806986332439049, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.4798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806986332439049, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.4798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806986332439049, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2.4798
+      objectReference: {fileID: 0}
+    - target: {fileID: 2933806986332439049, guid: c81935f958edb8549b2b3f05bd33443e,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 2933806986380576381, guid: c81935f958edb8549b2b3f05bd33443e,
         type: 3}
@@ -89351,7 +89416,7 @@ MonoBehaviour:
   m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ReferenceResolution: {x: 0, y: 0}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3

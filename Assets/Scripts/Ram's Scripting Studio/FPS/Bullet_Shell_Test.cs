@@ -1,10 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Realtime;
-using Photon.Pun;
 
-public class Bullet_Shell_Test : MonoBehaviourPunCallbacks
+
+public class Bullet_Shell_Test : MonoBehaviour
 {
     public Transform bulletShellLocation;
     public GameObject bulletShell;
@@ -23,10 +22,7 @@ public class Bullet_Shell_Test : MonoBehaviourPunCallbacks
 
     public void ShotSound()
     {
-        if(photonView.IsMine)
-        {
-            audioSource.Play();
-        }
-        
+        audioSource.Play();
+
     }
 }
