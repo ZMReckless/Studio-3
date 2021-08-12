@@ -72,11 +72,11 @@ public class StatsPage : MonoBehaviour
             kdrText.text = "N/A";
         }
         else if (SendDataInGame.kills == 0) {
-            float result = ((float)SendDataInGame.kills + 1 / (float)SendDataInGame.deaths);
+            float result = (((float)SendDataInGame.kills + 1) / (float)SendDataInGame.deaths);
             kdrText.text = result.ToString("F2");
         }
         else if (SendDataInGame.deaths == 0) {
-            float result = ((float)SendDataInGame.kills / (float)SendDataInGame.deaths + 1);
+            float result = ((float)SendDataInGame.kills / ((float)SendDataInGame.deaths + 1));
             kdrText.text = result.ToString("F2");
         }
         else {
