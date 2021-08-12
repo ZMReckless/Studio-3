@@ -36,9 +36,9 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     void Update()
     {
         ammoDisplay.text = currentAmmo.ToString() + slash + maxAmmo.ToString();
+        
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
-            SendDataInGame.UpdateShotsFired();
             nextShot = Time.time + 1 / fireRate;
             RPC_Shoot();
             isFiring = true;
@@ -53,6 +53,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
+        SendDataInGame.UpdateShotsFired();
         photonView.RPC("RPC_Shoot", RpcTarget.All);
     }
 

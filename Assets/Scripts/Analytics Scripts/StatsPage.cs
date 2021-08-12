@@ -43,13 +43,13 @@ public class StatsPage : MonoBehaviour
             wlrText.text = "N/A";
         }
         else if (SendDataInGame.wins == 0) {
-            wlrText.text = ((SendDataInGame.wins + 1 / SendDataInGame.losses)).ToString("F2");
+            wlrText.text = (((float)SendDataInGame.wins + 1 / (float)SendDataInGame.losses)).ToString("F2");
         }
         else if (SendDataInGame.losses == 0) {
-            wlrText.text = ((SendDataInGame.wins/ (SendDataInGame.losses + 1))).ToString("F2");
+            wlrText.text = (((float)SendDataInGame.wins/ ((float)SendDataInGame.losses + 1))).ToString("F2");
         }
         else {
-            wlrText.text = ((SendDataInGame.wins / SendDataInGame.losses)).ToString("F2");
+            wlrText.text = (((float)SendDataInGame.wins / (float)SendDataInGame.losses)).ToString("F2");
         }
         #endregion
         #region accuracyStat
@@ -60,7 +60,9 @@ public class StatsPage : MonoBehaviour
             gunAccuracyText.text = "0%";
         }
         else {
-            gunAccuracyText.text = ((SendDataInGame.kills / SendDataInGame.shotsFired) * 100).ToString() + "%";
+            float result;
+            result = ((float)SendDataInGame.kills / (float)SendDataInGame.shotsFired); ;
+            gunAccuracyText.text = ((int)((result) * 100)).ToString() + "%";
         }
         #endregion
         #region kdr
@@ -68,13 +70,17 @@ public class StatsPage : MonoBehaviour
             kdrText.text = "N/A";
         }
         else if (SendDataInGame.kills == 0) {
-            kdrText.text = ((SendDataInGame.kills + 1) / SendDataInGame.deaths).ToString("F2");
+            float result = ((float)SendDataInGame.kills + 1 / (float)SendDataInGame.deaths);
+            kdrText.text = result.ToString("F2");
         }
         else if (SendDataInGame.deaths == 0) {
-            kdrText.text = (SendDataInGame.kills / (SendDataInGame.deaths + 1)).ToString("F2");
+            float result = ((float)SendDataInGame.kills / (float)SendDataInGame.deaths + 1);
+            kdrText.text = result.ToString("F2");
         }
         else {
-            kdrText.text = (SendDataInGame.kills / SendDataInGame.deaths).ToString("F2");
+            float result = ((float)SendDataInGame.kills / (float)SendDataInGame.deaths);
+            kdrText.text = result.ToString("F2");
+            Debug.Log(result);
         }
         #endregion
 
