@@ -73,6 +73,15 @@ public static class SendDataInGame
                 wins++;
             }
         }
+        SendData();
+    }
+    public static void UpdatePingsHit() {
+        pingsHit++;
+        SendData();
+    }
+    public static void UpdatePingsShot() {
+        pingsShot++;
+        SendData();
     }
     #region GetUserID
     static void GetAccountInfo() {

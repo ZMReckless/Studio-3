@@ -295,7 +295,7 @@ Material:
     - _ZTestTransparent: 4
     - _ZWrite: 1
     m_Colors:
-    - Color_64a0b71b7e364310aefcdd939dc1febc: {r: 3.32549, g: 0.6117647, b: 0, a: 0}
+    - Color_64a0b71b7e364310aefcdd939dc1febc: {r: 13.76636, g: 2.5947068, b: 0, a: 0}
     - Vector2_40e3851da4494fd68b9a91212a5ca226: {r: 2, g: 2, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 0.24705882}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
