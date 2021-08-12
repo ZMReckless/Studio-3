@@ -42,7 +42,7 @@ public class SphereScan : MonoBehaviourPunCallbacks
     
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Team1") || other.CompareTag("Team2"))
+        if (other.CompareTag("Team1") || other.CompareTag("Team2") || other.CompareTag("Gun"))
         {
             Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
             
