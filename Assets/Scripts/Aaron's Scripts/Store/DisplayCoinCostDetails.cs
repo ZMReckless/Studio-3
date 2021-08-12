@@ -13,6 +13,6 @@ public class DisplayCoinCostDetails : MonoBehaviour
     public void Start()
     {
         coinAmount.text = coinCost.coinAmount.ToString(); // displays how many coins will be added
-        coinCostAmount.text = "$" + coinCost.coinDollarCost.ToString() + ".00"; // displays how much the coins will cost
+        coinCostAmount.text = "$" + coinCost.coinDollarCost.ToString(); // displays how much the coins will cost
     }
 }

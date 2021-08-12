@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7787f2f70d4234844b264fb473af04c1, type: 3}
-  m_Name: MediumAmount
+  m_Name: 50
   m_EditorClassIdentifier: 
-  coinAmount: 500
-  coinDollarCost: 5
+  coinAmount: 50
+  coinDollarCost: 0.99
