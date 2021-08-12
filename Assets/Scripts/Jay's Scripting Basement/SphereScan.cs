@@ -44,10 +44,10 @@ public class SphereScan : MonoBehaviourPunCallbacks
     {
         if (other.CompareTag("Team1") || other.CompareTag("Team2"))
         {
-            Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponentInChildren<Trigger_CloseContact_Shader>();
+            Trigger_CloseContact_Shader Trigger_CloseContact_Shader = other.GetComponent<Trigger_CloseContact_Shader>();
             
             //Trigger_CloseContact_Shader.ChangeMatTest();
-            other.GetComponentInChildren<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
+            other.GetComponent<Renderer>().material = Trigger_CloseContact_Shader.seenMat;
             Trigger_CloseContact_Shader.StartCoroutine("BackToInvisible");
         }
     }
