@@ -833,7 +833,6 @@ GameObject:
   - component: {fileID: 6959753360357996609}
   - component: {fileID: 6959753360357996615}
   - component: {fileID: 6959753360357996612}
-  - component: {fileID: 3142983224332803234}
   m_Layer: 0
   m_Name: Mobile Virtual Cam
   m_TagString: Untagged
@@ -920,18 +919,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TouchSensitivity_x: 30
   TouchSensitivity_y: 30
---- !u!114 &3142983224332803234
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6959753360357996608}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7502e5f33d165449a50c6c2a92bd939, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &6959753360396185867
 GameObject:
   m_ObjectHideFlags: 0
