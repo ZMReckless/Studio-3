@@ -43,13 +43,13 @@ public class StatsPage : MonoBehaviour
             wlrText.text = "N/A";
         }
         else if (SendDataInGame.wins == 0) {
-            wlrText.text = ((SendDataInGame.wins + 1 / SendDataInGame.losses) * 100).ToString();
+            wlrText.text = ((SendDataInGame.wins + 1 / SendDataInGame.losses)).ToString("F2");
         }
         else if (SendDataInGame.losses == 0) {
-            wlrText.text = ((SendDataInGame.wins/ (SendDataInGame.losses + 1)) * 100).ToString();
+            wlrText.text = ((SendDataInGame.wins/ (SendDataInGame.losses + 1))).ToString("F2");
         }
         else {
-            wlrText.text = ((SendDataInGame.wins / SendDataInGame.losses) * 100).ToString();
+            wlrText.text = ((SendDataInGame.wins / SendDataInGame.losses)).ToString("F2");
         }
         #endregion
         #region accuracyStat

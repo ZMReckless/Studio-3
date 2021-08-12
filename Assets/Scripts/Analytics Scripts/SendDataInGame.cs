@@ -43,8 +43,8 @@ public static class SendDataInGame
             Debug.LogError(error.GenerateErrorReport());
         });
     }
-    public static void UpdateKillsOrDeaths(int winLose) {
-        if (winLose == 1) {
+    public static void UpdateKillsOrDeaths(int index, int team) {
+        if (index == team) {
             kills++;
         }
         else {

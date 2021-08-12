@@ -117,13 +117,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (playerPlatform == 0 || playerPlatform == 2)
             {
                 StartCoroutine(EnableVictoryScreen(2.5f));
-                SendDataInGame.UpdateKillsOrDeaths(1);
+                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 0);
                 Debug.Log("You Won");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 StartCoroutine(EnableDefeatScreen(2.5f));
-                SendDataInGame.UpdateKillsOrDeaths(0);
+                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
                 Debug.Log("You Lost");
             }
         }
@@ -132,11 +132,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (playerPlatform == 0 || playerPlatform == 2)
             {
                 StartCoroutine(EnableDefeatScreen(2.5f));
+                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 0);
                 Debug.Log("You Lost");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 StartCoroutine(EnableVictoryScreen(2.5f));
+                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
                 Debug.Log("You Won");
             }
         }
@@ -171,13 +173,13 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (redWins == finalRound)
             {
                 EndScreen();
-                SendDataInGame.UpdateWinsOrLosses(2, playerPlatform);
+                SendDataInGame.UpdateWinsOrLosses(1, playerPlatform);
                 Debug.Log("Red team wins");
             }
             else if (blueWins == finalRound)
             {
                 EndScreen();
-                SendDataInGame.UpdateWinsOrLosses(1, playerPlatform);
+                SendDataInGame.UpdateWinsOrLosses(2, playerPlatform);
                 Debug.Log("Blue team wins");
             }
         }
