@@ -40,6 +40,7 @@ public class Gun_Test : MonoBehaviourPunCallbacks
         if (Input.GetKeyDown(KeyCode.Mouse0) && currentAmmo > 0 && !isFiring && Time.time >= nextShot)
         {
             nextShot = Time.time + 1 / fireRate;
+            
             RPC_Shoot();
             isFiring = true;
             currentAmmo--;
@@ -53,7 +54,6 @@ public class Gun_Test : MonoBehaviourPunCallbacks
 
     public void Shoot()
     {
-        SendDataInGame.UpdateShotsFired();
         photonView.RPC("RPC_Shoot", RpcTarget.All);
     }
 
@@ -97,6 +97,9 @@ public class Gun_Test : MonoBehaviourPunCallbacks
     void PlayMuzzleFlash()
     {
         muzzleFlash.Play();
+        if (photonView.IsMine) {
+            SendDataInGame.UpdateShotsFired();
+        }
     }
 
     [PunRPC]
