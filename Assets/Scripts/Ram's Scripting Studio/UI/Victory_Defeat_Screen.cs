@@ -8,8 +8,8 @@ public class Victory_Defeat_Screen : MonoBehaviour
 {
     public Image victory_defeat_Panel;
     public TextMeshProUGUI victory_defeat_Text;
-    public Canvas crosshair_canvas; //to disbale when active
-    public Canvas HUD_canvas; //to disable when active
+    //public Canvas crosshair_canvas; //to disbale when active
+    //public Canvas HUD_canvas; //to disable when active
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +22,8 @@ public class Victory_Defeat_Screen : MonoBehaviour
     {
         if(victory_defeat_Panel.isActiveAndEnabled) //if the victory panel is enabled
         {
-            crosshair_canvas.enabled = false; //disable other canvases
-            HUD_canvas.enabled = false;
+            //crosshair_canvas.enabled = false; //disable other canvases
+            //HUD_canvas.enabled = false;
 
             //PANEL
             victory_defeat_Panel = GetComponent<Image>(); //increase the alpha of the panel progressively
@@ -42,11 +42,11 @@ public class Victory_Defeat_Screen : MonoBehaviour
             victory_defeat_Text.color = textColorChange;
 
         }
-        else
-        {
-            crosshair_canvas.enabled = true;
-            HUD_canvas.enabled = true;
-        }
+        //else
+        //{
+        //    crosshair_canvas.enabled = true;
+        //    HUD_canvas.enabled = true;
+        //}
 
     }
 
