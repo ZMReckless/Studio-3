@@ -117,13 +117,17 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (playerPlatform == 0 || playerPlatform == 2)
             {
                 StartCoroutine(EnableVictoryScreen(2.5f));
-                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 0);
+                if (playerPlatform == 2) {
+                    SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 0);
+                }
                 Debug.Log("You Won");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 StartCoroutine(EnableDefeatScreen(2.5f));
-                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
+                if (playerPlatform == 2) {
+                    SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
+                }
                 Debug.Log("You Lost");
             }
         }
@@ -132,13 +136,17 @@ public class GameManager : MonoBehaviourPunCallbacks
             if (playerPlatform == 0 || playerPlatform == 2)
             {
                 StartCoroutine(EnableDefeatScreen(2.5f));
-                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 0);
+                if (playerPlatform == 2) {
+                    SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 0);
+                }
                 Debug.Log("You Lost");
             }
             else if (playerPlatform == 1 || playerPlatform == 3)
             {
                 StartCoroutine(EnableVictoryScreen(2.5f));
-                SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
+                if (playerPlatform == 2) {
+                    SendDataInGame.UpdateKillsOrDeaths(scoreIndex, 1);
+                }
                 Debug.Log("You Won");
             }
         }

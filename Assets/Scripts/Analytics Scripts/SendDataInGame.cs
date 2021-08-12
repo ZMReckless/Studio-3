@@ -44,12 +44,12 @@ public static class SendDataInGame
         });
     }
     public static void UpdateKillsOrDeaths(int index, int team) {
-        if (index == team) {
-            kills++;
-        }
-        else {
-            deaths++;
-        }
+            if (index == team) {
+                kills++;
+            }
+            else {
+                deaths++;
+            }
         SendData();
     }
     public static void UpdateShotsFired() {
