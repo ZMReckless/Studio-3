@@ -69,6 +69,7 @@ public class ScanTest : MonoBehaviourPunCallbacks
     {
         if (hasScanned == false)
         {
+            SendDataInGame.UpdatePingsShot();
             hasScanned = true;
             ScanTimer();
             //Scan(); //testing this
