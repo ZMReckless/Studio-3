@@ -44,12 +44,12 @@ public static class SendDataInGame
         });
     }
     public static void UpdateKillsOrDeaths(int index, int team) {
-        if (index == team) {
-            kills++;
-        }
-        else {
-            deaths++;
-        }
+            if (index == team) {
+                kills++;
+            }
+            else {
+                deaths++;
+            }
         SendData();
     }
     public static void UpdateShotsFired() {
@@ -73,6 +73,14 @@ public static class SendDataInGame
                 wins++;
             }
         }
+        SendData();
+    }
+    public static void UpdatePingsHit() {
+        pingsHit++;
+        SendData();
+    }
+    public static void UpdatePingsShot() {
+        pingsShot++;
         SendData();
     }
     #region GetUserID

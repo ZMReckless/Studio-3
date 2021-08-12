@@ -11,7 +11,7 @@ public class StatsPage : MonoBehaviour
     int[] rounds;
     string matchRoundVal, playFabId;
     Dictionary<string, UserDataRecord> playerDataPulled;
-    public TextMeshProUGUI killsText, deathsText, kdrText, shotsFiredText, gunAccuracyText, winsText, lossesText, wlrText, shotsHitText;
+    public TextMeshProUGUI killsText, deathsText, kdrText, shotsFiredText, gunAccuracyText, winsText, lossesText, wlrText, shotsHitText, pingsShotText, pingsHitText;
     public GameObject statsPage, loading, menuCanv, statCanv;
     bool runOnce;
     private void Awake() {
@@ -38,6 +38,8 @@ public class StatsPage : MonoBehaviour
         winsText.text = SendDataInGame.wins.ToString();
         lossesText.text = SendDataInGame.losses.ToString();
         shotsHitText.text = SendDataInGame.kills.ToString();
+        pingsShotText.text = SendDataInGame.pingsShot.ToString();
+        pingsHitText.text = SendDataInGame.pingsHit.ToString();
         #region winLossStat
         if (SendDataInGame.wins == 0 && SendDataInGame.losses == 0) {
             wlrText.text = "N/A";
