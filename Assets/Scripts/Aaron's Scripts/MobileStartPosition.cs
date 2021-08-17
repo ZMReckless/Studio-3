@@ -6,9 +6,9 @@ using Cinemachine;
 
 public class MobileStartPosition : MonoBehaviourPunCallbacks
 {
-    private CinemachineVirtualCamera cinemachineVirtual;
+    public CinemachineVirtualCamera cinemachineVirtual;
 
-    void Start()
+    private void OnEnable()
     {
         cinemachineVirtual = GetComponent<CinemachineVirtualCamera>();
 
