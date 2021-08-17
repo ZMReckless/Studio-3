@@ -23,6 +23,5 @@ public class Bullet_Shell_Test : MonoBehaviour
     public void ShotSound()
     {
         audioSource.Play();
-
     }
 }

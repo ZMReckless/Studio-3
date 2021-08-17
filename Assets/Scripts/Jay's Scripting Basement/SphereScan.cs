@@ -6,7 +6,7 @@ using Photon.Pun;
 
 public class SphereScan : MonoBehaviourPunCallbacks
 {
-    public Vector3 growthRate = new Vector3 (10f, 10f, 10f);
+    public Vector3 growthRate = new Vector3 (15f, 15f, 15f);
 
     //public Material mat1;
     //public Material mat2;
@@ -21,15 +21,15 @@ public class SphereScan : MonoBehaviourPunCallbacks
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.transform.localScale.x <= 10 &&
-            gameObject.transform.localScale.y <= 10 &&
-            gameObject.transform.localScale.z <= 10)
+        if (gameObject.transform.localScale.x <= 15 &&
+            gameObject.transform.localScale.y <= 15 &&
+            gameObject.transform.localScale.z <= 15)
         {
             gameObject.transform.localScale += (growthRate * Time.deltaTime);
         }
-        if (gameObject.transform.localScale.x >= 10 &&
-            gameObject.transform.localScale.y >= 10 &&
-            gameObject.transform.localScale.z >= 10)
+        if (gameObject.transform.localScale.x >= 15 &&
+            gameObject.transform.localScale.y >= 15 &&
+            gameObject.transform.localScale.z >= 15)
         {
             //Destroy(gameObject); // testing this
             if (photonView.IsMine)
