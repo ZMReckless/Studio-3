@@ -39,7 +39,7 @@ public class Tutorial_Manager : MonoBehaviour
     {
         tutorialClipIndex--;
 
-        if (tutorialClipIndex <= tutorialClips.Length)
+        if (tutorialClipIndex <= 0)
         {
             tutorialClipIndex = 0;
         }
