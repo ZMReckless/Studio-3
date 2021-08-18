@@ -11,6 +11,7 @@ public class Tutorial_Manager : MonoBehaviour
     private VideoPlayer VP;
 
     public GameObject[] tutorialTitles;
+    public GameObject[] tutorialArrows; 
     
     
 
@@ -19,7 +20,7 @@ public class Tutorial_Manager : MonoBehaviour
     {
         VP = GetComponent<VideoPlayer>();
         VP.clip = tutorialClips[0];
-
+       
     }
 
     public void ChangeClip()
@@ -54,16 +55,21 @@ public class Tutorial_Manager : MonoBehaviour
         if (tutorialClipIndex == 0)
         {
             tutorialTitles[0].SetActive(true);
+            tutorialArrows[0].SetActive(false);
+            tutorialArrows[1].SetActive(true);
         }
         else tutorialTitles[0].SetActive(false);
         if (tutorialClipIndex == 1)
         {
             tutorialTitles[1].SetActive(true);
+            tutorialArrows[0].SetActive(true);
+            tutorialArrows[1].SetActive(true);
         }
         else tutorialTitles[1].SetActive(false);
         if (tutorialClipIndex == 2)
         {
             tutorialTitles[2].SetActive(true);
+            tutorialArrows[1].SetActive(false); 
         }
         else tutorialTitles[2].SetActive(false);
 
